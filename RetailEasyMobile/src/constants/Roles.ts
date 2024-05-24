@@ -1,0 +1,5 @@
+export enum ROLES {
+  ADMIN = "ROLE_ADMIN",
+  DATA_ENTRY = "ROLE_DATA_ENTRY",
+  CASHIER = "ROLE_CASHIER",
+}
