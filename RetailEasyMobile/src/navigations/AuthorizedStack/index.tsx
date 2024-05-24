@@ -4,7 +4,6 @@ import login from "../../screens/Login";
 import {useSelector} from "react-redux";
 import {AuthorizedStackName} from "../../constants/StackName.ts";
 
-
 const Tab = createBottomTabNavigator<AuthorizedParams>();
 
 const AuthorizedStack = () => {
