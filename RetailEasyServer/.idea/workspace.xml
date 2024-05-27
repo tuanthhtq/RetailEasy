@@ -15,6 +15,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/StaticResourceConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/AuthResponseDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/LoginRequestDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Barcode.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Bill.java" afterDir="false" />
@@ -134,7 +135,7 @@
       <workItem from="1716601736615" duration="2502000" />
       <workItem from="1716804071505" duration="1936000" />
       <workItem from="1716806200185" duration="759000" />
-      <workItem from="1716828052728" duration="2441000" />
+      <workItem from="1716828052728" duration="2529000" />
     </task>
     <servers />
   </component>
