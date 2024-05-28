@@ -5,39 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/implement/UserDetailsImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/implement/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/CreateAccountRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/CreateAdminRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/CreateAdminResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/UserDataDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/exceptions/FieldValidationExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Supplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/StoreInformationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/anonymous/AnonymousServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/anonymous/impl/AnonymousServicesImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/utils/DtoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/utils/JwtHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/utils/UploadHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/JwtAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/AuthResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/AuthResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/StoreInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/StoreInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Suplier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/implement/AuthServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/impl/AuthServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/RetailEasyServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/JwtAuthFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/StaticResourceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/AuthResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/BillInfoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/BillItemDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/LoginRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/ProductDetailDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Barcode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Bill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/BillItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Brand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/DataEntryLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Discount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Feedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/ProductImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/StoreInformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/BillRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/retaileasy/retaileasyserver/RetailEasyServerApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +50,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="com.haulmont.jpb.JpaRepository" />
         <option value="com.intellij.jpb.JpaEntity" />
         <option value="com.intellij.jpb.JpaRepository" />
         <option value="Class" />
+        <option value="com.haulmont.jpb.JpaRepository" />
+        <option value="com.haulmont.jpb.JpaEntity" />
       </list>
     </option>
   </component>
@@ -61,19 +64,12 @@
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -86,32 +82,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.RetailEasyServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/admin/Desktop/WebstormProjects/RetailEasy/RetailEasyServer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.RetailEasyServerApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/admin/Desktop/WebstormProjects/RetailEasy/RetailEasyServer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\viper\Desktop\RetailEasy\RetailEasyServer\src\main\java\org\retaileasy\retaileasyserver\configuration" />

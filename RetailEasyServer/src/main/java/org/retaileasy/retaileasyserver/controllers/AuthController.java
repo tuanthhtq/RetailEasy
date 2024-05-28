@@ -2,12 +2,11 @@ package org.retaileasy.retaileasyserver.controllers;
 
 
 import jakarta.validation.Valid;
-import org.retaileasy.retaileasyserver.dtos.AuthResponseDto;
-import org.retaileasy.retaileasyserver.dtos.CreateAccountRequestDto;
-import org.retaileasy.retaileasyserver.dtos.LoginRequestDto;
+import org.retaileasy.retaileasyserver.dtos.*;
 import org.retaileasy.retaileasyserver.services.auth.AuthServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,6 +21,7 @@ public class AuthController {
 
     private final AuthServices authServices;
 
+    @Autowired
     public AuthController( AuthServices au ){
         this.authServices = au;
     }
@@ -35,8 +35,14 @@ public class AuthController {
 
     @PostMapping("/create-account")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    ResponseEntity<?> createAccount(@RequestBody CreateAccountRequestDto request){
+    ResponseEntity<AuthResponseDto> createAccount(@RequestBody CreateAccountRequestDto request){
         AuthResponseDto response = authServices.createAccount(request);
+        return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
+    }
+
+    @PostMapping("/create-admin")
+    ResponseEntity<CreateAdminResponseDto> createAdmin(@RequestBody CreateAdminRequestDto request){
+        CreateAdminResponseDto response = authServices.createAdminAccount(request);
         return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
     }
 

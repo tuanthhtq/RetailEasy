@@ -27,6 +27,6 @@ public class BillItem {
 	private Integer quantity;
 
 	@Column(name = "price", precision = 10)
-	private BigDecimal price;
+	private Integer price;
 
 }

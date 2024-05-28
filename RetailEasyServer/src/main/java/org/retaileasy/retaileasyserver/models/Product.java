@@ -29,8 +29,9 @@ public class Product {
 	@JoinColumn(name = "supplier_id")
 	private Supplier supplier;
 
-	@Column(name = "brand_id")
-	private Integer brandId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "brand_id")
+	private Brand brand;
 
 	@Column(name = "manufactured_date")
 	private Instant manufacturedDate;

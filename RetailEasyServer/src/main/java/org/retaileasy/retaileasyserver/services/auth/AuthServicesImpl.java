@@ -1,4 +1,4 @@
-package org.retaileasy.retaileasyserver.services.auth.impl;
+package org.retaileasy.retaileasyserver.services.auth;
 
 import org.retaileasy.retaileasyserver.configuration.implement.UserDetailsServiceImpl;
 import org.retaileasy.retaileasyserver.dtos.*;
