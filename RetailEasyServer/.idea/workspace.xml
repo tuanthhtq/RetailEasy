@@ -10,10 +10,12 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/AuthController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/CreateAccountRequestDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/CreateAdminRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/CreateAdminResponseDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/UserDataDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/exceptions/FieldValidationExceptionHandler.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Supplier.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/StoreInformationRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRoleRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/anonymous/AnonymousServices.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/anonymous/impl/AnonymousServicesImpl.java" afterDir="false" />
@@ -27,6 +29,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/AuthResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/AuthResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/StoreInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/StoreInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Suplier.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/UserRole.java" afterDir="false" />
@@ -46,8 +49,8 @@
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.JpaRepository" />
-        <option value="com.intellij.jpb.JpaRepository" />
         <option value="com.intellij.jpb.JpaEntity" />
+        <option value="com.intellij.jpb.JpaRepository" />
         <option value="Class" />
       </list>
     </option>
@@ -146,7 +149,7 @@
       <workItem from="1716806200185" duration="759000" />
       <workItem from="1716828052728" duration="2529000" />
       <workItem from="1716863481713" duration="1047000" />
-      <workItem from="1716878762941" duration="13853000" />
+      <workItem from="1716878762941" duration="14684000" />
     </task>
     <servers />
   </component>
