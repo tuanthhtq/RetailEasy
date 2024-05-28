@@ -1,6 +1,6 @@
 package org.retaileasy.retaileasyserver.services.auth;
 
-import org.springframework.stereotype.Service;
+import org.retaileasy.retaileasyserver.dtos.*;
 
 /**
  * @author tuan
@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 
 public interface AuthServices {
+    CreateAdminResponseDto createAdminAccount(CreateAdminRequestDto request);
 
+    AuthResponseDto authenticate(LoginRequestDto request);
+    AuthResponseDto createAccount(CreateAccountRequestDto request);
 
 }

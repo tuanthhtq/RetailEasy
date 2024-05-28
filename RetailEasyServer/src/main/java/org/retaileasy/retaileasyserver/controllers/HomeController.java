@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1/home")
 public class HomeController {
 
-
 	@GetMapping("/all")
-	@PreAuthorize("permitAll()")
 	public ResponseEntity<String> index() {
 		return new ResponseEntity<String>("sufysuifeh", HttpStatus.OK);
 	}

@@ -26,8 +26,8 @@ public class Product {
 	private Category category;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "suplier_id")
-	private Suplier suplier;
+	@JoinColumn(name = "supplier_id")
+	private Supplier supplier;
 
 	@Column(name = "brand_id")
 	private Integer brandId;

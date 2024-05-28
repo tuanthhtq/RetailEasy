@@ -1,12 +1,15 @@
 package org.retaileasy.retaileasyserver.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "store_information")
 public class StoreInformation {
 	@Id
@@ -26,4 +29,10 @@ public class StoreInformation {
 	@Column(name = "email", length = 150)
 	private String email;
 
+	public StoreInformation(String name, String address, String phoneNumber, String email) {
+		this.name = name;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+	}
 }
