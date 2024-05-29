@@ -13,7 +13,8 @@ function Main(): React.JSX.Element {
   return (
     <SafeAreaView>
       <NavigationContainer>
-        {isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}
+        {/*{isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}*/}
+        <UnauthorizedStack/>
       </NavigationContainer>
     </SafeAreaView>
   );
