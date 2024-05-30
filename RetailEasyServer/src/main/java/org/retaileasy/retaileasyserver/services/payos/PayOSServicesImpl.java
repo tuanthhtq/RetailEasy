@@ -15,11 +15,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class PayOSServicesImpl implements PayOSServices{
 
-    private final String payOSEndpoint = "https://api-merchant.payos.vn";
-    @Value("${payos.clientid}")
-    private String clientId;
-    @Value("${payos.apikey}")
-    private String apiKey;
+    private final String payOSEndpoint = "https://api-merchant.payos.vn/v2/payment-requests";
+    private final String clientId = "e7d74972-d7d4-466e-81b2-74765d555334";
+    private final String apiKey = "cf8ef373-05dc-486c-a015-f4cac57a99b0";
 
     private final RestTemplate restTemplate;
 
@@ -35,12 +33,18 @@ public class PayOSServicesImpl implements PayOSServices{
                 paymentRequest.getAmount(), paymentRequest.getCancelUrl(), paymentRequest.getDescription(),
                 paymentRequest.getOrderCode(), paymentRequest.getReturnUrl());
 
-        String signature = HMACHelper.hmacSha256(data);
-        paymentRequest.setSignature(signature);
+        System.out.println(data);
 
+        String signature = HMACHelper.hmacSha256(data);
+
+        System.out.println(signature);
+
+        paymentRequest.setSignature(signature);
         HttpHeaders headers = new HttpHeaders();
 
-        headers.set("Authorization", "Bearer " + apiKey);
+//        headers.set("Authorization", "Bearer " + apiKey);
+        headers.set("x-client-id", clientId);
+        headers.set("x-api-key", apiKey);
         HttpEntity<PaymentRequestDto> request = new HttpEntity<>(paymentRequest, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(payOSEndpoint, HttpMethod.POST, request, String.class);

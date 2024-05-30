@@ -25,8 +25,8 @@ public class PaymentController {
 
     @PostMapping("/create-payment")
     @PreAuthorize("permitAll()")
-
     public ResponseEntity<String> createPaymentRequest(@RequestBody PaymentRequestDto request){
+//        return new ResponseEntity<>("paymentLink", HttpStatus.OK);
 
         String paymentLink = payOSServices.createPaymentRequest(request);
         return new ResponseEntity<>(paymentLink, HttpStatus.OK);
