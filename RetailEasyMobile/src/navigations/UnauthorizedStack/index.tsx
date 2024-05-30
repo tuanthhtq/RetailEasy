@@ -1,13 +1,11 @@
 import {UnauthorizedStackName} from "../../constants/StackName.ts";
 import {UnauthorizedParams} from "../../constants/ParamList.ts";
-import {createStackNavigator} from "@react-navigation/stack";
 import Login from "../../screens/Login";
 import Landing from "../../screens/Landing";
 import CustomerFeedback from "../../screens/CustomerFeedback";
 import LookupOrder from "../../screens/LookupOrder";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-const Stack = createStackNavigator<UnauthorizedParams>();
 const Tab = createBottomTabNavigator<UnauthorizedParams>();
 
 const AuthorizedStack = () => {

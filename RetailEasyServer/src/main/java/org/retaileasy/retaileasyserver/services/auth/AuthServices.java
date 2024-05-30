@@ -1,6 +1,6 @@
 package org.retaileasy.retaileasyserver.services.auth;
 
-import org.retaileasy.retaileasyserver.dtos.*;
+import org.retaileasy.retaileasyserver.dtos.auth.*;
 
 /**
  * @author tuan
@@ -9,8 +9,6 @@ import org.retaileasy.retaileasyserver.dtos.*;
 
 public interface AuthServices {
     CreateAdminResponseDto createAdminAccount(CreateAdminRequestDto request);
-
     AuthResponseDto authenticate(LoginRequestDto request);
     AuthResponseDto createAccount(CreateAccountRequestDto request);
-
 }

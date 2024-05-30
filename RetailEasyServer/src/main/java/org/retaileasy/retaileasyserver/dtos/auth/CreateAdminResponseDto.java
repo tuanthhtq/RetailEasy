@@ -1,12 +1,13 @@
-package org.retaileasy.retaileasyserver.dtos;
+package org.retaileasy.retaileasyserver.dtos.auth;
 
 
 import lombok.Getter;
 import lombok.Setter;
+import org.retaileasy.retaileasyserver.dtos.UserDataDto;
 
 @Getter
 @Setter
-public class CreateAdminResponseDto extends AuthResponseDto{
+public class CreateAdminResponseDto extends AuthResponseDto {
     private String storeName;
 
     public CreateAdminResponseDto(int status, String message) {

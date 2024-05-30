@@ -1,7 +1,7 @@
 package org.retaileasy.retaileasyserver.services.auth;
 
 import org.retaileasy.retaileasyserver.configuration.implement.UserDetailsServiceImpl;
-import org.retaileasy.retaileasyserver.dtos.*;
+import org.retaileasy.retaileasyserver.dtos.auth.*;
 import org.retaileasy.retaileasyserver.models.StoreInformation;
 import org.retaileasy.retaileasyserver.models.User;
 import org.retaileasy.retaileasyserver.models.UserRole;
@@ -9,7 +9,6 @@ import org.retaileasy.retaileasyserver.repository.RoleRepository;
 import org.retaileasy.retaileasyserver.repository.StoreInformationRepository;
 import org.retaileasy.retaileasyserver.repository.UserRepository;
 import org.retaileasy.retaileasyserver.repository.UserRoleRepository;
-import org.retaileasy.retaileasyserver.services.auth.AuthServices;
 import org.retaileasy.retaileasyserver.utils.DtoMapper;
 import org.retaileasy.retaileasyserver.utils.JwtHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;

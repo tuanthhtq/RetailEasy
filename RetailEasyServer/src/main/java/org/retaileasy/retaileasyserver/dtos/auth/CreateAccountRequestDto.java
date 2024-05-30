@@ -1,4 +1,4 @@
-package org.retaileasy.retaileasyserver.dtos;
+package org.retaileasy.retaileasyserver.dtos.auth;
 
 
 import lombok.Getter;

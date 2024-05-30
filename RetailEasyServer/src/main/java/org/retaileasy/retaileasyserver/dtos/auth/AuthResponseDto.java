@@ -1,9 +1,8 @@
-package org.retaileasy.retaileasyserver.dtos;
+package org.retaileasy.retaileasyserver.dtos.auth;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.retaileasy.retaileasyserver.models.User;
+import org.retaileasy.retaileasyserver.dtos.UserDataDto;
 
 /**
  * @author tuan

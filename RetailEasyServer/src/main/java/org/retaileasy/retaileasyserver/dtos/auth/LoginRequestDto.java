@@ -1,9 +1,8 @@
-package org.retaileasy.retaileasyserver.dtos;
+package org.retaileasy.retaileasyserver.dtos.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @author tuan

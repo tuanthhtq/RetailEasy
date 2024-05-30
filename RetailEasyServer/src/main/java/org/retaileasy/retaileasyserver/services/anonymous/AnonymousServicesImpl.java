@@ -20,8 +20,8 @@ import java.util.List;
 @Service
 public class AnonymousServicesImpl implements AnonymousServices{
 
-	private ProductRepository productRepository;
-	private BillRepository billRepository;
+	private final ProductRepository productRepository;
+	private final BillRepository billRepository;
 
 	@Autowired
 	public AnonymousServicesImpl(
