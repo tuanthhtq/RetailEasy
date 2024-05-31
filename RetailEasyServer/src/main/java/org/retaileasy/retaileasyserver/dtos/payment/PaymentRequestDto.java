@@ -22,4 +22,5 @@ public class PaymentRequestDto {
     private String cancelUrl;
     private String returnUrl;
     private String signature;
+    private long expiredAt;
 }

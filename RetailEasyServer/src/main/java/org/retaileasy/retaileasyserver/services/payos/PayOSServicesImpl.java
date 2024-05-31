@@ -1,15 +1,20 @@
 package org.retaileasy.retaileasyserver.services.payos;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.retaileasy.retaileasyserver.dtos.payment.PaymentResponseDto;
 import org.retaileasy.retaileasyserver.dtos.payment.PaymentRequestDto;
 import org.retaileasy.retaileasyserver.utils.HMACHelper;
+import org.retaileasy.retaileasyserver.utils.QRCodeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.sql.Timestamp;
 
 
 @Service
@@ -27,27 +32,37 @@ public class PayOSServicesImpl implements PayOSServices{
     }
 
     @Override
-    public String createPaymentRequest(PaymentRequestDto paymentRequest) {
+    public byte[] createPaymentRequest(PaymentRequestDto paymentRequest) {
 
         String data = String.format("amount=%d&cancelUrl=%s&description=%s&orderCode=%d&returnUrl=%s",
                 paymentRequest.getAmount(), paymentRequest.getCancelUrl(), paymentRequest.getDescription(),
                 paymentRequest.getOrderCode(), paymentRequest.getReturnUrl());
-
-        System.out.println(data);
-
         String signature = HMACHelper.hmacSha256(data);
 
-        System.out.println(signature);
-
         paymentRequest.setSignature(signature);
-        HttpHeaders headers = new HttpHeaders();
 
-//        headers.set("Authorization", "Bearer " + apiKey);
+        long expired = System.currentTimeMillis() /1000L + 600;
+        paymentRequest.setExpiredAt(expired);
+
+        HttpHeaders headers = new HttpHeaders();
         headers.set("x-client-id", clientId);
         headers.set("x-api-key", apiKey);
+
         HttpEntity<PaymentRequestDto> request = new HttpEntity<>(paymentRequest, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(payOSEndpoint, HttpMethod.POST, request, String.class);
-        return response.getBody();
+        if(response.hasBody()){
+            String responseBody = response.getBody();
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                PaymentResponseDto paymentRes = objectMapper.readValue(responseBody, PaymentResponseDto.class);
+                System.out.println(paymentRes);
+                return QRCodeHelper.generateQR(paymentRes.getData().getQrCode());
+            }catch (NullPointerException | JsonProcessingException e){
+                e.getLocalizedMessage();
+            }
+        }
+        return null;
     }
 }

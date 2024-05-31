@@ -63,6 +63,7 @@ public class WebSecurityConfigs {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/home/**").permitAll()
                         .requestMatchers("/api/v1/payment/create-payment").permitAll()
+                        .requestMatchers("/api/v1/payment/test-payment").permitAll()
                         .requestMatchers("/images/**").permitAll()
                         .anyRequest().authenticated()
                 )
@@ -88,7 +89,5 @@ public class WebSecurityConfigs {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
-
 
 }

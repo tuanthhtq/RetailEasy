@@ -1,7 +1,6 @@
 package org.retaileasy.retaileasyserver.utils;
 
 import org.apache.commons.codec.digest.HmacUtils;
-import java.util.Base64;
 
 public class HMACHelper {
 
