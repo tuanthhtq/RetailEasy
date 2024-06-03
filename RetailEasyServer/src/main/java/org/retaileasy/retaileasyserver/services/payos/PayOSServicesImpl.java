@@ -32,7 +32,7 @@ public class PayOSServicesImpl implements PayOSServices{
     }
 
     @Override
-    public byte[] createPaymentRequest(PaymentRequestDto paymentRequest) {
+    public PaymentResponseDto createPaymentRequest(PaymentRequestDto paymentRequest) {
 
         String data = String.format("amount=%d&cancelUrl=%s&description=%s&orderCode=%d&returnUrl=%s",
                 paymentRequest.getAmount(), paymentRequest.getCancelUrl(), paymentRequest.getDescription(),
@@ -40,7 +40,6 @@ public class PayOSServicesImpl implements PayOSServices{
         String signature = HMACHelper.hmacSha256(data);
 
         paymentRequest.setSignature(signature);
-
         long expired = System.currentTimeMillis() /1000L + 600;
         paymentRequest.setExpiredAt(expired);
 
@@ -48,17 +47,16 @@ public class PayOSServicesImpl implements PayOSServices{
         headers.set("x-client-id", clientId);
         headers.set("x-api-key", apiKey);
 
+        System.out.println(paymentRequest.getSignature());
+
         HttpEntity<PaymentRequestDto> request = new HttpEntity<>(paymentRequest, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(payOSEndpoint, HttpMethod.POST, request, String.class);
         if(response.hasBody()){
             String responseBody = response.getBody();
-
             ObjectMapper objectMapper = new ObjectMapper();
             try {
-                PaymentResponseDto paymentRes = objectMapper.readValue(responseBody, PaymentResponseDto.class);
-                System.out.println(paymentRes);
-                return QRCodeHelper.generateQR(paymentRes.getData().getQrCode());
+                return objectMapper.readValue(responseBody, PaymentResponseDto.class);
             }catch (NullPointerException | JsonProcessingException e){
                 e.getLocalizedMessage();
             }

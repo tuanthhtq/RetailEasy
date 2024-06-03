@@ -2,6 +2,7 @@ package org.retaileasy.retaileasyserver.controllers;
 
 
 import org.retaileasy.retaileasyserver.dtos.payment.PaymentRequestDto;
+import org.retaileasy.retaileasyserver.dtos.payment.PaymentResponseDto;
 import org.retaileasy.retaileasyserver.services.payos.PayOSServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,10 +23,10 @@ public class PaymentController {
 
     @PostMapping("/create-payment")
     @PreAuthorize("permitAll()")
-    public ResponseEntity<byte[]> createPaymentRequest(@RequestBody PaymentRequestDto request){
+    public ResponseEntity<PaymentResponseDto> createPaymentRequest(@RequestBody PaymentRequestDto request){
 
-        byte[] qr = payOSServices.createPaymentRequest(request);
-        return new ResponseEntity<>(qr, HttpStatus.OK);
+        PaymentResponseDto response = payOSServices.createPaymentRequest(request);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }

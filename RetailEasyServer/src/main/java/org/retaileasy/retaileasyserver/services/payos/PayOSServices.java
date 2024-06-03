@@ -1,7 +1,8 @@
 package org.retaileasy.retaileasyserver.services.payos;
 
 import org.retaileasy.retaileasyserver.dtos.payment.PaymentRequestDto;
+import org.retaileasy.retaileasyserver.dtos.payment.PaymentResponseDto;
 
 public interface PayOSServices {
-    byte[] createPaymentRequest(PaymentRequestDto request);
+    PaymentResponseDto createPaymentRequest(PaymentRequestDto request);
 }

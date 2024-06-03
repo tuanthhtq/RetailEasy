@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class PaymentRequestDto {
+public class    PaymentRequestDto {
     private int orderCode;
     private int amount;
     private String description;
