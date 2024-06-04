@@ -2,7 +2,7 @@ import React from "react";
 import {StyleSheet, View} from "react-native";
 
 
-const Login: React.FC = () => {
+const Login = () => {
   return (
     <View style={styles.container}>
 

@@ -1,8 +1,8 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {AuthorizedParams, UnauthorizedParams} from "../../constants/ParamList.ts";
-import login from "../../screens/Login";
+import {AuthorizedParams} from "../../../constants/ParamList.ts";
+import login from "../../../screens/Login";
 import {useSelector} from "react-redux";
-import {AuthorizedStackName} from "../../constants/StackName.ts";
+import {AuthorizedStackName} from "../../../constants/StackName.ts";
 
 const Tab = createBottomTabNavigator<AuthorizedParams>();
 

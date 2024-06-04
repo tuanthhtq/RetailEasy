@@ -1,8 +1,18 @@
 export enum UnauthorizedStackName {
-  LOGIN =  'Login',
+  PROFILE =  'Profile',
   LANDING = 'Landing',
-  FEEDBACK = 'Feedback',
-  LOOKUP_ORDER = 'CustomerLookupOrder',
+  SCANNER = 'Scanner',
+}
+
+export enum UnAuthProfileStackName {
+  LOGIN = "Login",
+  ORDER_LOOKUP = "OrderLookup",
+  FEEDBACK = "Feedback",
+}
+
+export enum UnAuthScannerStackName {
+  CAMERA = "Camera",
+  SCAN_RESULT = "ScanResult",
 }
 
 export enum AuthorizedStackName {

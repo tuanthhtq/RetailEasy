@@ -3,7 +3,6 @@ import {StyleSheet, View} from "react-native";
 const Landing = () => {
   return (
     <View>
-
     </View>
   )
 }

@@ -1,9 +1,19 @@
 
 export type UnauthorizedParams = {
-  Login: undefined,
   Landing: undefined,
+  Scanner: undefined,
+  Profile: undefined,
+}
+
+export type UnAuthProfileParams = {
+  Login: undefined,
+  OrderLookup: undefined,
   Feedback: undefined,
-  CustomerLookupOrder: undefined,
+}
+
+export type UnAuthScannerParams = {
+  Camera: undefined,
+  ScanResult: { barcode: string },
 }
 
 

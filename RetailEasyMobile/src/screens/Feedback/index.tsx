@@ -1,6 +1,6 @@
 import {View} from "react-native";
 
-const CustomerFeedback = () => {
+const Feedback = () => {
   return (
     <View>
 
@@ -8,4 +8,4 @@ const CustomerFeedback = () => {
   )
 }
 
-export default CustomerFeedback
+export default Feedback
