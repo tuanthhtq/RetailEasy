@@ -5,12 +5,96 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/payment/PaymentRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/payment/PaymentRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/payos/PayOSServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/payos/PayOSServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/payos/PayOSServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/payos/PayOSServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/.bundle/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/.prettierrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/.watchmanconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/.yarn/releases/yarn-3.6.4.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/.yarnrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/Gemfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/__tests__/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/debug.keystore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/java/com/retaileasymobile/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/java/com/retaileasymobile/MainApplication.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/drawable/rn_edit_text_material.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/.xcode.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile.xcodeproj/xcshareddata/xcschemes/RetailEasyMobile.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/AppDelegate.mm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/Images.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/PrivacyInfo.xcprivacy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobileTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobileTests/RetailEasyMobileTests.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/jest.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/metro.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/Interceptor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/auth.services.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/LoginRequest.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/LoginResponse.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/HomeIcon/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ImportIcon/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ProfileIcon/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ScannerIcon/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/SearchIcon/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Colors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/ParamList.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Roles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Size.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Spacing.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/StackName.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/AuthorizedStack/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Unauthorized/ProfileStack/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Unauthorized/ScannerStack/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Unauthorized/UnauthorizedStack/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Feedback/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Landing/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Login/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/LookupOrder/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScanResult/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/types/icon.interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/utils/CheckCameraPermission.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/utils/Normalizer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +180,14 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -118,6 +210,7 @@
       <workItem from="1717131093490" duration="7424000" />
       <workItem from="1717316330807" duration="1411000" />
       <workItem from="1717319370946" duration="54000" />
+      <workItem from="1717664678065" duration="237000" />
     </task>
     <servers />
   </component>

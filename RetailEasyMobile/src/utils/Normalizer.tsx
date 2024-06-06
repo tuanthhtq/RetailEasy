@@ -27,6 +27,8 @@ const horizontalPixel = (size: number) => {
 
 
 export {
+  SCREEN_WIDTH,
+  SCREEN_HEIGHT,
   fontPixel,
   verticalPixel,
   horizontalPixel,

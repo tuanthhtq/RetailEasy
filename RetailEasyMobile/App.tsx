@@ -1,14 +1,11 @@
 import React from 'react';
 import {
-  SafeAreaView, Vibration
+  SafeAreaView
 } from "react-native";
-import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack";
 import { DarkTheme, NavigationContainer } from "@react-navigation/native";
+import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack";
 
 function Main(): React.JSX.Element {
-  // const isAuthorized = useSelector((state: any) => {
-  //   return state.auth.isAuthorized;
-  // })
 
   return (
     <SafeAreaView

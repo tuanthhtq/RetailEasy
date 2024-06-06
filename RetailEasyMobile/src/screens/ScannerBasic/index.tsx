@@ -1,51 +1,85 @@
-import { StyleProp, Vibration, View, ViewStyle } from "react-native";
-import { ReactNativeScannerView } from "@pushpendersingh/react-native-scanner";
+import { StyleProp, StyleSheet, Vibration, View, ViewStyle } from "react-native";
 import { COLORS } from "../../constants/Colors.ts";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useIsFocused } from "@react-navigation/native";
+import {
+  Camera,
+  Point,
+  useCameraDevice,
+  useCameraFormat,
+  useCameraPermission,
+  useCodeScanner
+} from "react-native-vision-camera";
+import { horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
 
 
 const ScannerBasic = () => {
-  const [camera, setCamera] = useState(false);
+  const [cameraActive, setCameraActive] = useState(false);
   const [barcode, setBarcode] = useState("");
+  const { hasPermission, requestPermission } = useCameraPermission();
+  const [counter, setCounter] = useState(0)
 
+  const cam = useRef<Camera>(null);
   const isFocused = useIsFocused();
-
+  const device = useCameraDevice('back')
+  requestPermission()
+    .then()
   useEffect(() => {
-    setCamera(isFocused)
+    setCameraActive(isFocused)
   }, [isFocused])
 
-  const scannerStyle: StyleProp<ViewStyle> = {
-    width: '100%',
-    height: '100%',
-    borderWidth: 1,
-    borderColor: COLORS.WHITE
-  }
+  const format = useCameraFormat(device, [
+    { videoResolution: { width: 800, height: 800 } },
+    { fps: 15}
+  ])
+  const codeScanner = useCodeScanner({
+    codeTypes: ['qr', 'ean-13'],
+    onCodeScanned: (codes) => {
+      console.log(codes[0].value, counter);
+      console.log('>>>>>>');
+      setCounter(c => c+1)
+    }
+  })
 
-  const containerStyle: StyleProp<ViewStyle> = {
-  }
 
 
   useEffect(() => {
-    Vibration.vibrate();
-    console.log(barcode);
-  }, [barcode]);
+    if( counter === 10){
+      setCameraActive(false);
+      setCounter(0)
+      setTimeout(() => {
+        setCameraActive(true)
+      }, 2000)
+    }
+  }, [counter]);
 
   return (
-    <View style={containerStyle}>
-      {camera &&
-        <ReactNativeScannerView
-          style={scannerStyle}
-          onQrScanned={(value: any) => {
-            if(value.nativeEvent.value && value.nativeEvent.value !== barcode){
-              setBarcode(value.nativeEvent.value)
-            }
-          }}
+    <View style={style.container}>
+      {(device && hasPermission) &&
+        <Camera
+          ref={cam}
+          style={style.camera}
+          codeScanner={codeScanner}
+          device={device}
+          isActive={cameraActive}
+          format={format}
         />
       }
     </View>
   )
-
 }
 
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  camera: {
+    flexDirection: 'column',
+    alignSelf: 'center',
+    width: horizontalPixel(300),
+    height: verticalPixel(300),
+  }
+})
 export default ScannerBasic;
