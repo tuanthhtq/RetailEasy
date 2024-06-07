@@ -7,6 +7,10 @@ import HomeIcon from "../../../components/icons/HomeIcon";
 import ScannerIcon from "../../../components/icons/ScannerIcon";
 import ProfileIcon from "../../../components/icons/ProfileIcon";
 import ScannerStack from "../ScannerStack";
+import ScreenHeader from "../../../components/ScreenHeader";
+import { COLORS } from "../../../constants/Colors.ts";
+import { verticalPixel } from "../../../utils/Normalizer.tsx";
+import UnAuthProfile from "../../../screens/UnAuthProfile";
 
 const Tab = createBottomTabNavigator<UnauthorizedParams>();
 
@@ -16,8 +20,14 @@ const AuthorizedStack = () => {
     <Tab.Navigator
       initialRouteName={UnauthorizedStackName.LANDING}
       screenOptions={{
-        headerShown: false
+        headerShown: false,
+        tabBarActiveTintColor: COLORS.CHOCOLATE_COSMOS,
+        tabBarStyle: {
+          backgroundColor: COLORS.LIGHT_ORANGE,
+          height: verticalPixel(64),
+        }
       }}
+
     >
       <Tab.Screen
         name={UnauthorizedStackName.LANDING}
@@ -37,7 +47,7 @@ const AuthorizedStack = () => {
       />
       <Tab.Screen
         name={UnauthorizedStackName.PROFILE}
-        component={Login}
+        component={UnAuthProfile}
         options={{
           tabBarIcon: (({focused}) => <ProfileIcon isFocused={focused}/>),
         }}

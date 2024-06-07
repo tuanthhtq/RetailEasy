@@ -5,8 +5,8 @@ const {
   height: SCREEN_HEIGHT
 } = Dimensions.get("window")
 
-const baseWidthScale = SCREEN_WIDTH / 428;
-const baseHeightScale = SCREEN_HEIGHT / 926;
+const baseWidthScale = SCREEN_WIDTH / 360;
+const baseHeightScale = SCREEN_HEIGHT / 800;
 
 const normalize = (size: number, based : string = "width" ) => {
   const newSize = (based === "height") ? size*baseHeightScale : size*baseWidthScale;

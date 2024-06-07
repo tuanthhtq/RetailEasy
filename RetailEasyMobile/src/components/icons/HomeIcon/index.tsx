@@ -6,13 +6,12 @@ import { BASE_SIZE } from "../../../constants/Size.ts";
 import { IBottomTabIcon } from "../../../types/icon.interface.ts";
 
 
-const HomeIcon: FC<IBottomTabIcon> = ({size = 24, fill = "none", stroke = COLORS.BLACK, isFocused = false}) => {
+const HomeIcon: FC<IBottomTabIcon> = ({size = 24, fill = "none", stroke = COLORS.SALMON_PINK, isFocused = false}) => {
   const s = horizontalPixel(size)
   const b = BASE_SIZE.ICON;
 
   if(isFocused){
-    stroke = COLORS.WHITE;
-    fill = COLORS.GRAY
+    stroke = COLORS.CHOCOLATE_COSMOS;
   }
 
   return (

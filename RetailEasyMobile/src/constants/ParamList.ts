@@ -6,6 +6,7 @@ export type UnauthorizedParams = {
 }
 
 export type UnAuthProfileParams = {
+  Main: undefined,
   Login: undefined,
   OrderLookup: undefined,
   Feedback: undefined,

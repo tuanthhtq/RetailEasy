@@ -2,6 +2,12 @@ export enum COLORS {
   BLACK = "#000",
   WHITE = "#FFF",
 
-  GRAY = "#1E1F22"
+  GRAY = "#2c2c2c",
+  LIGHT_ORANGE = "#F9DBBD",
+  SALMON_PINK = "#FFA5AB",
+  BLUSH = "#DA627D",
+  RASPBERRY_ROSE = "#A53860",
+  CHOCOLATE_COSMOS = "#450920",
+
 
 }

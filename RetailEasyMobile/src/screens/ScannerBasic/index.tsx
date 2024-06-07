@@ -10,7 +10,8 @@ import {
   useCameraPermission,
   useCodeScanner
 } from "react-native-vision-camera";
-import { horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { horizontalPixel, SCREEN_HEIGHT, SCREEN_WIDTH, verticalPixel } from "../../utils/Normalizer.tsx";
+import ScreenHeader from "../../components/ScreenHeader";
 
 
 const ScannerBasic = () => {
@@ -41,8 +42,6 @@ const ScannerBasic = () => {
     }
   })
 
-
-
   useEffect(() => {
     if( counter === 10){
       setCameraActive(false);
@@ -55,10 +54,15 @@ const ScannerBasic = () => {
 
   return (
     <View style={style.container}>
+      <ScreenHeader isLogo={false} label={"Scan product"}/>
+      <View style={style.content}></View>
       {(device && hasPermission) &&
         <Camera
           ref={cam}
-          style={style.camera}
+          style={{
+            width: horizontalPixel(300),
+            height: verticalPixel(300),
+          }}
           codeScanner={codeScanner}
           device={device}
           isActive={cameraActive}
@@ -72,12 +76,14 @@ const ScannerBasic = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
+  },
+  content: {
+    flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center'
   },
   camera: {
-    flexDirection: 'column',
-    alignSelf: 'center',
     width: horizontalPixel(300),
     height: verticalPixel(300),
   }
