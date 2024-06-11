@@ -1,29 +1,27 @@
 import {UnauthorizedStackName} from "../../../constants/StackName.ts";
 import {UnauthorizedParams} from "../../../constants/ParamList.ts";
-import Login from "../../../screens/Login";
 import Landing from "../../../screens/Landing";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeIcon from "../../../components/icons/HomeIcon";
 import ScannerIcon from "../../../components/icons/ScannerIcon";
 import ProfileIcon from "../../../components/icons/ProfileIcon";
 import ScannerStack from "../ScannerStack";
-import ScreenHeader from "../../../components/ScreenHeader";
 import { COLORS } from "../../../constants/Colors.ts";
 import { verticalPixel } from "../../../utils/Normalizer.tsx";
 import UnAuthProfile from "../../../screens/UnAuthProfile";
 
 const Tab = createBottomTabNavigator<UnauthorizedParams>();
 
-const AuthorizedStack = () => {
+const UnAuthorizedStack = () => {
 
   return(
     <Tab.Navigator
       initialRouteName={UnauthorizedStackName.LANDING}
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: COLORS.CHOCOLATE_COSMOS,
+        tabBarActiveTintColor: COLORS.PINK,
         tabBarStyle: {
-          backgroundColor: COLORS.LIGHT_ORANGE,
+          backgroundColor: COLORS.FADE,
           height: verticalPixel(64),
         }
       }}
@@ -54,6 +52,7 @@ const AuthorizedStack = () => {
       />
     </Tab.Navigator>
   )
+
 }
 
-export default AuthorizedStack;
+export default UnAuthorizedStack;

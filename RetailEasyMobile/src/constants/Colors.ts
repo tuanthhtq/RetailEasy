@@ -1,13 +1,11 @@
 export enum COLORS {
-  BLACK = "#000",
+  BLACK = "#1d1d1d",
   WHITE = "#FFF",
 
-  GRAY = "#2c2c2c",
-  LIGHT_ORANGE = "#F9DBBD",
-  SALMON_PINK = "#FFA5AB",
-  BLUSH = "#DA627D",
-  RASPBERRY_ROSE = "#A53860",
-  CHOCOLATE_COSMOS = "#450920",
-
+  GRAY = "#98979B",
+  PINK = "#F95350",
+  MODAL = "rgba(29, 29, 29, 0.6)",
+  FADE = "#ddd",
+  GREEN = "#5FAD56",
 
 }

@@ -2,16 +2,14 @@ import { FC } from "react";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
 import { horizontalPixel } from "../../../utils/Normalizer.tsx";
-import { BASE_SIZE } from "../../../constants/Size.ts";
 import { IBottomTabIcon } from "../../../types/icon.interface.ts";
 
 
-const HomeIcon: FC<IBottomTabIcon> = ({size = 24, fill = "none", stroke = COLORS.SALMON_PINK, isFocused = false}) => {
+const HomeIcon: FC<IBottomTabIcon> = ({size = 24, fill = "none", stroke = COLORS.GRAY, isFocused = false}) => {
   const s = horizontalPixel(size)
-  const b = BASE_SIZE.ICON;
 
   if(isFocused){
-    stroke = COLORS.CHOCOLATE_COSMOS;
+    stroke = COLORS.PINK;
   }
 
   return (

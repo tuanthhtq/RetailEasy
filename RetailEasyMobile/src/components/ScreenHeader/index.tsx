@@ -1,28 +1,31 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { fontPixel, horizontalPixel, SCREEN_HEIGHT, SCREEN_WIDTH, verticalPixel } from "../../utils/Normalizer.tsx";
-import Logo from "../icons/Logo";
+import { fontPixel, horizontalPixel , verticalPixel } from "../../utils/Normalizer.tsx";
 import { COLORS } from "../../constants/Colors.ts";
 import RoundTriangleIcon from "../icons/RoundTriangleIcon";
 
 interface IScreenHeader{
   label?: string,
-  isLogo?: boolean,
-  hasBack?: boolean
+  logo?: ReactNode,
+  backBtn?: boolean
 }
 
 
-const ScreenHeader: React.FC<IScreenHeader> = ({label, isLogo = true, hasBack = false}) => {
-  let content: ReactNode = <Logo/>
-  if(!isLogo) content =
-    <>
-      {hasBack && <RoundTriangleIcon size={42}/>}
-      <Text style={style.label}>{label}</Text>
-    </>
+const ScreenHeader: React.FC<IScreenHeader> = ({label, logo, backBtn = true}) => {
 
   return (
-    <View style={style.container}>
-      <View style={style.content}>{content}</View>
+    <View style={[style.container, {height: verticalPixel(logo ? 127 : 79)}]}>
+      <View style={[style.content, {height: verticalPixel(logo ? 59 : 52)}]}>
+        {backBtn &&
+          <RoundTriangleIcon/>
+        }
+        {
+          logo && logo
+        }
+        {
+          label && <Text style={style.label}>{label}</Text>
+        }
+      </View>
     </View>
   )
 }
@@ -30,19 +33,17 @@ const ScreenHeader: React.FC<IScreenHeader> = ({label, isLogo = true, hasBack = 
 const style = StyleSheet.create({
   container: {
     width: horizontalPixel(360),
-    height: verticalPixel(127),
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    backgroundColor: COLORS.LIGHT_ORANGE
+    backgroundColor: COLORS.FADE
   },
   content: {
-    width: horizontalPixel(341),
-    height: verticalPixel(59),
+    width: horizontalPixel(320),
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    alignItems: 'center'
-
+    alignItems: 'center',
+    gap: horizontalPixel(15)
   },
   label: {
     color: COLORS.BLACK,

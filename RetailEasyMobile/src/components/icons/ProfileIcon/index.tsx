@@ -6,12 +6,11 @@ import { BASE_SIZE } from "../../../constants/Size.ts";
 import { IBottomTabIcon } from "../../../types/icon.interface.ts";
 
 
-const ProfileIcon: FC<IBottomTabIcon> = ({ size = 24, isFocused = false, fill = "none", stroke = COLORS.SALMON_PINK }) => {
+const ProfileIcon: FC<IBottomTabIcon> = ({ size = 24, isFocused = false, fill = "none", stroke = COLORS.GRAY }) => {
   const s = horizontalPixel(size)
-  const b = BASE_SIZE.ICON;
 
   if (isFocused) {
-    stroke = COLORS.CHOCOLATE_COSMOS;
+    stroke = COLORS.PINK;
   }
   return (
     <Svg width={s} height={s} fill="none" viewBox={"0 0 24 24"}>

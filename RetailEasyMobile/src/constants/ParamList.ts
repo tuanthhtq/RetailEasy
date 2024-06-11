@@ -1,14 +1,15 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
 
 export type UnauthorizedParams = {
   Landing: undefined,
   Scanner: undefined,
-  Profile: undefined,
+  Profile: NavigatorScreenParams<UnAuthProfileParams>,
 }
 
 export type UnAuthProfileParams = {
   Main: undefined,
   Login: undefined,
-  OrderLookup: undefined,
+  OrderHistory: undefined,
   Feedback: undefined,
 }
 

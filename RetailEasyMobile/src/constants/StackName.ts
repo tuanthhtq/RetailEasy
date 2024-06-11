@@ -7,7 +7,7 @@ export enum UnauthorizedStackName {
 export enum UnAuthProfileStackName {
   MAIN = "Main",
   USER = "Login",
-  ORDER_LOOKUP = "OrderLookup",
+  ORDER_HISTORY = "OrderHistory",
   FEEDBACK = "Feedback",
 }
 
