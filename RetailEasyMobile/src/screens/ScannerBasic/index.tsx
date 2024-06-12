@@ -54,7 +54,7 @@ const ScannerBasic = () => {
 
   return (
     <View style={style.container}>
-      <ScreenHeader isLogo={false} label={"Scan product"}/>
+      <ScreenHeader label={"Scan product"} backBtn={true}/>
       <View style={style.content}></View>
       {(device && hasPermission) &&
         <Camera

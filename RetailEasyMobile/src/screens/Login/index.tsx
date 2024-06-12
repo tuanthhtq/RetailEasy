@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import ComplexInputField from "../../components/ComplexInputField";
 import { COLORS } from "../../constants/Colors.ts";
+import Button from "../../components/Button";
 
 interface formData {
   emailOrPhone: string,
@@ -13,9 +14,10 @@ interface formData {
 }
 
 const Login = () => {
-  const  {register, control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
+  const  {control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
+  const [loginError, setLoginError] = useState("");
 
-  const onSubmit: SubmitHandler<formData> = (data) => {
+  const onSubmit = (data: formData) => {
     console.log({ data });
   }
 
@@ -32,12 +34,20 @@ const Login = () => {
               label={"Email or phone number"}
               name={"emailOrPhone"}
               control={control}
+              errors={errors.emailOrPhone ? errors.emailOrPhone.message : ""}
             />
             <ComplexInputField
               label={"Password"}
               name={"password"}
               control={control}
+              isPassword
+              errors={errors.password ? errors.password.message : ""}
+
             />
+          </View>
+          <View style={style.action}>
+            <Text style={style.loginRes}>{loginError}</Text>
+            <Button label={"Login"} onClick={handleSubmit(onSubmit)}/>
           </View>
           <View>
           </View>
@@ -59,13 +69,14 @@ const style = StyleSheet.create({
     height: verticalPixel(624),
     marginTop: verticalPixel(15),
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   form: {
     height: verticalPixel(420),
     width: horizontalPixel(300),
     flexDirection: 'column',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-between',
   },
   heading: {
 
@@ -76,7 +87,19 @@ const style = StyleSheet.create({
   },
   fields: {
     width: horizontalPixel(300),
-    height: verticalPixel(66),
+    height: verticalPixel(200),
+  },
+  action: {
+    width: horizontalPixel(300),
+    height: verticalPixel(100),
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  },
+  loginRes: {
+    color: COLORS.PINK,
+    textAlign: 'center',
+    fontSize: fontPixel(12),
+    width: horizontalPixel(300)
   }
 })
 

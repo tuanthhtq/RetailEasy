@@ -3,6 +3,7 @@ import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack";
 import { COLORS } from "./src/constants/Colors.ts";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { KeyboardAvoidingView, Platform } from "react-native";
 
 function Main(): React.JSX.Element {
 
@@ -23,9 +24,15 @@ function Main(): React.JSX.Element {
         }}
       >
         {/*{isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}*/}
-        <SafeAreaProvider>
-          <UnauthorizedStack/>
-        </SafeAreaProvider>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
+          style={{flex: 1}}
+        >
+          <SafeAreaProvider>
+            <UnauthorizedStack/>
+          </SafeAreaProvider>
+        </KeyboardAvoidingView>
       </NavigationContainer>
     </SafeAreaProvider>
   );

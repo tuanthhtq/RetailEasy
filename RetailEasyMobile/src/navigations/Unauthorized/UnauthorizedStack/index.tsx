@@ -1,4 +1,9 @@
-import { UnauthorizedParams, UnauthorizedStackName } from "../../../constants/ParamList.ts";
+import {
+  UnauthorizedParams,
+  UnauthorizedStackName,
+  UnAuthProfileParams,
+  UnAuthProfileStackName
+} from "../../../constants/ParamList.ts";
 import Landing from "../../../screens/Landing";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeIcon from "../../../components/icons/HomeIcon";
@@ -8,8 +13,10 @@ import ScannerStack from "../ScannerStack";
 import { COLORS } from "../../../constants/Colors.ts";
 import { verticalPixel } from "../../../utils/Normalizer.tsx";
 import ProfileStack from "../ProfileStack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator<UnauthorizedParams>();
+type NavigationProp = NativeStackScreenProps<UnAuthProfileParams, UnAuthProfileStackName.MAIN>
 
 const UnAuthorizedStack = () => {
 
