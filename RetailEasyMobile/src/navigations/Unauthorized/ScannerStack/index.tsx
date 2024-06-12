@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { UnAuthScannerParams } from "../../../constants/ParamList.ts";
-import { UnAuthScannerStackName } from "../../../constants/StackName.ts";
+import { UnAuthScannerParams, UnAuthScannerStackName } from "../../../constants/ParamList.ts";
 import ScannerBasic from "../../../screens/ScannerBasic";
 
 

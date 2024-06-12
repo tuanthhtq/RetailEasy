@@ -1,5 +1,4 @@
-import {UnauthorizedStackName} from "../../../constants/StackName.ts";
-import {UnauthorizedParams} from "../../../constants/ParamList.ts";
+import { UnauthorizedParams, UnauthorizedStackName } from "../../../constants/ParamList.ts";
 import Landing from "../../../screens/Landing";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeIcon from "../../../components/icons/HomeIcon";
@@ -8,7 +7,7 @@ import ProfileIcon from "../../../components/icons/ProfileIcon";
 import ScannerStack from "../ScannerStack";
 import { COLORS } from "../../../constants/Colors.ts";
 import { verticalPixel } from "../../../utils/Normalizer.tsx";
-import UnAuthProfile from "../../../screens/UnAuthProfile";
+import ProfileStack from "../ProfileStack";
 
 const Tab = createBottomTabNavigator<UnauthorizedParams>();
 
@@ -45,7 +44,7 @@ const UnAuthorizedStack = () => {
       />
       <Tab.Screen
         name={UnauthorizedStackName.PROFILE}
-        component={UnAuthProfile}
+        component={ProfileStack}
         options={{
           tabBarIcon: (({focused}) => <ProfileIcon isFocused={focused}/>),
         }}

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView
-} from "react-native";
-import { DarkTheme, DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack";
 import { COLORS } from "./src/constants/Colors.ts";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -26,7 +23,9 @@ function Main(): React.JSX.Element {
         }}
       >
         {/*{isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}*/}
-        <UnauthorizedStack/>
+        <SafeAreaProvider>
+          <UnauthorizedStack/>
+        </SafeAreaProvider>
       </NavigationContainer>
     </SafeAreaProvider>
   );

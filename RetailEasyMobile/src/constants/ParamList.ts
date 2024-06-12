@@ -1,21 +1,36 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
 
+export enum UnauthorizedStackName {
+  PROFILE =  'Profile',
+  LANDING = 'Landing',
+  SCANNER = 'Scanner',
+}
 export type UnauthorizedParams = {
-  Landing: undefined,
-  Scanner: undefined,
-  Profile: NavigatorScreenParams<UnAuthProfileParams>,
+  [UnauthorizedStackName.PROFILE]: undefined,
+  [UnauthorizedStackName.LANDING]: undefined,
+  [UnauthorizedStackName.SCANNER]: NavigatorScreenParams<UnAuthProfileParams>,
 }
 
+export enum UnAuthProfileStackName {
+  MAIN = "Main",
+  LOGIN = "Login",
+  ORDER_HISTORY = "OrderHistory",
+  FEEDBACK = "Feedback",
+}
 export type UnAuthProfileParams = {
-  Main: undefined,
-  Login: undefined,
-  OrderHistory: undefined,
-  Feedback: undefined,
+  [UnAuthProfileStackName.MAIN]: undefined;
+  [UnAuthProfileStackName.LOGIN]: undefined;
+  [UnAuthProfileStackName.ORDER_HISTORY]: undefined;
+  [UnAuthProfileStackName.FEEDBACK]: undefined;
 }
 
+export enum UnAuthScannerStackName {
+  CAMERA = "Camera",
+  SCAN_RESULT = "ScanResult",
+}
 export type UnAuthScannerParams = {
-  Camera: undefined,
-  ScanResult: { barcode: string },
+  [UnAuthScannerStackName.CAMERA]: undefined,
+  [UnAuthScannerStackName.SCAN_RESULT]: { barcode: string },
 }
 
 

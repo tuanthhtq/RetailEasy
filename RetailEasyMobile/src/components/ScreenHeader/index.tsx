@@ -3,21 +3,27 @@ import { StyleSheet, Text, View } from "react-native";
 import { fontPixel, horizontalPixel , verticalPixel } from "../../utils/Normalizer.tsx";
 import { COLORS } from "../../constants/Colors.ts";
 import RoundTriangleIcon from "../icons/RoundTriangleIcon";
+import { StackActions, useNavigation } from "@react-navigation/native";
 
 interface IScreenHeader{
   label?: string,
   logo?: ReactNode,
-  backBtn?: boolean
+  backBtn?: boolean,
+
 }
 
-
 const ScreenHeader: React.FC<IScreenHeader> = ({label, logo, backBtn = true}) => {
+
+  const navigation = useNavigation()
+  const goBack = () => {
+    navigation.dispatch(StackActions.pop(1))
+  }
 
   return (
     <View style={[style.container, {height: verticalPixel(logo ? 127 : 79)}]}>
       <View style={[style.content, {height: verticalPixel(logo ? 59 : 52)}]}>
         {backBtn &&
-          <RoundTriangleIcon/>
+          <View onTouchStart={() => goBack()}><RoundTriangleIcon/></View>
         }
         {
           logo && logo

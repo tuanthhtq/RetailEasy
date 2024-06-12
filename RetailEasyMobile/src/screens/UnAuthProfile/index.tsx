@@ -6,22 +6,18 @@ import Divider from "../../components/icons/Divider";
 import ArchiveIcon from "../../components/icons/ArchiveIcon";
 import ChatIcon from "../../components/icons/ChatIcon";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { UnauthorizedParams, UnAuthProfileParams } from "../../constants/ParamList.ts";
-import { UnauthorizedStackName, UnAuthProfileStackName } from "../../constants/StackName.ts";
-import { StackScreenProps } from "@react-navigation/stack";
+import { UnAuthProfileParams, UnAuthProfileStackName } from "../../constants/ParamList.ts";
+import React from "react";
+import LoginIcon from "../../components/icons/LoginIcon";
 
 
-type NavigationProp = StackScreenProps<UnauthorizedParams, UnauthorizedStackName.PROFILE>
+type NavigationProp = NativeStackScreenProps<UnAuthProfileParams, UnAuthProfileStackName.MAIN>
 
 const UnAuthProfile = ({navigation} : NavigationProp) => {
 
-  const a = () => {
-    navigation.navigate(UnauthorizedStackName.PROFILE, {screen: UnAuthProfileStackName.FEEDBACK});
-    console.log(1);
-  }
   return (
     <View style={style.container}>
-      <ScreenHeader label={"Profile"} />
+      <ScreenHeader label={"Profile"} backBtn={false} />
       <View style={style.main}>
         <View style={style.customer}>
           <View style={style.heading}>
@@ -31,14 +27,17 @@ const UnAuthProfile = ({navigation} : NavigationProp) => {
             <View style={style.listItem}>
               <View
                 style={style.itemMain}
-                onTouchStart={() => a()}
+                onTouchStart={() => navigation.navigate(UnAuthProfileStackName.ORDER_HISTORY)}
               >
                 <ArchiveIcon/><Text style={style.text}>Order history</Text>
               </View>
               <Divider/>
             </View>
             <View style={style.listItem}>
-              <View style={style.itemMain}>
+              <View
+                style={style.itemMain}
+                onTouchStart={() => navigation.navigate(UnAuthProfileStackName.FEEDBACK)}
+              >
                 <ChatIcon/><Text style={style.text}>Feedback</Text>
               </View>
               <Divider/>
@@ -51,8 +50,11 @@ const UnAuthProfile = ({navigation} : NavigationProp) => {
           </View>
           <View style={style.list}>
             <View style={style.listItem}>
-              <View style={style.itemMain}>
-                <ArchiveIcon/><Text style={style.text}>Login</Text>
+              <View
+                style={style.itemMain}
+                onTouchStart={() => navigation.navigate(UnAuthProfileStackName.LOGIN)}
+              >
+                <LoginIcon/><Text style={style.text}>Login</Text>
               </View>
               <Divider/>
             </View>
