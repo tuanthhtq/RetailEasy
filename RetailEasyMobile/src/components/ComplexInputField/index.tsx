@@ -1,8 +1,9 @@
 import React from "react";
 import { StyleProp, StyleSheet, Text, TextInput, View, ViewStyle } from "react-native";
-import { Control, Controller, DeepRequired, FieldErrorsImpl } from "react-hook-form";
+import { Control, Controller, DeepRequired, FieldErrorsImpl, ValidationRule } from "react-hook-form";
 import { COLORS } from "../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { EmailRegex, PhoneRegex } from "../../constants/Regex.ts";
 
 interface IComplexInputField{
   containerStyle?: StyleProp<ViewStyle>
@@ -11,13 +12,20 @@ interface IComplexInputField{
   control: Control<any, any>,
   placeHolder?: string,
   required?: boolean,
-  regex?: RegExp
+  validatePhone?: boolean,
+  validateEmail?: boolean,
+  validateName?: boolean,
   isPassword?: boolean,
   errors?: string
 }
 
 
 const ComplexInputField: React.FC<IComplexInputField> = ({required = true, isPassword = false,...props}) => {
+
+  let pattern: ValidationRule<RegExp> = new RegExp(/.*?/s);
+  if(props.validateEmail) pattern = { value: EmailRegex, message: "Invalid email format" }
+  if(props.validatePhone) pattern = { value: PhoneRegex, message: "Invalid phone number format" }
+  if(props.validateName) pattern = { value: PhoneRegex, message: "Invalid name format" }
 
   return (
     <View style={[style.container, props.containerStyle]}>
@@ -26,7 +34,7 @@ const ComplexInputField: React.FC<IComplexInputField> = ({required = true, isPas
         control={props.control}
         rules={{
           required: required && "This field is required",
-          pattern: props.regex ? props.regex : new RegExp(/.*?/s)
+          pattern: pattern
         }}
         render={({field: {onChange, onBlur, value}}) => (
           <TextInput

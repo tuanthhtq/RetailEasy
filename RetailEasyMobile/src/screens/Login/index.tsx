@@ -6,9 +6,10 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import ComplexInputField from "../../components/ComplexInputField";
 import { COLORS } from "../../constants/Colors.ts";
 import Button from "../../components/Button";
+import { EmailRegex, PhoneRegex } from "../../constants/Regex.ts";
 
 interface formData {
-  emailOrPhone: string,
+  phone: string,
   password: string,
   error: string
 }
@@ -31,10 +32,11 @@ const Login = () => {
           </View>
           <View style={style.fields}>
             <ComplexInputField
-              label={"Email or phone number"}
-              name={"emailOrPhone"}
+              label={"Phone number"}
+              name={"phone"}
+              validatePhone
               control={control}
-              errors={errors.emailOrPhone ? errors.emailOrPhone.message : ""}
+              errors={errors.phone ? errors.phone.message : ""}
             />
             <ComplexInputField
               label={"Password"}
