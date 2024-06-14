@@ -2,13 +2,11 @@ import { FC } from "react";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
 import { horizontalPixel } from "../../../utils/Normalizer.tsx";
-import { BASE_SIZE } from "../../../constants/Size.ts";
 import { IBottomTabIcon } from "../../../types/icon.interface.ts";
 
 
-const SearchIcon: FC<IBottomTabIcon> = ({size = 24, isFocused = false, fill = "none", stroke = COLORS.BLACK}) => {
+const SearchIcon: FC<IBottomTabIcon> = ({size = 24, isFocused = false, fill = "none", stroke = COLORS.PINK}) => {
   const s = horizontalPixel(size)
-  const b = BASE_SIZE.ICON;
 
   if(isFocused){
     stroke = COLORS.WHITE;

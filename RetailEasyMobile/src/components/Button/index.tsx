@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native";
 import { COLORS } from "../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
@@ -6,12 +6,11 @@ import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalize
 
 interface IButton {
   onClick: ()=> void
-  label: string
+  label: string | ReactNode
   size?: "large" | "medium" | "small" | "square",
-  color?: "pink" | "green"
 }
 
-const Button: React.FC<IButton> = ({label, size = "large", color = "pink", onClick }) => {
+const Button: React.FC<IButton> = ({label, size = "large", onClick }) => {
 
 
   let buttonStyle: StyleProp<ViewStyle> = {
@@ -29,6 +28,32 @@ const Button: React.FC<IButton> = ({label, size = "large", color = "pink", onCli
     fontSize: fontPixel(24),
     textAlign: 'center',
   }
+
+  if(size === "square"){
+    buttonStyle = {
+      ...buttonStyle,
+      backgroundColor: COLORS.GREEN,
+      width: horizontalPixel(43),
+      height: horizontalPixel(43)
+    }
+    textStyle = {
+      ...textStyle,
+      fontSize: fontPixel(16),
+    }
+  }else if(size === "small"){
+    buttonStyle = {
+      ...buttonStyle,
+      width: horizontalPixel(100),
+      height: horizontalPixel(40)
+    }
+  }else if(size === "medium"){
+    buttonStyle = {
+      ...buttonStyle,
+      width: horizontalPixel(130),
+      height: horizontalPixel(36)
+    }
+  }
+
   return (
     <TouchableOpacity
       style={buttonStyle}

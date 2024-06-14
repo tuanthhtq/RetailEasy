@@ -33,11 +33,16 @@ export type UnAuthScannerParams = {
   [UnAuthScannerStackName.SCAN_RESULT]: { barcode: string },
 }
 
+export enum AuthorizedStackName {
+  HOME = "Home",
+  CREATE_BILL = "CreateBill",
+  IMPORT = "Import",
+  PROFILE = "Profile"
+}
 
 export type AuthorizedParams = {
-  Menu: undefined,
-  ManageProducts: {roles: string[]},
-  ManageEmployees: {roles: string[]},
-  ManageBills: {roles: string[]},
-  CreateBill: undefined
+  [AuthorizedStackName.HOME]: undefined,
+  [AuthorizedStackName.CREATE_BILL]: undefined,
+  [AuthorizedStackName.IMPORT]: undefined,
+  [AuthorizedStackName.PROFILE]: undefined,
 }

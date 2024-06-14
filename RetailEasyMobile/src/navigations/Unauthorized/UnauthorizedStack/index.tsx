@@ -16,7 +16,6 @@ import ProfileStack from "../ProfileStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator<UnauthorizedParams>();
-type NavigationProp = NativeStackScreenProps<UnAuthProfileParams, UnAuthProfileStackName.MAIN>
 
 const UnAuthorizedStack = () => {
 
@@ -38,7 +37,7 @@ const UnAuthorizedStack = () => {
         component={Landing}
         options={{
           tabBarIcon: (({focused}) => <HomeIcon isFocused={focused}/>),
-          tabBarLabel: "Home",
+          tabBarLabel: "Trang chủ",
         }}
       />
       <Tab.Screen
@@ -46,7 +45,7 @@ const UnAuthorizedStack = () => {
         component={ScannerStack}
         options={{
           tabBarIcon: (({focused}) => <ScannerIcon isFocused={focused}/>),
-          tabBarLabel: "Scanner",
+          tabBarLabel: "Quét",
         }}
       />
       <Tab.Screen
@@ -54,6 +53,7 @@ const UnAuthorizedStack = () => {
         component={ProfileStack}
         options={{
           tabBarIcon: (({focused}) => <ProfileIcon isFocused={focused}/>),
+          tabBarLabel: "Hồ sơ"
         }}
       />
     </Tab.Navigator>

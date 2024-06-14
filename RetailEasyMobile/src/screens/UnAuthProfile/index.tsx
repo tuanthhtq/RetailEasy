@@ -17,11 +17,11 @@ const UnAuthProfile = ({navigation} : NavigationProp) => {
 
   return (
     <View style={style.container}>
-      <ScreenHeader label={"Profile"} backBtn={false} />
+      <ScreenHeader label={"Hồ sơ"} backBtn={false} />
       <View style={style.main}>
         <View style={style.customer}>
           <View style={style.heading}>
-            <Text style={style.headingText}>Customer</Text>
+            <Text style={style.headingText}>Dành cho khách hàng</Text>
           </View>
           <View style={style.list}>
             <View style={style.listItem}>
@@ -29,7 +29,7 @@ const UnAuthProfile = ({navigation} : NavigationProp) => {
                 style={style.itemMain}
                 onTouchStart={() => navigation.navigate(UnAuthProfileStackName.ORDER_HISTORY)}
               >
-                <ArchiveIcon/><Text style={style.text}>Order history</Text>
+                <ArchiveIcon/><Text style={style.text}>Lịch sử mua hàng</Text>
               </View>
               <Divider/>
             </View>
@@ -38,7 +38,7 @@ const UnAuthProfile = ({navigation} : NavigationProp) => {
                 style={style.itemMain}
                 onTouchStart={() => navigation.navigate(UnAuthProfileStackName.FEEDBACK)}
               >
-                <ChatIcon/><Text style={style.text}>Feedback</Text>
+                <ChatIcon/><Text style={style.text}>Phản hồi</Text>
               </View>
               <Divider/>
             </View>
@@ -46,7 +46,7 @@ const UnAuthProfile = ({navigation} : NavigationProp) => {
         </View>
         <View style={style.employee}>
           <View style={style.heading}>
-            <Text style={style.headingText}>Employee</Text>
+            <Text style={style.headingText}>Dành cho nhân viên</Text>
           </View>
           <View style={style.list}>
             <View style={style.listItem}>
@@ -54,7 +54,7 @@ const UnAuthProfile = ({navigation} : NavigationProp) => {
                 style={style.itemMain}
                 onTouchStart={() => navigation.navigate(UnAuthProfileStackName.LOGIN)}
               >
-                <LoginIcon/><Text style={style.text}>Login</Text>
+                <LoginIcon/><Text style={style.text}>Đăng nhập</Text>
               </View>
               <Divider/>
             </View>
@@ -83,7 +83,8 @@ const style = StyleSheet.create({
   },
   headingText: {
     color: COLORS.BLACK,
-    fontSize: fontPixel(30)
+    fontSize: fontPixel(28),
+    fontWeight: 'bold'
   },
   customer: {
     width: horizontalPixel(315),

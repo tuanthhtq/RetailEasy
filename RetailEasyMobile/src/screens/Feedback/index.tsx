@@ -5,7 +5,7 @@ import { horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
 const Feedback = () => {
   return (
     <View style={style.container}>
-      <ScreenHeader label={"Feedback"}/>
+      <ScreenHeader label={"Phản hồi"}/>
       <View style={style.main}>
 
       </View>

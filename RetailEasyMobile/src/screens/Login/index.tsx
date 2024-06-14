@@ -24,22 +24,22 @@ const Login = () => {
 
   return (
     <View style={style.container}>
-      <ScreenHeader label={"Login"}/>
+      <ScreenHeader label={"Đăng nhập"}/>
       <View style={style.main}>
         <View style={style.form}>
           <View style={style.heading}>
-            <Text style={style.headingText}>Enter credentials to continue</Text>
+            <Text style={style.headingText}>Điền thông tin đăng nhập để tiếp tục</Text>
           </View>
           <View style={style.fields}>
             <ComplexInputField
-              label={"Phone number"}
+              label={"Số điện thoại"}
               name={"phone"}
               validatePhone
               control={control}
               errors={errors.phone ? errors.phone.message : ""}
             />
             <ComplexInputField
-              label={"Password"}
+              label={"Mật khẩu"}
               name={"password"}
               control={control}
               isPassword
@@ -49,7 +49,7 @@ const Login = () => {
           </View>
           <View style={style.action}>
             <Text style={style.loginRes}>{loginError}</Text>
-            <Button label={"Login"} onClick={handleSubmit(onSubmit)}/>
+            <Button label={"Đăng nhập"} onClick={handleSubmit(onSubmit)}/>
           </View>
           <View>
           </View>
@@ -85,7 +85,8 @@ const style = StyleSheet.create({
   },
   headingText: {
     color: COLORS.BLACK,
-    fontSize: fontPixel(28)
+    fontSize: fontPixel(28),
+    fontWeight: "bold"
   },
   fields: {
     width: horizontalPixel(300),
