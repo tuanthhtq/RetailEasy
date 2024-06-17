@@ -16,9 +16,12 @@ function Main(): React.JSX.Element {
       <NavigationContainer
         theme={{
           ...DefaultTheme,
+          dark: true,
           colors: {
             ...DefaultTheme.colors,
-            text: COLORS.BLACK
+            background: COLORS.WHITE,
+            primary: COLORS.WHITE,
+            text: COLORS.WHITE
           }
 
         }}

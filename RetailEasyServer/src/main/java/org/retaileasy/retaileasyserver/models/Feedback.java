@@ -19,19 +19,15 @@ public class Feedback {
 	@Column(name = "sender_name", nullable = false, length = 100)
 	private String senderName;
 
-	@Column(name = "sender_email", length = 150)
-	private String senderEmail;
-
 	@Column(name = "sender_phone", nullable = false, length = 15)
 	private String senderPhone;
 
 	@Column(name = "title", nullable = false, length = 100)
 	private String title;
 
-	@Column(name = "content", length = 200)
+	@Column(name = "content", length = 500)
 	private String content;
 
 	@Column(name = "created_date")
 	private Instant createdDate;
-
 }

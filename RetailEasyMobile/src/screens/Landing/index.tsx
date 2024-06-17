@@ -1,11 +1,10 @@
 import {StyleSheet, View} from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
-import Logo from "../../components/icons/Logo";
 
 const Landing = () => {
   return (
     <View style={styles.container}>
-      <ScreenHeader backBtn={false} logo={<Logo/>} />
+      <ScreenHeader backBtn={false} logo />
     </View>
   )
 }

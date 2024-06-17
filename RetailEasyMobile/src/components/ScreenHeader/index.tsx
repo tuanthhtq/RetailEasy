@@ -7,12 +7,13 @@ import { StackActions, useNavigation } from "@react-navigation/native";
 
 interface IScreenHeader{
   label?: string,
-  logo?: ReactNode,
+  logo?: boolean,
   backBtn?: boolean,
 
 }
 
-const ScreenHeader: React.FC<IScreenHeader> = ({label, logo, backBtn = true}) => {
+const ScreenHeader: React.FC<IScreenHeader> = ({label, logo = false, backBtn = true
+}) => {
 
   const navigation = useNavigation()
   const goBack = () => {
@@ -26,7 +27,7 @@ const ScreenHeader: React.FC<IScreenHeader> = ({label, logo, backBtn = true}) =>
           <View onTouchStart={() => goBack()}><RoundTriangleIcon/></View>
         }
         {
-          logo && logo
+          logo && <Text style={style.logo}>RetailEasy</Text>
         }
         {
           label && <Text style={style.label}>{label}</Text>
@@ -55,6 +56,12 @@ const style = StyleSheet.create({
     color: COLORS.BLACK,
     fontSize: fontPixel(24),
     fontWeight: '600',
+  },
+  logo: {
+    color: COLORS.BLACK,
+    fontSize: fontPixel(45),
+    fontWeight: '700',
+
   }
 
 })

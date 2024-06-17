@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.retaileasy.retaileasyserver.dtos.payment.PaymentResponseDto;
 import org.retaileasy.retaileasyserver.dtos.payment.PaymentRequestDto;
-import org.retaileasy.retaileasyserver.utils.HMACHelper;
+import org.retaileasy.retaileasyserver.utils.HMACProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -34,7 +34,7 @@ public class PayOSServicesImpl implements PayOSServices{
         String data = String.format("amount=%d&cancelUrl=%s&description=%s&orderCode=%d&returnUrl=%s",
                 paymentRequest.getAmount(), paymentRequest.getCancelUrl(), paymentRequest.getDescription(),
                 paymentRequest.getOrderCode(), paymentRequest.getReturnUrl());
-        String signature = HMACHelper.hmacSha256(data);
+        String signature = HMACProvider.hmacSha256(data);
 
         paymentRequest.setSignature(signature);
         long expired = System.currentTimeMillis() /1000L + 600;

@@ -19,4 +19,6 @@ public class HomeController {
 	public ResponseEntity<String> index() {
 		return new ResponseEntity<String>("sufysuifeh", HttpStatus.OK);
 	}
+
+
 }
