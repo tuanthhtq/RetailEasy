@@ -25,8 +25,5 @@ public class ProductDetailDto {
 	private int stock;
 	private int price;
 	private String status;
-	private BigDecimal discount;
-	private Instant discountStart;
-	private Instant discountEnd;
 
 }

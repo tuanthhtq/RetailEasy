@@ -23,9 +23,9 @@ interface IComplexInputField{
 const ComplexInputField: React.FC<IComplexInputField> = ({required = true, isPassword = false,...props}) => {
 
   let pattern: ValidationRule<RegExp> = new RegExp(/.*?/s);
-  if(props.validateEmail) pattern = { value: EmailRegex, message: "Invalid email format" }
-  if(props.validatePhone) pattern = { value: PhoneRegex, message: "Invalid phone number format" }
-  if(props.validateName) pattern = { value: PhoneRegex, message: "Invalid name format" }
+  if(props.validateEmail) pattern = { value: EmailRegex, message: "Định dạng email không đúng" }
+  if(props.validatePhone) pattern = { value: PhoneRegex, message: "Số điện thoại không hợp lệ" }
+  if(props.validateName) pattern = { value: PhoneRegex, message: "Tên không hợp lệ" }
 
   return (
     <View style={[style.container, props.containerStyle]}>
@@ -33,7 +33,7 @@ const ComplexInputField: React.FC<IComplexInputField> = ({required = true, isPas
       <Controller
         control={props.control}
         rules={{
-          required: required && "This field is required",
+          required: required && "Trường này là bắt buộc",
           pattern: pattern
         }}
         render={({field: {onChange, onBlur, value}}) => (
@@ -67,9 +67,6 @@ const style = StyleSheet.create({
     width: horizontalPixel(280),
     height: verticalPixel(40),
     borderWidth: 0.5,
-    shadowColor: COLORS.PINK,
-    shadowRadius: 4,
-    shadowOffset: { width: 4 ,height: 4 },
     borderColor: COLORS.PINK,
     borderRadius: 8,
     color: COLORS.BLACK,

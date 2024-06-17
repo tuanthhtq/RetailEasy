@@ -33,7 +33,7 @@ const style = StyleSheet.create({
     width: horizontalPixel(320),
     height: verticalPixel(80),
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
   label: {
     color: COLORS.BLACK,

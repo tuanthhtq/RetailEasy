@@ -6,9 +6,9 @@ export enum UnauthorizedStackName {
   SCANNER = 'Scanner',
 }
 export type UnauthorizedParams = {
-  [UnauthorizedStackName.PROFILE]: undefined,
+  [UnauthorizedStackName.SCANNER]: undefined,
   [UnauthorizedStackName.LANDING]: undefined,
-  [UnauthorizedStackName.SCANNER]: NavigatorScreenParams<UnAuthProfileParams>,
+  [UnauthorizedStackName.PROFILE]: NavigatorScreenParams<UnAuthProfileParams>,
 }
 
 export enum UnAuthProfileStackName {

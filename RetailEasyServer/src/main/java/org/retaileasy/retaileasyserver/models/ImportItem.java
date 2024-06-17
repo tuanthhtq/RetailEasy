@@ -6,26 +6,17 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.SourceType;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "products")
-public class Product {
-    @OneToMany(mappedBy = "product", orphanRemoval = true)
-    private Set<Barcode> barcodes = new HashSet<>();
-
+@Table(name = "import_items")
+public class ImportItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id", nullable = false)
+    @Column(name = "rel_id", nullable = false)
     private Integer id;
 
     @Size(max = 150)
@@ -55,23 +46,11 @@ public class Product {
     @Column(name = "expiry")
     private Instant expiry;
 
-    @Column(name = "stock")
-    private Integer stock;
+    @ColumnDefault("b'0'")
+    @Column(name = "is_return")
+    private Boolean isReturn;
 
     @Column(name = "price")
     private Integer price;
-
-    @NotNull
-    @Column(name = "import_price", nullable = false)
-    private Integer importPrice;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @ColumnDefault("2")
-    @JoinColumn(name = "status_id")
-    private Status status;
-
-    @Column(name = "modified_date")
-    @UpdateTimestamp(source = SourceType.DB)
-    private Instant modifiedDate;
 
 }

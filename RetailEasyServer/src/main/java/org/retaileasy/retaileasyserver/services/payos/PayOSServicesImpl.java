@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.retaileasy.retaileasyserver.dtos.payment.PaymentResponseDto;
 import org.retaileasy.retaileasyserver.dtos.payment.PaymentRequestDto;
 import org.retaileasy.retaileasyserver.utils.HMACHelper;
-import org.retaileasy.retaileasyserver.utils.QRCodeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,8 +12,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.sql.Timestamp;
 
 
 @Service

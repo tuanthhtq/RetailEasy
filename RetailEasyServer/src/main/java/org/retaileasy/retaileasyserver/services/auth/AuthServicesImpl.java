@@ -105,20 +105,21 @@ public class AuthServicesImpl implements AuthServices {
 
     @Override
     public AuthResponseDto authenticate(LoginRequestDto request) {
-        User user = userRepository.findByUsernameOrPhoneNumber(request.getUsernameOrPhone(), request.getUsernameOrPhone())
+        User user = userRepository.findByPhoneNumber(request.getPhone())
                 .orElse(null);
 
+
         if(user == null){
-            return new AuthResponseDto(401, "Username or phone number does not exist!");
+            return new AuthResponseDto(401, "Phone number does not exist!");
         }else{
             if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
                 return new AuthResponseDto(401, "Password is incorrect!");
             }
         }
-        UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(user.getPhoneNumber());
         //login success
         Authentication authentication = authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsernameOrPhone(), request.getPassword())
+                new UsernamePasswordAuthenticationToken(request.getPhone(), request.getPassword())
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);

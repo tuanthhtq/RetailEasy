@@ -37,10 +37,7 @@ public class DtoMapper {
                 product.getExpiry(),
                 product.getStock(),
                 product.getPrice(),
-                (product.getStatus().getStatusValue() == 1) ? "Available" : "Unavailable",
-                product.getDiscount().getDiscount(),
-                product.getDiscount().getStartDate(),
-                product.getDiscount().getEndDate()
+                (product.getStatus().getStatusValue() == 1) ? "Available" : "Unavailable"
         );
     }
 
