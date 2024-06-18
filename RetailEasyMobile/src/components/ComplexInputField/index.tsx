@@ -2,7 +2,7 @@ import React from "react";
 import { StyleProp, StyleSheet, Text, TextInput, View, ViewStyle } from "react-native";
 import { Control, Controller, DeepRequired, FieldErrorsImpl, ValidationRule } from "react-hook-form";
 import { COLORS } from "../../constants/Colors.ts";
-import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import { EmailRegex, PhoneRegex } from "../../constants/Regex.ts";
 
 interface IComplexInputField{
@@ -58,10 +58,11 @@ const style = StyleSheet.create({
     width: horizontalPixel(300),
     height: verticalPixel(99),
     flexDirection: 'column',
+    justifyContent: 'space-evenly'
   },
   label: {
     color: COLORS.BLACK,
-    fontSize: fontPixel(16)
+    fontSize: fontPixel(18)
   },
   input: {
     width: horizontalPixel(280),
@@ -70,10 +71,11 @@ const style = StyleSheet.create({
     borderColor: COLORS.PINK,
     borderRadius: 8,
     color: COLORS.BLACK,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    fontSize: fontPixel(16)
   },
   error: {
-    fontSize: fontPixel(14),
+    fontSize: fontPixel(16),
     color: COLORS.PINK
   }
 

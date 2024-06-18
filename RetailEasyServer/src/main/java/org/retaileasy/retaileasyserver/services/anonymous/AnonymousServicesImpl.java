@@ -6,9 +6,11 @@ import org.retaileasy.retaileasyserver.dtos.FeedbackResponse;
 import org.retaileasy.retaileasyserver.dtos.ProductDetailDto;
 import org.retaileasy.retaileasyserver.models.Feedback;
 import org.retaileasy.retaileasyserver.models.Product;
+import org.retaileasy.retaileasyserver.models.StoreInformation;
 import org.retaileasy.retaileasyserver.repository.BillRepository;
 import org.retaileasy.retaileasyserver.repository.FeedbackRepository;
 import org.retaileasy.retaileasyserver.repository.ProductRepository;
+import org.retaileasy.retaileasyserver.repository.StoreInformationRepository;
 import org.retaileasy.retaileasyserver.utils.DtoMapper;
 import org.retaileasy.retaileasyserver.utils.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,18 +28,27 @@ public class AnonymousServicesImpl implements AnonymousServices{
 	private final ProductRepository productRepository;
 	private final FeedbackRepository feedbackRepository;
 	private final BillRepository billRepository;
+	private final StoreInformationRepository storeInformationRepository;
 
 	@Autowired
 	public AnonymousServicesImpl(
-			ProductRepository pr,
-			FeedbackRepository fr,
-			BillRepository br
-	){
+            ProductRepository pr,
+            FeedbackRepository fr,
+            BillRepository br,
+			StoreInformationRepository sir
+    ){
 		this.feedbackRepository = fr;
 		this.billRepository = br;
 		this.productRepository = pr;
-	}
+        this.storeInformationRepository = sir;
+    }
 
+
+	@Override
+	public StoreInformation getStoreInfo() {
+		return storeInformationRepository.findById(1)
+				.orElse(null);
+	}
 
 	@Override
 	public ProductDetailDto getProductByBarCode(String barcode) {
@@ -79,11 +90,11 @@ public class AnonymousServicesImpl implements AnonymousServices{
 		res.setData(null);
 
 		if(!Validator.checkPhone(data.getSenderPhone())){
-			res.setMessage("Invalid phone format");
+			res.setMessage("Định dạng số điện thoại không đúng");
 			return res;
 		}
 		if(!Validator.checkName(data.getSenderPhone())){
-			res.setMessage("Invalid name");
+			res.setMessage("Tên không hợp lệ");
 			return res;
 		}
 

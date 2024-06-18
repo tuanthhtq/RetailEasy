@@ -2,19 +2,25 @@ import React from "react";
 import { Modal, StyleSheet, View } from "react-native";
 
 
-interface IInfoModal {
+interface IBillInfoModal {
   orderId: number,
   onRequestClose: () => void
+  isVisible?: boolean
 }
 
-const InfoModal: React.FC<IInfoModal> = ({...props}) => {
+const InfoModal: React.FC<IBillInfoModal> = ({...props}) => {
 
 
   return (
     <Modal
       style={style.container}
-      onRequestClose={}
+      onRequestClose={props.onRequestClose}
+      transparent={true}
     >
+      <View style={style.modalBackground}></View>
+      <View style={style.content}>
+
+      </View>
 
     </Modal>
   )
@@ -27,6 +33,9 @@ const style = StyleSheet.create({
   modalBackground: {
 
   },
+  content: {
+
+  }
 
 })
 

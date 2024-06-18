@@ -5,11 +5,14 @@ import org.retaileasy.retaileasyserver.dtos.BillItemDto;
 import org.retaileasy.retaileasyserver.dtos.FeedbackResponse;
 import org.retaileasy.retaileasyserver.dtos.ProductDetailDto;
 import org.retaileasy.retaileasyserver.models.Feedback;
+import org.retaileasy.retaileasyserver.models.StoreInformation;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
 
 public interface AnonymousServices {
+
+	StoreInformation getStoreInfo();
 
 	ProductDetailDto getProductByBarCode(String barcode);
 	ProductDetailDto getProductById(int productId);

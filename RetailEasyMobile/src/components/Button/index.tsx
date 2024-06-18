@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native";
 import { COLORS } from "../../constants/Colors.ts";
-import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 
 
 interface IButton {

@@ -1,6 +1,3 @@
-import { ROLES } from "../../../constants/Roles.ts";
-
-
 export interface IUserDetail {
   username: string,
   idNumber: string,
@@ -10,5 +7,5 @@ export interface IUserDetail {
   password: string,
   token: string,
   address: string,
-  roles: ROLES
+  roles: string[]
 }

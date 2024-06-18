@@ -1,7 +1,7 @@
 import React from "react";
 import Svg, { Line, Path, Rect } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
-import { horizontalPixel } from "../../../utils/Normalizer.tsx";
+import { horizontalPixel } from "../../../utils/Normalizer.ts";
 import { ICommonIcon } from "../../../types/icon.interface.ts";
 
 

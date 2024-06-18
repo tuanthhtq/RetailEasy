@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
-import { horizontalPixel } from "../../../utils/Normalizer.tsx";
+import { horizontalPixel } from "../../../utils/Normalizer.ts";
 import { IBottomTabIcon } from "../../../types/icon.interface.ts";
 
 

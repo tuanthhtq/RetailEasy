@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import ScreenHeader from "../../components/ScreenHeader";
 import SimpleInputField from "../../components/SimpleInputField";
 import { useState } from "react";
@@ -11,6 +11,7 @@ import BillListItem from "../../components/BillListItem";
 
 const OrderHistory = () => {
   const [billList, setBillList] = useState<BillsDto[]>()
+  const [modalVisible, setModalVisible] = useState(false)
 
 
   const onChange = (value: string) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import { COLORS } from "../../constants/Colors.ts";
 
 

@@ -10,7 +10,7 @@ import {
   useCameraPermission,
   useCodeScanner
 } from "react-native-vision-camera";
-import { horizontalPixel, SCREEN_HEIGHT, SCREEN_WIDTH, verticalPixel } from "../../utils/Normalizer.tsx";
+import { horizontalPixel, SCREEN_HEIGHT, SCREEN_WIDTH, verticalPixel } from "../../utils/Normalizer.ts";
 import ScreenHeader from "../../components/ScreenHeader";
 
 
@@ -54,7 +54,7 @@ const ScannerBasic = () => {
 
   return (
     <View style={style.container}>
-      <ScreenHeader label={"Scan product"} backBtn={true}/>
+      <ScreenHeader label={"Quét mã sản phẩm"} backBtn={false} />
       <View style={style.content}></View>
       {(device && hasPermission) &&
         <Camera
@@ -86,6 +86,7 @@ const style = StyleSheet.create({
   camera: {
     width: horizontalPixel(300),
     height: verticalPixel(300),
+    alignSelf: 'center'
   }
 })
 export default ScannerBasic;

@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
-import { horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 
 const Feedback = () => {
   return (

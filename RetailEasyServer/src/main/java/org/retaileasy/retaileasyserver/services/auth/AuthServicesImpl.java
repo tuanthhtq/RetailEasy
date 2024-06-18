@@ -73,6 +73,7 @@ public class AuthServicesImpl implements AuthServices {
 
         StoreInformation store = new StoreInformation(
                 request.getStoreName(),
+                request.getFullName(),
                 request.getAddress(),
                 request.getPhone(),
                 request.getEmail()
@@ -110,10 +111,10 @@ public class AuthServicesImpl implements AuthServices {
 
 
         if(user == null){
-            return new AuthResponseDto(401, "Phone number does not exist!");
+            return new AuthResponseDto(401, "Số điện thoại không tồn tại");
         }else{
             if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
-                return new AuthResponseDto(401, "Password is incorrect!");
+                return new AuthResponseDto(401, "Mật khẩu không đúng");
             }
         }
         UserDetails userDetails = userDetailsService.loadUserByUsername(user.getPhoneNumber());
@@ -126,7 +127,7 @@ public class AuthServicesImpl implements AuthServices {
 
         String accessToken = JwtHelper.create(userDetails);
 
-        return new AuthResponseDto(200, DtoMapper.toUserDataDto(user, accessToken), "Login success!");
+        return new AuthResponseDto(200, DtoMapper.toUserDataDto(user, accessToken), "Đăng nhập thành công");
     }
 
     @Override
@@ -134,19 +135,19 @@ public class AuthServicesImpl implements AuthServices {
         User user = userRepository.findByPhoneNumber(request.getPhone())
                 .orElse(null);
         if(user != null){
-            return new AuthResponseDto(400, "This phone number is in use!");
+            return new AuthResponseDto(400, "Số điện thoại này đã được dùng");
         }
 
         user = userRepository.findByUsername(request.getUsername())
                 .orElse(null);
         if(user != null){
-            return new AuthResponseDto(400, "This username is in use!");
+            return new AuthResponseDto(400, "Tên đăng nhập đã được dùng");
         }
 
         user = userRepository.findByIdNumber(request.getIdNumber())
                 .orElse(null);
         if(user != null){
-            return new AuthResponseDto(400, "This id number is already exists!");
+            return new AuthResponseDto(400, "Số CCCD đã được đăng ký");
         }
 
         //username, phone and id number are available

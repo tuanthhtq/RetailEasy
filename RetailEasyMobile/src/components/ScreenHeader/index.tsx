@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { fontPixel, horizontalPixel , verticalPixel } from "../../utils/Normalizer.tsx";
+import { fontPixel, horizontalPixel , verticalPixel } from "../../utils/Normalizer.ts";
 import { COLORS } from "../../constants/Colors.ts";
 import RoundTriangleIcon from "../icons/RoundTriangleIcon";
 import { StackActions, useNavigation } from "@react-navigation/native";

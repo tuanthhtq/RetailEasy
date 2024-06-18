@@ -12,10 +12,6 @@ export const loginService = async (data: ILoginRequest): Promise<IAuthResponse> 
     url: ENDPOINT.LOGIN,
     data: data
   }
-  await Interceptor(config)
-    .catch((e)=> {
-      console.log("Login failed", e);
-    })
   return await Interceptor(config);
 }
 
@@ -25,9 +21,5 @@ export const createAccountService = async (data: ICreateAccountRequest): Promise
     url: !data.storeName ? ENDPOINT.REGISTER : ENDPOINT.CREATE_ADMIN,
     data: data
   }
-  await Interceptor(config)
-    .catch((e)=> {
-      console.log("Create account failed", e);
-    })
   return await Interceptor(config);
 }

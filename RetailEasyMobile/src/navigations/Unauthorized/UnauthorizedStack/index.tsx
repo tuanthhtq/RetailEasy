@@ -11,7 +11,7 @@ import ScannerIcon from "../../../components/icons/ScannerIcon";
 import ProfileIcon from "../../../components/icons/ProfileIcon";
 import ScannerStack from "../ScannerStack";
 import { COLORS } from "../../../constants/Colors.ts";
-import { verticalPixel } from "../../../utils/Normalizer.tsx";
+import { verticalPixel } from "../../../utils/Normalizer.ts";
 import ProfileStack from "../ProfileStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 

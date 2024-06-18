@@ -2,7 +2,7 @@ import React from "react";
 import Svg, { Path } from "react-native-svg";
 import { ICommonIcon } from "../../../types/icon.interface.ts";
 import { COLORS } from "../../../constants/Colors.ts";
-import { horizontalPixel } from "../../../utils/Normalizer.tsx";
+import { horizontalPixel } from "../../../utils/Normalizer.ts";
 
 
 const ChatIcon: React.FC<ICommonIcon> = ({size = 24, color = COLORS.PINK}) => {

@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import { AuthorizedParams, AuthorizedStackName, } from "../../../constants/ParamList.ts";
 import {useSelector} from "react-redux";
 import { COLORS } from "../../../constants/Colors.ts";
-import { verticalPixel } from "../../../utils/Normalizer.tsx";
+import { verticalPixel } from "../../../utils/Normalizer.ts";
 import Landing from "../../../screens/Landing";
 import HomeIcon from "../../../components/icons/HomeIcon";
 

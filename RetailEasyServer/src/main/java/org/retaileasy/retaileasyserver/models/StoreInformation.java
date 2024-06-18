@@ -1,6 +1,8 @@
 package org.retaileasy.retaileasyserver.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,10 +31,30 @@ public class StoreInformation {
 	@Column(name = "email", length = 150)
 	private String email;
 
-	public StoreInformation(String name, String address, String phoneNumber, String email) {
+    @Size(max = 100)
+    @NotNull
+    @Column(name = "owner", nullable = false, length = 100)
+    private String owner;
+
+    @Size(max = 15)
+    @NotNull
+    @Column(name = "phone_number_2", length = 15)
+    private String phoneNumber2;
+
+    public StoreInformation(String name, String owner, String address, String phoneNumber, String email) {
 		this.name = name;
 		this.address = address;
+		this.owner = owner;
 		this.phoneNumber = phoneNumber;
+		this.email = email;
+	}
+
+    public StoreInformation(String name, String owner, String address, String phoneNumber, String phoneNumber2, String email) {
+		this.name = name;
+		this.address = address;
+		this.owner = owner;
+		this.phoneNumber = phoneNumber;
+		this.phoneNumber2 = phoneNumber2;
 		this.email = email;
 	}
 }

@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import SearchIcon from "../icons/SearchIcon";
-import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import { COLORS } from "../../constants/Colors.ts";
 
 

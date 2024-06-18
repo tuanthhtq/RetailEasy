@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
-import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
+import { useForm } from "react-hook-form";
 import ComplexInputField from "../../components/ComplexInputField";
 import { COLORS } from "../../constants/Colors.ts";
 import Button from "../../components/Button";
-import { EmailRegex, PhoneRegex } from "../../constants/Regex.ts";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/authentication/auth.action.ts";
+import { IAuthState } from "../../store/authentication/auth.type.ts";
+import { IRootState } from "../../store/store.ts";
 
 interface formData {
   phone: string,
@@ -15,12 +18,28 @@ interface formData {
 }
 
 const Login = () => {
+  const message = useSelector((state: IRootState) => state.auth)
+
   const  {control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
   const [loginError, setLoginError] = useState("");
 
-  const onSubmit = (data: formData) => {
-    console.log({ data });
+  const dispatch = useDispatch();
+
+
+
+  const onSubmit = (credentials: formData) => {
+    // @ts-ignore
+    dispatch(login(credentials))
   }
+
+  useEffect(() => {
+    if(message.message){
+      setLoginError(message.message);
+      setTimeout(() => {
+        setLoginError('');
+      }, 5000)
+    }
+  }, [message]);
 
   return (
     <View style={style.container}>
@@ -101,7 +120,7 @@ const style = StyleSheet.create({
   loginRes: {
     color: COLORS.PINK,
     textAlign: 'center',
-    fontSize: fontPixel(12),
+    fontSize: fontPixel(16),
     width: horizontalPixel(300)
   }
 })

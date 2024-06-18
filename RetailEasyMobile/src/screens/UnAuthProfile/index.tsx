@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
-import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.tsx";
+import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import { COLORS } from "../../constants/Colors.ts";
 import Divider from "../../components/icons/Divider";
 import ArchiveIcon from "../../components/icons/ArchiveIcon";
@@ -99,17 +99,20 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
   },
   list: {
-
   },
   listItem: {
     width: horizontalPixel(315),
-    height: verticalPixel(79)
+    height: verticalPixel(79),
+    flexDirection: 'column',
+    alignItems: 'center'
+
   },
   itemMain:{
     flexDirection: 'row',
     width: horizontalPixel(291),
     height: verticalPixel(48),
     justifyContent: 'flex-start',
+    alignItems: 'center',
     gap: horizontalPixel(10),
     paddingHorizontal: horizontalPixel(10)
   },

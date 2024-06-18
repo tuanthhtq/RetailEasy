@@ -4,9 +4,15 @@ import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack"
 import { COLORS } from "./src/constants/Colors.ts";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { KeyboardAvoidingView, Platform } from "react-native";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { IRootState, store } from "./src/store/store.ts";
+import { login } from "./src/store/authentication/auth.action.ts";
+import { IAuthState } from "./src/store/authentication/auth.type.ts";
+import { RootState } from "@reduxjs/toolkit/query";
 
 function Main(): React.JSX.Element {
-
+  const state = useSelector((state: IRootState ) => {
+  })
   return (
     <SafeAreaProvider
       style={{
@@ -44,7 +50,9 @@ function Main(): React.JSX.Element {
 
 function App() {
   return (
-    <Main/>
+    <Provider store={store}>
+      <Main/>
+    </Provider>
   );
 }
 
