@@ -2,7 +2,10 @@ package org.retaileasy.retaileasyserver.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SourceType;
 
 import java.time.Instant;
 
@@ -10,6 +13,7 @@ import java.time.Instant;
 @Setter
 @Entity
 @Table(name = "feedbacks")
+@NoArgsConstructor
 public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +33,13 @@ public class Feedback {
 	private String content;
 
 	@Column(name = "created_date")
+	@CreationTimestamp(source = SourceType.DB)
 	private Instant createdDate;
+
+	public Feedback(String senderName, String senderPhone, String title, String content) {
+		this.senderName = senderName;
+		this.senderPhone = senderPhone;
+		this.title = title;
+		this.content = content;
+	}
 }

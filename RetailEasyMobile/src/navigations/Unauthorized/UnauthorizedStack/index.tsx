@@ -38,6 +38,7 @@ const UnAuthorizedStack = () => {
         options={{
           tabBarIcon: (({focused}) => <HomeIcon isFocused={focused}/>),
           tabBarLabel: "Trang chủ",
+          tabBarInactiveTintColor: COLORS.BLACK
         }}
       />
       <Tab.Screen
@@ -46,6 +47,7 @@ const UnAuthorizedStack = () => {
         options={{
           tabBarIcon: (({focused}) => <ScannerIcon isFocused={focused}/>),
           tabBarLabel: "Quét",
+          tabBarInactiveTintColor: COLORS.BLACK
         }}
       />
       <Tab.Screen
@@ -53,7 +55,8 @@ const UnAuthorizedStack = () => {
         component={ProfileStack}
         options={{
           tabBarIcon: (({focused}) => <ProfileIcon isFocused={focused}/>),
-          tabBarLabel: "Hồ sơ"
+          tabBarLabel: "Hồ sơ",
+          tabBarInactiveTintColor: COLORS.BLACK
         }}
       />
     </Tab.Navigator>

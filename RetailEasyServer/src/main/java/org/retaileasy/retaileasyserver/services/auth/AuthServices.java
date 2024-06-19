@@ -1,6 +1,9 @@
 package org.retaileasy.retaileasyserver.services.auth;
 
+import org.retaileasy.retaileasyserver.dtos.CommonResponseDto;
+import org.retaileasy.retaileasyserver.dtos.UserDataDto;
 import org.retaileasy.retaileasyserver.dtos.auth.*;
+import org.springframework.validation.BindingResult;
 
 /**
  * @author tuan
@@ -8,7 +11,7 @@ import org.retaileasy.retaileasyserver.dtos.auth.*;
 
 
 public interface AuthServices {
-    CreateAdminResponseDto createAdminAccount(CreateAdminRequestDto request);
-    AuthResponseDto authenticate(LoginRequestDto request);
-    AuthResponseDto createAccount(CreateAccountRequestDto request);
+    CommonResponseDto<UserDataDto> createAdminAccount(CreateAdminRequestDto request, BindingResult bindingResult);
+    CommonResponseDto<UserDataDto> authenticate(LoginRequestDto request, BindingResult bindingResult);
+    CommonResponseDto<UserDataDto> createAccount(CreateAccountRequestDto request, BindingResult bindingResult);
 }

@@ -1,6 +1,8 @@
 package org.retaileasy.retaileasyserver.services.auth;
 
 import org.retaileasy.retaileasyserver.configuration.implement.UserDetailsServiceImpl;
+import org.retaileasy.retaileasyserver.dtos.CommonResponseDto;
+import org.retaileasy.retaileasyserver.dtos.UserDataDto;
 import org.retaileasy.retaileasyserver.dtos.auth.*;
 import org.retaileasy.retaileasyserver.models.StoreInformation;
 import org.retaileasy.retaileasyserver.models.User;
@@ -12,7 +14,6 @@ import org.retaileasy.retaileasyserver.repository.UserRoleRepository;
 import org.retaileasy.retaileasyserver.utils.DtoMapper;
 import org.retaileasy.retaileasyserver.utils.JwtHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,6 +21,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 
 import java.util.*;
 
@@ -43,7 +46,11 @@ public class AuthServicesImpl implements AuthServices {
             UserRepository ur,
             UserRoleRepository urr, RoleRepository roleRepository,
             PasswordEncoder encoder,
-            JwtHelper jwtHelper, AuthenticationManager authManager, UserDetailsServiceImpl userDetailsServiceImpl, StoreInformationRepository storeInformationRepository){
+            JwtHelper jwtHelper,
+            AuthenticationManager authManager,
+            UserDetailsServiceImpl userDetailsServiceImpl,
+            StoreInformationRepository storeInformationRepository
+    ){
         this.userRepository = ur;
         this.roleRepository = roleRepository;
         this.passwordEncoder = encoder;
@@ -55,10 +62,28 @@ public class AuthServicesImpl implements AuthServices {
 
 
     @Override
-    public CreateAdminResponseDto createAdminAccount(CreateAdminRequestDto request) {
+    public CommonResponseDto<UserDataDto> createAdminAccount(CreateAdminRequestDto request, BindingResult bindingResult) {
+        //init response
+        CommonResponseDto<UserDataDto> response = new CommonResponseDto<>();
+        response.setStatus(400);
+        response.setMessage("Khởi tạo admin thất bại");
+
+        Map<String, String> errors = new HashMap<>();
+
+        //fields errors
+        if (bindingResult.hasErrors()) {
+            for (FieldError error : bindingResult.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            response.setError(errors);
+            return response;
+        }
+
         long userNum = userRepository.count();
         if(userNum > 0){
-            return new CreateAdminResponseDto(403, "Forbidden!");
+            response.setStatus(403);
+            response.setMessage("Forbidden!");
+            return response;
         }
 
         User user = new User(
@@ -98,56 +123,95 @@ public class AuthServicesImpl implements AuthServices {
             }
             user.setUserRoles(roles);
             userRepository.saveAndFlush(user);
-            return new CreateAdminResponseDto(HttpStatus.CREATED.value(), DtoMapper.toUserDataDto(user, ""),  "Account created", request.getStoreName());
+
+            response.setData(DtoMapper.toUserDataDto(user, ""));
+            response.setStatus(201);
+            response.setMessage("Khởi tạo admin thành công");
+            response.setAdditionalData(request.getStoreName());
+
+            return response;
         }catch (Exception e){
-            return new CreateAdminResponseDto(400, e.getLocalizedMessage());
+            errors.put("error", e.getLocalizedMessage());
+            response.setMessage(e.getLocalizedMessage());
+            response.setError(errors);
+            return response;
         }
     }
 
     @Override
-    public AuthResponseDto authenticate(LoginRequestDto request) {
+    public CommonResponseDto<UserDataDto> authenticate(LoginRequestDto request, BindingResult bindingResult) {
+
+        CommonResponseDto<UserDataDto> response = new CommonResponseDto<>();
+        response.setMessage("Đăng nhập thất bại");
+        response.setStatus(401);
+        Map<String, String> errors = new HashMap<>();
+
+        //fields errors
+        if (bindingResult.hasErrors()) {
+            for (FieldError error : bindingResult.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            response.setError(errors);
+            return response;
+        }
+
         User user = userRepository.findByPhoneNumber(request.getPhone())
                 .orElse(null);
-
 
         if(user == null){
-            return new AuthResponseDto(401, "Số điện thoại không tồn tại");
+            errors.put("phone", "Số điện thoại không tồn tại");
         }else{
             if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
-                return new AuthResponseDto(401, "Mật khẩu không đúng");
+                errors.put("password", "Mật khẩu không đúng");
+                return response;
             }
+            UserDetails userDetails = userDetailsService.loadUserByUsername(user.getPhoneNumber());
+            //login success
+            Authentication authentication = authManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getPhone(), request.getPassword())
+            );
+
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String accessToken = JwtHelper.create(userDetails);
+
+            response.setStatus(200);
+            response.setMessage("Đăng nhập thành công");
+            response.setData(DtoMapper.toUserDataDto(user, accessToken));
+
         }
-        UserDetails userDetails = userDetailsService.loadUserByUsername(user.getPhoneNumber());
-        //login success
-        Authentication authentication = authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getPhone(), request.getPassword())
-        );
-
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        String accessToken = JwtHelper.create(userDetails);
-
-        return new AuthResponseDto(200, DtoMapper.toUserDataDto(user, accessToken), "Đăng nhập thành công");
+        return response;
     }
 
     @Override
-    public AuthResponseDto createAccount(CreateAccountRequestDto request) {
-        User user = userRepository.findByPhoneNumber(request.getPhone())
-                .orElse(null);
+    public CommonResponseDto<UserDataDto> createAccount(CreateAccountRequestDto request, BindingResult bindingResult) {
+        CommonResponseDto<UserDataDto> response = new CommonResponseDto<>();
+        response.setMessage("Tạo tài khoản thất bại");
+        response.setStatus(400);
+
+        Map<String, String> errors = new HashMap<>();
+        //fields errors
+        if (bindingResult.hasErrors()) {
+            for (FieldError error : bindingResult.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            response.setError(errors);
+            return response;
+        }
+        User user = userRepository.findByPhoneNumber(request.getPhone()).orElse(null);
         if(user != null){
-            return new AuthResponseDto(400, "Số điện thoại này đã được dùng");
+            errors.put("phone", "Số điện thoại này đã được dùng");
+        }
+        user = userRepository.findByUsername(request.getUsername()).orElse(null);
+        if(user != null){
+            errors.put("username", "Tên đăng nhập đã được dùng");
+        }
+        user = userRepository.findByIdNumber(request.getIdNumber()).orElse(null);
+        if(user != null){
+            errors.put("id", "Số CCCD đã được đăng ký");
         }
 
-        user = userRepository.findByUsername(request.getUsername())
-                .orElse(null);
-        if(user != null){
-            return new AuthResponseDto(400, "Tên đăng nhập đã được dùng");
-        }
-
-        user = userRepository.findByIdNumber(request.getIdNumber())
-                .orElse(null);
-        if(user != null){
-            return new AuthResponseDto(400, "Số CCCD đã được đăng ký");
+        if(!errors.isEmpty()){
+            return response;
         }
 
         //username, phone and id number are available
@@ -172,9 +236,17 @@ public class AuthServicesImpl implements AuthServices {
             }
             user.setUserRoles(roles);
             userRepository.saveAndFlush(user);
-            return new AuthResponseDto(201, DtoMapper.toUserDataDto(user, ""),  "Account created");
+
+            response.setStatus(201);
+            response.setData(DtoMapper.toUserDataDto(user, ""));
+            response.setMessage("Tài khoản tạo thành công");
+
+            return response;
         }catch (Exception e){
-            return new AuthResponseDto(400, e.getLocalizedMessage());
+            errors.put("error", e.getLocalizedMessage());
+            response.setMessage(e.getLocalizedMessage());
+            response.setError(errors);
+            return response;
         }
     }
 

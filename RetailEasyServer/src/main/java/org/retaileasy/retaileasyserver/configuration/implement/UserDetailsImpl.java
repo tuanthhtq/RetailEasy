@@ -33,10 +33,10 @@ public class UserDetailsImpl implements UserDetails {
 	private String password;
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Integer id, String username, String phone, String password,
+	public UserDetailsImpl(Integer id, String phone, String password,
 						   Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
-		this.username = username;
+		this.username = phone;
 		this.phone = phone;
 		this.password = password;
 		this.authorities = authorities;
@@ -54,7 +54,6 @@ public class UserDetailsImpl implements UserDetails {
 
 		return new UserDetailsImpl(
 				user.getId(),
-				user.getUsername(),
 				user.getPhoneNumber(),
 				user.getPassword(),
 				authorities);

@@ -1,25 +1,25 @@
 package org.retaileasy.retaileasyserver.services.anonymous;
 
-import org.retaileasy.retaileasyserver.dtos.BillInfoDto;
-import org.retaileasy.retaileasyserver.dtos.BillItemDto;
-import org.retaileasy.retaileasyserver.dtos.FeedbackResponse;
-import org.retaileasy.retaileasyserver.dtos.ProductDetailDto;
-import org.retaileasy.retaileasyserver.models.Feedback;
+import org.retaileasy.retaileasyserver.dtos.*;
+import org.retaileasy.retaileasyserver.dtos.anonymous.FeedbackDto;
+import org.retaileasy.retaileasyserver.dtos.common.ProductDetailDto;
+import org.retaileasy.retaileasyserver.dtos.common.BillDetailDto;
+import org.retaileasy.retaileasyserver.dtos.common.BillDto;
 import org.retaileasy.retaileasyserver.models.StoreInformation;
-import org.springframework.data.domain.Page;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
 public interface AnonymousServices {
 
-	StoreInformation getStoreInfo();
+	CommonResponseDto<StoreInformation> getStoreInfo();
 
-	ProductDetailDto getProductByBarCode(String barcode);
-	ProductDetailDto getProductById(int productId);
-	Page<BillInfoDto> getBillsListByPhone(String phoneNumber, int page );
-	List<BillItemDto> getBillItemsByBillId(int billId);
+	CommonResponseDto<List<BillDto>> getBillListByPhone(String phone);
+	CommonResponseDto<BillDetailDto> getBillDetailById(int billId);
 
-	FeedbackResponse createFeedback(Feedback data);
+	CommonResponseDto<ProductDetailDto> getProductDetailByBarCode(String barcode);
+
+	CommonResponseDto<FeedbackDto> createFeedback(FeedbackDto data, BindingResult bindingResult);
 
 
 }

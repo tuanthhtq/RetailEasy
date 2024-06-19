@@ -1,12 +1,16 @@
 package org.retaileasy.retaileasyserver.controllers;
 
 
+import jakarta.validation.Valid;
+import org.retaileasy.retaileasyserver.dtos.CommonResponseDto;
+import org.retaileasy.retaileasyserver.dtos.UserDataDto;
 import org.retaileasy.retaileasyserver.dtos.auth.*;
 import org.retaileasy.retaileasyserver.services.auth.AuthServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,22 +28,30 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    ResponseEntity<AuthResponseDto> login(@RequestBody LoginRequestDto request){
-        AuthResponseDto response = authServices.authenticate(request);
-
+    ResponseEntity<CommonResponseDto<UserDataDto>> login(
+            @Valid @RequestBody LoginRequestDto request,
+            BindingResult bindingResult
+    ){
+        CommonResponseDto<UserDataDto> response = authServices.authenticate(request, bindingResult);
         return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
     }
 
     @PostMapping("/create-account")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    ResponseEntity<AuthResponseDto> createAccount(@RequestBody CreateAccountRequestDto request){
-        AuthResponseDto response = authServices.createAccount(request);
+    ResponseEntity<CommonResponseDto<UserDataDto>> createAccount(
+            @Valid @RequestBody CreateAccountRequestDto request,
+            BindingResult bindingResult
+    ){
+        CommonResponseDto<UserDataDto> response = authServices.createAccount(request, bindingResult);
         return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
     }
 
     @PostMapping("/create-admin")
-    ResponseEntity<CreateAdminResponseDto> createAdmin(@RequestBody CreateAdminRequestDto request){
-        CreateAdminResponseDto response = authServices.createAdminAccount(request);
+    ResponseEntity<CommonResponseDto<UserDataDto>> createAdmin(
+            @Valid @RequestBody CreateAdminRequestDto request,
+            BindingResult bindingResult
+    ){
+        CommonResponseDto<UserDataDto> response = authServices.createAdminAccount(request, bindingResult);
         return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
     }
 

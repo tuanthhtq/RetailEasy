@@ -8,7 +8,6 @@ import { COLORS } from "../../constants/Colors.ts";
 import Button from "../../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/authentication/auth.action.ts";
-import { IAuthState } from "../../store/authentication/auth.type.ts";
 import { IRootState } from "../../store/store.ts";
 
 interface formData {
@@ -56,6 +55,7 @@ const Login = () => {
               validatePhone
               control={control}
               errors={errors.phone ? errors.phone.message : ""}
+              maxLength={15}
             />
             <ComplexInputField
               label={"Mật khẩu"}
@@ -63,14 +63,12 @@ const Login = () => {
               control={control}
               isPassword
               errors={errors.password ? errors.password.message : ""}
-
+              maxLength={255}
             />
           </View>
           <View style={style.action}>
             <Text style={style.loginRes}>{loginError}</Text>
             <Button label={"Đăng nhập"} onClick={handleSubmit(onSubmit)}/>
-          </View>
-          <View>
           </View>
         </View>
 

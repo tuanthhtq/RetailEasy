@@ -9,6 +9,7 @@ import { IRootState, store } from "./src/store/store.ts";
 import { login } from "./src/store/authentication/auth.action.ts";
 import { IAuthState } from "./src/store/authentication/auth.type.ts";
 import { RootState } from "@reduxjs/toolkit/query";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 function Main(): React.JSX.Element {
   const state = useSelector((state: IRootState ) => {

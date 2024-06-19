@@ -1,6 +1,7 @@
 package org.retaileasy.retaileasyserver.dtos.auth;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,8 +11,10 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class LoginRequestDto {
-	@NotBlank(message = "Phone number is required")
+	@NotEmpty(message = "Số điện thoại không được để trống")
+	@Pattern(regexp = "^0[1-9][0-9]{8,}$", message = "Số điện thoại không hợp lệ")
 	private String phone;
-	@NotBlank(message = "Password is required")
+
+	@NotEmpty(message = "Mật khẩu không được để trống ")
 	private String password;
 }

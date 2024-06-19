@@ -1,6 +1,7 @@
 package org.retaileasy.retaileasyserver.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,5 +38,9 @@ public class Bill {
 
 	@OneToMany(mappedBy = "bill")
 	private Set<BillItem> billItems = new LinkedHashSet<>();
+
+    @NotNull
+    @Column(name = "status", nullable = false)
+    private Integer status;
 
 }

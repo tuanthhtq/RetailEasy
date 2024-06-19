@@ -37,7 +37,6 @@ public class StoreInformation {
     private String owner;
 
     @Size(max = 15)
-    @NotNull
     @Column(name = "phone_number_2", length = 15)
     private String phoneNumber2;
 
@@ -49,12 +48,4 @@ public class StoreInformation {
 		this.email = email;
 	}
 
-    public StoreInformation(String name, String owner, String address, String phoneNumber, String phoneNumber2, String email) {
-		this.name = name;
-		this.address = address;
-		this.owner = owner;
-		this.phoneNumber = phoneNumber;
-		this.phoneNumber2 = phoneNumber2;
-		this.email = email;
-	}
 }

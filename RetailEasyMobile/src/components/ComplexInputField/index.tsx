@@ -3,7 +3,7 @@ import { StyleProp, StyleSheet, Text, TextInput, View, ViewStyle } from "react-n
 import { Control, Controller, DeepRequired, FieldErrorsImpl, ValidationRule } from "react-hook-form";
 import { COLORS } from "../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
-import { EmailRegex, PhoneRegex } from "../../constants/Regex.ts";
+import { EmailRegex, FullNameRegex, PhoneRegex } from "../../constants/Regex.ts";
 
 interface IComplexInputField{
   containerStyle?: StyleProp<ViewStyle>
@@ -16,19 +16,23 @@ interface IComplexInputField{
   validateEmail?: boolean,
   validateName?: boolean,
   isPassword?: boolean,
-  errors?: string
+  errors?: string,
+  maxLength: number,
+  isTextarea?: boolean
 }
 
 
-const ComplexInputField: React.FC<IComplexInputField> = ({required = true, isPassword = false,...props}) => {
+const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, required = true, isPassword = false,...props}) => {
 
   let pattern: ValidationRule<RegExp> = new RegExp(/.*?/s);
   if(props.validateEmail) pattern = { value: EmailRegex, message: "Định dạng email không đúng" }
   if(props.validatePhone) pattern = { value: PhoneRegex, message: "Số điện thoại không hợp lệ" }
-  if(props.validateName) pattern = { value: PhoneRegex, message: "Tên không hợp lệ" }
+  if(props.validateName) pattern = { value: FullNameRegex, message: "Tên không hợp lệ" }
 
   return (
-    <View style={[style.container, props.containerStyle]}>
+    <View style={[style.container, props.containerStyle, isTextarea && {
+      height: verticalPixel(50) * 3,
+    }]}>
       <Text style={style.label}>{props.label}</Text>
       <Controller
         control={props.control}
@@ -44,7 +48,14 @@ const ComplexInputField: React.FC<IComplexInputField> = ({required = true, isPas
             onChangeText={onChange}
             value={value}
             secureTextEntry={isPassword}
-            style={style.input}
+            style={[style.input, isTextarea && {
+              width: horizontalPixel(280),
+              height: verticalPixel(40) * 3,
+              textAlignVertical: "top"
+            }]}
+            maxLength={props.maxLength}
+            multiline={isTextarea}
+            numberOfLines={isTextarea ? 3 : 1}
           />
         )}
         name={props.name}/>
@@ -56,9 +67,9 @@ const ComplexInputField: React.FC<IComplexInputField> = ({required = true, isPas
 const style = StyleSheet.create({
   container: {
     width: horizontalPixel(300),
-    height: verticalPixel(99),
+    height: verticalPixel(90),
     flexDirection: 'column',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
   },
   label: {
     color: COLORS.BLACK,
@@ -66,7 +77,7 @@ const style = StyleSheet.create({
   },
   input: {
     width: horizontalPixel(280),
-    height: verticalPixel(40),
+    height: verticalPixel(45),
     borderWidth: 0.5,
     borderColor: COLORS.PINK,
     borderRadius: 8,
