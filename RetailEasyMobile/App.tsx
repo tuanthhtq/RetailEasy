@@ -4,23 +4,27 @@ import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack"
 import { COLORS } from "./src/constants/Colors.ts";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { KeyboardAvoidingView, Platform } from "react-native";
-import { Provider, useDispatch, useSelector } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { IRootState, store } from "./src/store/store.ts";
-import { login } from "./src/store/authentication/auth.action.ts";
-import { IAuthState } from "./src/store/authentication/auth.type.ts";
-import { RootState } from "@reduxjs/toolkit/query";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 function Main(): React.JSX.Element {
   const state = useSelector((state: IRootState ) => {
+    console.log({ authenticated: state.auth.isAuthenticated });
+    return state.auth.isAuthenticated;
   })
+
   return (
     <SafeAreaProvider
       style={{
-        height: "100%"
+        flex: 1
       }}
     >
-      <NavigationContainer
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
+        style={{flex: 1}}
+      >
+        <NavigationContainer
         theme={{
           ...DefaultTheme,
           dark: true,
@@ -32,19 +36,12 @@ function Main(): React.JSX.Element {
           }
 
         }}
-      >
-        {/*{isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}*/}
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
-          style={{flex: 1}}
         >
-          <SafeAreaProvider>
+        {/*{isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}*/}
             <UnauthorizedStack/>
-          </SafeAreaProvider>
-        </KeyboardAvoidingView>
-      </NavigationContainer>
-    </SafeAreaProvider>
+        </NavigationContainer>
+  </KeyboardAvoidingView>
+</SafeAreaProvider>
   );
 }
 

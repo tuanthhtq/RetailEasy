@@ -7,6 +7,9 @@ import { useState } from "react";
 import { COLORS } from "../../constants/Colors.ts";
 import Button from "../../components/Button";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import TextModal from "../../components/TextModal";
+import { FeedbackDto } from "../../apis/public/dtos/FeedbackDto.ts";
+import { sendFeedbackService } from "../../apis/public/public.services.ts";
 
 interface formData {
   phone: string,
@@ -18,11 +21,32 @@ interface formData {
 
 const Feedback = () => {
 
-  const  {control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
-  const [loginError, setLoginError] = useState("");
+  const  {control, handleSubmit, formState: {errors}} = useForm<formData>()
+  const [modalVisible, setModalVisible] = useState(false)
 
-  const onSendFeedback = (data: formData) => {
-    console.log({data});
+  const onSendFeedback = async (data: formData) => {
+    const req: FeedbackDto = {
+      phone: data.phone,
+      message: data.message,
+      name: data.name,
+      title: data.subject
+    }
+
+    await sendFeedbackService(req)
+      .then((res) => {
+        if(res.data){
+          setModalVisible(true);
+        }else{
+          console.log(res.error);
+        }
+      })
+      .catch((error) => {
+        console.log({error});
+      })
+  }
+
+  const onCloseModal = () => {
+    setModalVisible(!modalVisible)
   }
 
 
@@ -31,8 +55,15 @@ const Feedback = () => {
       <ScreenHeader label={"Phản hồi"}/>
 
         <View style={style.main}>
+          <TextModal
+            text={"Phản hồi của bạn đã được ghi nhận"}
+            isVisible={modalVisible}
+            onRequestClose={onCloseModal}
+            button={<Button label={"Đồng ý"} onClick={onCloseModal}/>}
+          ></TextModal>
 
           <KeyboardAwareScrollView
+            viewIsInsideTabBar
             enableOnAndroid
             showsVerticalScrollIndicator={false}
           >

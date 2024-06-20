@@ -2,11 +2,11 @@ import React from "react";
 import { ICommonIcon } from "../../../types/icon.interface.ts";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
-import { horizontalPixel } from "../../../utils/Normalizer.ts";
+import { verticalPixel } from "../../../utils/Normalizer.ts";
 
 
 const LoginIcon: React.FC<ICommonIcon> = ({size = 24, color = COLORS.PINK}) => {
-  const s = horizontalPixel(size)
+  const s = verticalPixel(size)
   return (
     <Svg width={s} height={s} viewBox="0 0 24 24" fill="none">
       <Path

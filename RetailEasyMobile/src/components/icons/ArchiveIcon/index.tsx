@@ -1,16 +1,11 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
-import { horizontalPixel } from "../../../utils/Normalizer.ts";
+import { verticalPixel } from "../../../utils/Normalizer.ts";
+import { ICommonIcon } from "../../../types/icon.interface.ts";
 
-
-interface IArchiveIcon{
-  size?: number,
-  color?: string
-}
-
-const ArchiveIcon: React.FC<IArchiveIcon> = ({size = 24, color = COLORS.PINK}) => {
-  const s = horizontalPixel(24);
+const ArchiveIcon: React.FC<ICommonIcon> = ({size = 24, color = COLORS.PINK}) => {
+  const s = verticalPixel(24);
 
   return (
     <Svg width={s} height={s} viewBox="0 0 24 24" fill="none">

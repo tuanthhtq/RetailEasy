@@ -18,3 +18,4 @@ public record ProductDetailDto(
         Integer price,
         boolean status
 ) implements Serializable {}
+    

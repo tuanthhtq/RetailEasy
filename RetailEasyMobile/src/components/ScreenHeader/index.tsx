@@ -43,7 +43,8 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    backgroundColor: COLORS.FADE
+    backgroundColor: COLORS.FADE,
+    zIndex: 100
   },
   content: {
     width: horizontalPixel(320),

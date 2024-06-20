@@ -6,9 +6,9 @@ import { useForm } from "react-hook-form";
 import ComplexInputField from "../../components/ComplexInputField";
 import { COLORS } from "../../constants/Colors.ts";
 import Button from "../../components/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { login } from "../../store/authentication/auth.action.ts";
-import { IRootState } from "../../store/store.ts";
+import { IRootState, useAppDispatch } from "../../store/store.ts";
 
 interface formData {
   phone: string,
@@ -22,12 +22,9 @@ const Login = () => {
   const  {control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
   const [loginError, setLoginError] = useState("");
 
-  const dispatch = useDispatch();
-
-
+  const dispatch = useAppDispatch();
 
   const onSubmit = (credentials: formData) => {
-    // @ts-ignore
     dispatch(login(credentials))
   }
 

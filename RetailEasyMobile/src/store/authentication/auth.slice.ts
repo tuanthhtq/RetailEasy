@@ -1,8 +1,18 @@
-import { IAuthState } from "./auth.type.ts";
 import { createSlice } from "@reduxjs/toolkit";
 import { login } from "./auth.action.ts";
 import { mmkv } from "../../utils/MMKVProvider.ts";
 import { auth_key } from "../../constants/Keys.ts";
+
+export interface  IAuthState {
+  isAuthenticated: boolean
+  accessToken: string | null
+  phoneNumber: string | null
+  fullName: string | null
+  isLoading: boolean
+  message: string | null
+}
+
+
 
 const initialState: IAuthState = {
   accessToken: mmkv.getString(auth_key.token) || null,
@@ -15,7 +25,7 @@ const initialState: IAuthState = {
 
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: 'auth/login',
   initialState: initialState,
   reducers: {
     logout: (state) => {
