@@ -3,6 +3,7 @@ export enum auth_key {
   name = "name",
   authed = "authed",
   phone = "phone",
+  roles = "roles",
 }
 
 export enum store_info_key {

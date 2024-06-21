@@ -10,8 +10,8 @@ export interface  IAuthState {
   fullName: string | null
   isLoading: boolean
   message: string | null
+  roles: string[]
 }
-
 
 
 const initialState: IAuthState = {
@@ -20,9 +20,9 @@ const initialState: IAuthState = {
   isAuthenticated: mmkv.getBoolean(auth_key.authed) || false,
   phoneNumber: mmkv.getString(auth_key.phone) || null,
   isLoading: false,
-  message: null
+  message: null,
+  roles: mmkv.getString(auth_key.roles)?.split('\,') ||['']
 }
-
 
 const authSlice = createSlice({
   name: 'auth/login',
@@ -38,6 +38,7 @@ const authSlice = createSlice({
       mmkv.clearAll()
     },
     checkLogin: (state) => {
+      console.log({cache: mmkv.getString(auth_key.roles)});
       console.log("Check authentication");
       return state;
     }
@@ -53,17 +54,21 @@ const authSlice = createSlice({
         if(action.payload && action.payload.data){
           console.log("Login success");
           const data = action.payload.data
+
           state.accessToken = data.token
           state.fullName = data.fullName
           state.isAuthenticated = true
           state.message = action.payload.message
           state.phoneNumber = data.phone
+          state.roles = data.roles
 
           mmkv.set(auth_key.token, data.token)
           mmkv.set(auth_key.name, data.fullName)
           mmkv.set(auth_key.authed, true)
           mmkv.set(auth_key.phone, data.phone)
+          mmkv.set(auth_key.roles, data.roles.toString())
 
+          console.log({response: data.roles});
         }
       })
       .addCase(login.rejected, (state, action) => {

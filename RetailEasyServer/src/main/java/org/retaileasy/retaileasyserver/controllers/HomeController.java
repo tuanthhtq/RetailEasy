@@ -11,6 +11,7 @@ import org.retaileasy.retaileasyserver.services.anonymous.AnonymousServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,12 @@ public class HomeController {
 	@GetMapping("/landing")
 	public ResponseEntity<CommonResponseDto<StoreInformation>> index() {
 		return new ResponseEntity<>(anonymousServices.getStoreInfo(), HttpStatus.OK);
+	}
+
+	@GetMapping("/test")
+	@PreAuthorize("hasRole('ROLE_DATA_ENTRY')")
+	public ResponseEntity<String> test() {
+		return new ResponseEntity<>("DQQWDWQDWQ", HttpStatus.OK);
 	}
 
 	@PostMapping("/send-feedback")

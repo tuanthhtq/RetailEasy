@@ -9,4 +9,6 @@ export enum ENDPOINT{
     GET_STORE = `${base}/home/landing`,
     GET_PRODUCT_DETAIL = `${base}/home/scan-result`,
 
+    GET_RECENT_BILL = `${base}/emp/most-recent-bill`,
+
 }

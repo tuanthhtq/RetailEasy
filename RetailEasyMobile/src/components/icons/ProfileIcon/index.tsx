@@ -1,11 +1,11 @@
-import { FC } from "react";
+import React from "react";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
 import { verticalPixel } from "../../../utils/Normalizer.ts";
 import { IBottomTabIcon } from "../../../types/icon.interface.ts";
 
 
-const ProfileIcon: FC<IBottomTabIcon> = ({ size = 24, isFocused = false, fill = "none", stroke = COLORS.GRAY }) => {
+const ProfileIcon: React.FC<IBottomTabIcon> = ({ size = 24, isFocused = false, fill = "none", stroke = COLORS.GRAY }) => {
   const s = verticalPixel(size)
 
   if (isFocused) {

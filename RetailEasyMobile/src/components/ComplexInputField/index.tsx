@@ -33,7 +33,7 @@ const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, re
     <View style={[style.container, props.containerStyle, isTextarea && {
       height: verticalPixel(50) * 3,
     }]}>
-      <Text style={style.label}>{props.label}</Text>
+      <Text style={style.label}>{props.label} {required && <Text style={{color: COLORS.PINK}}>*</Text>}</Text>
       <Controller
         control={props.control}
         rules={{

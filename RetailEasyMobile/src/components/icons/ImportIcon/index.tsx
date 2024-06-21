@@ -1,16 +1,15 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import Svg, { Path } from "react-native-svg";
 import { COLORS } from "../../../constants/Colors.ts";
 import { verticalPixel } from "../../../utils/Normalizer.ts";
 import { IBottomTabIcon } from "../../../types/icon.interface.ts";
 
 
-const ImportIcon: FC<IBottomTabIcon> = ({ size = 24, isFocused = false, fill = "none", stroke = COLORS.BLACK }) => {
+const ImportIcon: React.FC<IBottomTabIcon> = ({ size = 24, isFocused = false, fill = "none", stroke = COLORS.GRAY }) => {
   const s = verticalPixel(size)
 
   if (isFocused) {
-    stroke = COLORS.WHITE;
-    fill = COLORS.GRAY
+    stroke = COLORS.PINK;
   }
   return (
     <Svg width={s} height={s} fill="none" viewBox={"0 0 24 24"}>

@@ -8,13 +8,14 @@ interface IButton {
   onClick: ()=> void
   label: string | ReactNode
   size?: "large" | "medium" | "small" | "square",
+  color?: "pink" | "green"
 }
 
-const Button: React.FC<IButton> = ({label, size = "large", onClick }) => {
+const Button: React.FC<IButton> = ({label, size = "large", onClick, color = COLORS.PINK }) => {
 
 
   let buttonStyle: StyleProp<ViewStyle> = {
-    backgroundColor: COLORS.PINK,
+    backgroundColor: color === "pink" ? COLORS.PINK : COLORS.GREEN,
     width: horizontalPixel(300),
     height: verticalPixel(60),
     borderRadius: 8,

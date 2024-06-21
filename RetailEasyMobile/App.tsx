@@ -6,10 +6,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { KeyboardAvoidingView, Platform } from "react-native";
 import { Provider, useSelector } from "react-redux";
 import { IRootState, store } from "./src/store/store.ts";
+import AuthorizedStack from "./src/navigations/Authorized/AuthorizedStack";
 
 function Main(): React.JSX.Element {
-  const state = useSelector((state: IRootState ) => {
-    console.log({ authenticated: state.auth.isAuthenticated });
+  const isAuthorized = useSelector((state: IRootState ) => {
     return state.auth.isAuthenticated;
   })
 
@@ -37,8 +37,7 @@ function Main(): React.JSX.Element {
 
         }}
         >
-        {/*{isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}*/}
-            <UnauthorizedStack/>
+        {isAuthorized ? <AuthorizedStack/> : <UnauthorizedStack/>}
         </NavigationContainer>
   </KeyboardAvoidingView>
 </SafeAreaProvider>

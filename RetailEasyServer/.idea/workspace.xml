@@ -5,46 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/CommonResponse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/productDetail.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/dtos/FeedbackDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/MiniTile/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/TextModal/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/CheckIcon/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/MailIcon/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/PhoneIcon/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/InfoModal/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.action.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.slice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/employee/employee.services.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/HTMLList/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/Scanner/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/CreateBillIcon/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/MenuIcon/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/CreateBillStack/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/MenuStack/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/GetInfoModal/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Home/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Menu/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/types/camera.state.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/AuthorizedController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/employee/EmployeeServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/employee/EmployeeServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/dtos/StoreInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/dtos/StoreInfoDto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ScreenHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ScreenHeader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ArchiveIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ArchiveIcon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ChatIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ChatIcon/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/auth.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/auth.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/CheckIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/CheckIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/HomeIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/HomeIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ImportIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ImportIcon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/LoginIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/LoginIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ProfileIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ProfileIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ScannerIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/ScannerIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/SearchIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/SearchIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Regex.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Regex.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Feedback/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Feedback/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Landing/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Landing/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/ParamList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/ParamList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/AuthorizedStack/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/AuthorizedStack/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Unauthorized/ScannerStack/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Unauthorized/UnauthorizedStack/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Unauthorized/UnauthorizedStack/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/InfoModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/InfoModal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/ProductDetailDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/anonymous/FeedbackDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/anonymous/FeedbackDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ProductDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ProductDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/exceptions/FieldValidationExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/exceptions/FieldValidationExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/BillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/BillRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,9 +57,9 @@
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.intellij.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.JpaRepository" />
+        <option value="com.intellij.jpb.NewClass" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="com.intellij.jpb.NewClass" />
       </list>
     </option>
   </component>
@@ -179,6 +177,7 @@
       <workItem from="1718701910733" duration="3078000" />
       <workItem from="1718765931364" duration="17162000" />
       <workItem from="1718848159962" duration="7448000" />
+      <workItem from="1718934973597" duration="6336000" />
     </task>
     <servers />
   </component>

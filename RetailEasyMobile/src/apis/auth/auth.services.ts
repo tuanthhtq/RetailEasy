@@ -23,3 +23,13 @@ export const createAccountService = async (data: ICreateAccountRequest): Promise
   }
   return await Interceptor(config);
 }
+
+// export const getAccountInformation = async (token: string): Promise<IAuthResponse> => {
+//   const config: AxiosRequestConfig = {
+//     method: 'POST',
+//     url: !data.storeName ? ENDPOINT.REGISTER : ENDPOINT.CREATE_ADMIN,
+//     data: data
+//   }
+//   return await Interceptor(config);
+// }
+

@@ -43,14 +43,16 @@ const InfoModal: React.FC<IInfoModal> = ({isVisible = false, ...props}) => {
     >
       <View style={style.modalBackground}>
         {isLoading ?
-          <View><Text>Loading</Text></View> :
+          <View style={style.content}><Text>Đang lấy dữ liệu</Text></View> :
           <View style={style.content}>
             <Image
               source={{ uri: data?.productImage }}
               style={style.image}
               resizeMode={'contain'}
             />
-            <ScrollView style={{flex: 1}}>
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              style={{flex: 1}}>
               <View style={style.main} >
                 <View style={style.detail}>
                   <Text style={[style.text, {fontSize: 24}]}>{data?.productName}</Text>
