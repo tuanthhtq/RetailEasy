@@ -125,7 +125,6 @@ const Scanner: React.FC<IScanner> = ({...props}) => {
                 position: 'absolute',
                 width: horizontalPixel(300),
                 height: horizontalPixel(300),
-                top: 0
               }}
               codeScanner={codeScanner}
               device={device}
@@ -142,7 +141,7 @@ const Scanner: React.FC<IScanner> = ({...props}) => {
 const style = StyleSheet.create({
   container: {
     width: horizontalPixel(300),
-    height: horizontalPixel(350),
+    height: horizontalPixel(300),
     position: 'absolute',
     flexDirection: 'column',
     justifyContent: 'flex-end'

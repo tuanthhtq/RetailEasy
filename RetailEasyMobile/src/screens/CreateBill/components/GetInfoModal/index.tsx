@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Modal, StyleSheet, View } from "react-native";
 import { useForm } from "react-hook-form";
-import { useAppDispatch } from "../../../store/store.ts";
-import ComplexInputField from "../../../components/ComplexInputField";
-import Button from "../../../components/Button";
-import { COLORS } from "../../../constants/Colors.ts";
-import { horizontalPixel, verticalPixel } from "../../../utils/Normalizer.ts";
-import { clearBillCustomerInfo, setBillCustomerInfo } from "../../../store/bill/bill.slice.ts";
+import { useAppDispatch } from "../../../../store/store.ts";
+import ComplexInputField from "../../../../components/ComplexInputField";
+import Button from "../../../../components/Button";
+import { COLORS } from "../../../../constants/Colors.ts";
+import { horizontalPixel, verticalPixel } from "../../../../utils/Normalizer.ts";
+import { clearBillCustomerInfo, setBillCustomerInfo } from "../../../../store/bill/bill.slice.ts";
 
 
 interface IGetInfoModal{

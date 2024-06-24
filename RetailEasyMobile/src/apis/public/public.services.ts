@@ -1,5 +1,5 @@
 import { FeedbackDto } from "./dtos/FeedbackDto.ts";
-import { AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { baseUrl, ENDPOINT } from "../../constants/Endpoint.ts";
 import { Interceptor } from "../Interceptor.ts";
 import { ICommonResponse } from "../CommonResponse.ts";
@@ -15,12 +15,14 @@ export const sendFeedbackService = async (data: FeedbackDto) => {
   return await Interceptor(config);
 }
 
-export const testServerConnectionService = async ()  => {
-  const config: AxiosRequestConfig = {
-    method: 'GET',
-    url: baseUrl,
+export const testServerConnectionService = async (): Promise<boolean>  => {
+  try {
+    await axios.get(ENDPOINT.GET_STORE);
+    return true;
+  } catch (error) {
+    console.log({error});
+    return false;
   }
-  return await Interceptor(config);
 }
 
 export const getStoreInfoService = async () => {

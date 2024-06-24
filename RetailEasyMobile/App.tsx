@@ -20,13 +20,18 @@ function Main(): React.JSX.Element {
 
   const appDispatch = useAppDispatch();
 
+  //check if server is reachable
   useEffect(() => {
     testServerConnectionService()
       .then((response) => {
-        console.log({response});
+        if (response){
+          console.log("Connected to server");
+        }else {
+          console.log("Cannot connect to server");
+        }
       })
       .catch((err) => {
-        console.log({err});
+        console.log({err : "Not connected to internet"});
       })
   });
 

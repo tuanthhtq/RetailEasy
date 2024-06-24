@@ -6,6 +6,7 @@ import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalize
 import Button from "../../components/Button";
 import { COLORS } from "../../constants/Colors.ts";
 import { useState } from "react";
+import ScannerModal from "./components/ScannerModal";
 
 
 const AddBillItem = () => {
@@ -31,6 +32,7 @@ const AddBillItem = () => {
   return (
     <View style={style.container}>
       <ScreenHeader label={"Thêm sản phẩm"}/>
+      <ScannerModal isVisible={true}/>
       <View style={style.content}>
         <View style={style.list}>
 

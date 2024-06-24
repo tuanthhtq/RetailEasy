@@ -1,6 +1,0 @@
-
-
-interface IPopupNotificcation {
-  label: string,
-  
-}

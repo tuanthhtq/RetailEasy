@@ -15,7 +15,7 @@ import {
   CreateBillParams,
   CreateBillStackName,
 } from "../../constants/ParamList.ts";
-import GetInfoModal from "./GetInfoModal";
+import GetInfoModal from "./components/GetInfoModal";
 
 type NavigationProp = NativeStackScreenProps<CreateBillParams, CreateBillStackName.CREATE_BILL_HOME>
 
@@ -41,7 +41,6 @@ const CreateBill = ({navigation}: NavigationProp) => {
     onCloseModal()
     navigation.navigate(CreateBillStackName.ADD_BILL_ITEM)
   }
-
 
 
 

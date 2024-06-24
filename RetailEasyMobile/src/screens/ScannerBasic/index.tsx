@@ -12,7 +12,7 @@ import {
 } from "react-native-vision-camera";
 import { fontPixel, horizontalPixel, SCREEN_HEIGHT, SCREEN_WIDTH, verticalPixel } from "../../utils/Normalizer.ts";
 import ScreenHeader from "../../components/ScreenHeader";
-import InfoModal from "./InfoModal";
+import InfoModal from "./components/InfoModal";
 import Scanner from "../../components/Scanner";
 
 enum CAMERA_STATE {
