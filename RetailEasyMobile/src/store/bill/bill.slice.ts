@@ -1,17 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import { ProductSimpleDto } from "../../apis/dto/product.simple.dto.ts";
 
 export interface IBillCustomer {
   id: number | null,
   name: string | null,
   phone: string | null,
+  billItems: ProductSimpleDto[]
 }
 
 
 const initialSate: IBillCustomer = {
   id: null,
   name: null,
-  phone: null
+  phone: null,
+  billItems: []
 }
 
 const billSlice = createSlice({
@@ -33,10 +35,11 @@ const billSlice = createSlice({
       state.id = null
       state.name = null
       state.phone = null
+      state.billItems = []
     }
   }
 })
 
 
-export const {getBillCustomerInfo, setBillCustomerInfo} = billSlice.actions
+export const {getBillCustomerInfo, setBillCustomerInfo, clearBillCustomerInfo} = billSlice.actions
 export const  billCustomerReducer = billSlice.reducer

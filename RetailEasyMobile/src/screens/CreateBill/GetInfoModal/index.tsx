@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Modal, StyleSheet, View } from "react-native";
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "../../../store/store.ts";
@@ -6,12 +6,13 @@ import ComplexInputField from "../../../components/ComplexInputField";
 import Button from "../../../components/Button";
 import { COLORS } from "../../../constants/Colors.ts";
 import { horizontalPixel, verticalPixel } from "../../../utils/Normalizer.ts";
+import { clearBillCustomerInfo, setBillCustomerInfo } from "../../../store/bill/bill.slice.ts";
 
 
 interface IGetInfoModal{
   isVisible: boolean
-  onSkip: ()=> void
-  onNext: ()=> void
+  onContinue: ()=> void
+  onClose: ()=> void
 }
 
 interface formData {
@@ -21,29 +22,32 @@ interface formData {
 
 const GetInfoModal: React.FC<IGetInfoModal> =({isVisible = false, ...props}) => {
 
-  const  {control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
+  const  {control, handleSubmit, formState: {errors}, setError, reset} = useForm<formData>()
 
   const appDispatch = useAppDispatch();
 
   const onSubmit = (data: formData) => {
-    console.log({data});
+    appDispatch(setBillCustomerInfo({id: 1, phone: data.customerPhone, name: data.customerName, billItems: []}))
+    props.onContinue()
   }
-  const onSubmitWithoutData = (data: formData) => {
-    console.log({without: data});
+  const onSubmitWithoutData = () => {
+    props.onContinue()
   }
 
-  const onRequestClose = (skip?: boolean) => {
-    handleSubmit(onSubmit)
-    if (skip) props.onSkip()
-    else props.onNext()
-  }
+  useEffect(() => {
+    if(isVisible){
+      appDispatch(clearBillCustomerInfo())
+      control._reset()
+      console.log();
+      reset(control._formValues)
+    }
+  }, [isVisible])
 
   return (
     <Modal
       animationType='fade'
       visible = {isVisible}
       transparent={true}
-      onRequestClose={() => onRequestClose(false)}
     >
       <View style={style.modalBackground}>
         <View style={style.modalContent}>
@@ -54,6 +58,7 @@ const GetInfoModal: React.FC<IGetInfoModal> =({isVisible = false, ...props}) => 
               control={control}
               maxLength={100}
               validateName
+              errors={errors.customerName ? errors.customerName.message : "" }
             />
             <ComplexInputField
               label={"Số điện thoại"}
@@ -61,11 +66,12 @@ const GetInfoModal: React.FC<IGetInfoModal> =({isVisible = false, ...props}) => 
               control={control}
               maxLength={15}
               validatePhone
+              errors={errors.customerPhone ? errors.customerPhone.message : "" }
             />
           </View>
           <View style={style.action}>
-            <Button size={"small"} color={"pink"} onClick={() => onRequestClose(true)} label={"Quay lại"}/>
-            <Button size={"small"} onClick={handleSubmit(onSubmitWithoutData)} label={"Bỏ qua"}/>
+            <Button size={"small"} color={"pink"} onClick={props.onClose} label={"Quay lại"}/>
+            <Button size={"small"} onClick={() => onSubmitWithoutData()} label={"Bỏ qua"}/>
             <Button size={"small"} onClick={handleSubmit(onSubmit)} label={"Tiếp tục"}/>
           </View>
         </View>
@@ -101,7 +107,9 @@ const style = StyleSheet.create({
     overflow: 'hidden'
   },
   main: {
-    flexGrow: 0.7
+    flexGrow: 0.7,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly'
   },
   action: {
     width: horizontalPixel(320),

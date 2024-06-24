@@ -5,19 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/Button/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/product.simple.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/TrashBinIcon/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/AuthorizedStack/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/AuthorizedStack/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Keys.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/ParamList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/ParamList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/CreateBillStack/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/CreateBillStack/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/GetInfoModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/GetInfoModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/bill/bill.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/bill/bill.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

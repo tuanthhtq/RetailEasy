@@ -27,19 +27,22 @@ const CreateBill = ({navigation}: NavigationProp) => {
   const appDispatch = useAppDispatch();
   const isFocused = useIsFocused();
 
-  //on skip acquiring customer information
-  const onSkipGetInfo = () => {
-    setModalVisible(false)
-  }
-  //on acquired customer information
-  const onNext = () => {
-
-  }
-
   //open modal
   const openModal = () => {
     setModalVisible(true)
   }
+  //close modal
+  const onCloseModal = () => {
+    setModalVisible(false);
+  }
+
+  //on continue
+  const onContinue = () => {
+    onCloseModal()
+    navigation.navigate(CreateBillStackName.ADD_BILL_ITEM)
+  }
+
+
 
 
 
@@ -63,7 +66,7 @@ const CreateBill = ({navigation}: NavigationProp) => {
   return (
     <View style={style.container}>
       <ScreenHeader label={"Tạo đơn hàng"} backBtn={false}/>
-      <GetInfoModal isVisible={modalVisible} onSkip={onSkipGetInfo} onNext={onNext}/>
+      <GetInfoModal isVisible={modalVisible} onContinue={onContinue} onClose={onCloseModal}/>
       <View style={style.content}>
         <View style={style.main}>
           <Text style={{fontSize: 24, color: COLORS.BLACK}}>Đơn hàng gần đây</Text>

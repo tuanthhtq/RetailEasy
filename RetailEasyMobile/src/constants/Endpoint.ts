@@ -1,4 +1,4 @@
-export const baseUrl = "http://192w.168.51.101:8080/api/v1";
+export const baseUrl = "http://192.168.31.209:8080/api/v1";
 
 export enum ENDPOINT{
     LOGIN = `${baseUrl}/auth/login`,

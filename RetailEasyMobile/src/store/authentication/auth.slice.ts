@@ -30,7 +30,6 @@ const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       console.log("Logout");
-
       state.accessToken = null
       state.isAuthenticated = false
     },

@@ -15,6 +15,7 @@ export enum store_info_key {
   email = "store_email",
 }
 
+
 export enum store_initial_state_key {
   initial_state = "store_initial_state"
 }

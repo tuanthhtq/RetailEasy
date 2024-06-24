@@ -12,7 +12,6 @@ const Divider: React.FC<ICommonIcon> = ({ size = 300, color = COLORS.PINK }) => 
     <Svg width={w} height={2} viewBox="0 0 300 2 " fill="none" style={{alignSelf: 'center'}}>
       <Path fillRule="evenodd" clipRule="evenodd" d="M300 1.5H0V0.5H300V1.5Z" fill={color} />
     </Svg>
-
   )
 }
 

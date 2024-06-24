@@ -48,7 +48,9 @@ export type MenuParams = {
 
 export enum CreateBillStackName{
   CREATE_BILL_HOME = "CreateBillHome",
+  ADD_BILL_ITEM = "AddBillItems"
 }
 export type CreateBillParams = {
-  [CreateBillStackName.CREATE_BILL_HOME]: undefined
+  [CreateBillStackName.CREATE_BILL_HOME]: undefined,
+  [CreateBillStackName.ADD_BILL_ITEM]: undefined
 }

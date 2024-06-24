@@ -60,13 +60,13 @@ const publicSlice = createSlice({
         console.log("Landing failed", action);
       })
       .addCase(serverConnect.pending, (state, action) => {
-        console.log("p", action);
+        console.log("Server waiting ", action);
       })
       .addCase(serverConnect.fulfilled, (state, action) => {
-        console.log("f", action);
+        console.log("Server connected", action);
       })
       .addCase(serverConnect.rejected, (state, action) => {
-        console.log("r", action);
+        console.log("Server connect failed", action);
       })
 
   }
