@@ -62,6 +62,18 @@ public class AuthServicesImpl implements AuthServices {
 
 
     @Override
+    public CommonResponseDto<Boolean> anyUserExists() {
+        CommonResponseDto<Boolean> response = new CommonResponseDto<>();
+        response.setStatus(200);
+        response.setMessage("Success");
+
+        long userCount = userRepository.countAll();
+        response.setData(userCount > 0);
+
+        return response;
+    }
+
+    @Override
     public CommonResponseDto<UserDataDto> createAdminAccount(CreateAdminRequestDto request, BindingResult bindingResult) {
         //init response
         CommonResponseDto<UserDataDto> response = new CommonResponseDto<>();

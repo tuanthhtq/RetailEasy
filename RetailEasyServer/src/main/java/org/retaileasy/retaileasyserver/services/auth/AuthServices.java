@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 
 
 public interface AuthServices {
+    CommonResponseDto<Boolean> anyUserExists ();
     CommonResponseDto<UserDataDto> createAdminAccount(CreateAdminRequestDto request, BindingResult bindingResult);
     CommonResponseDto<UserDataDto> authenticate(LoginRequestDto request, BindingResult bindingResult);
     CommonResponseDto<UserDataDto> createAccount(CreateAccountRequestDto request, BindingResult bindingResult);

@@ -21,7 +21,7 @@ const initialState: IAuthState = {
   phoneNumber: mmkv.getString(auth_key.phone) || null,
   isLoading: false,
   message: null,
-  roles: mmkv.getString(auth_key.roles)?.split('\,') ||['']
+  roles: mmkv.getString(auth_key.roles)?.split('\,') ||[]
 }
 
 const authSlice = createSlice({
@@ -32,13 +32,9 @@ const authSlice = createSlice({
       console.log("Logout");
 
       state.accessToken = null
-      state.fullName = null
       state.isAuthenticated = false
-      state.phoneNumber = null
-      mmkv.clearAll()
     },
     checkLogin: (state) => {
-      console.log({cache: mmkv.getString(auth_key.roles)});
       console.log("Check authentication");
       return state;
     }
@@ -67,8 +63,6 @@ const authSlice = createSlice({
           mmkv.set(auth_key.authed, true)
           mmkv.set(auth_key.phone, data.phone)
           mmkv.set(auth_key.roles, data.roles.toString())
-
-          console.log({response: data.roles});
         }
       })
       .addCase(login.rejected, (state, action) => {

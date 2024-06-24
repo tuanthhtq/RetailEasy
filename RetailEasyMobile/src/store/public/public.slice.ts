@@ -2,7 +2,7 @@ import { StoreInfoDto } from "../../apis/public/dtos/StoreInfoDto.ts";
 import { mmkv } from "../../utils/MMKVProvider.ts";
 import { store_info_key } from "../../constants/Keys.ts";
 import { createSlice } from "@reduxjs/toolkit";
-import { landing } from "./public.action.ts";
+import { landing, serverConnect } from "./public.action.ts";
 
 export interface IStoreInfoState extends StoreInfoDto{
   isLoading: boolean,
@@ -19,6 +19,7 @@ const initialState: IStoreInfoState = {
   isLoading: false,
   error: null
 }
+
 
 const publicSlice = createSlice({
   name: "public/landing",
@@ -57,6 +58,15 @@ const publicSlice = createSlice({
       })
       .addCase(landing.rejected, (state, action) => {
         console.log("Landing failed", action);
+      })
+      .addCase(serverConnect.pending, (state, action) => {
+        console.log("p", action);
+      })
+      .addCase(serverConnect.fulfilled, (state, action) => {
+        console.log("f", action);
+      })
+      .addCase(serverConnect.rejected, (state, action) => {
+        console.log("r", action);
       })
 
   }

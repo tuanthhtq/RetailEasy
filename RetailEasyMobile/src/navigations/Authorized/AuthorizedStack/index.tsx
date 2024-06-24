@@ -18,7 +18,6 @@ const Tab = createBottomTabNavigator<AuthorizedParams>();
 const AuthorizedStack = () => {
 
   const roles = useSelector((state: IRootState) => {
-    console.log(state.auth.roles.includes("ROLE_CASHIER") || state.auth.roles.includes("ROLE_ADMIN"));
     return state.auth.roles;
   })
 

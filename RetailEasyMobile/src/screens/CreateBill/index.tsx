@@ -56,7 +56,6 @@ const CreateBill = ({navigation}: NavigationProp) => {
           console.log("Session invalid");
           appDispatch(logout())
         })
-
     }
   }, [isFocused])
 

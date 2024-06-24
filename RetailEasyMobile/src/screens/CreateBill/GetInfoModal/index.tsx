@@ -21,13 +21,15 @@ interface formData {
 
 const GetInfoModal: React.FC<IGetInfoModal> =({isVisible = false, ...props}) => {
 
-  const  {control, handleSubmit, formState: {errors}} = useForm<formData>()
+  const  {control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
 
   const appDispatch = useAppDispatch();
 
   const onSubmit = (data: formData) => {
     console.log({data});
-    console.log(1);
+  }
+  const onSubmitWithoutData = (data: formData) => {
+    console.log({without: data});
   }
 
   const onRequestClose = (skip?: boolean) => {
@@ -63,8 +65,8 @@ const GetInfoModal: React.FC<IGetInfoModal> =({isVisible = false, ...props}) => 
           </View>
           <View style={style.action}>
             <Button size={"small"} color={"pink"} onClick={() => onRequestClose(true)} label={"Quay lại"}/>
-            <Button size={"small"} onClick={() => onRequestClose(true)} label={"Bỏ qua"}/>
-            <Button size={"small"} onClick={() => onRequestClose(false)} label={"Tiếp tục"}/>
+            <Button size={"small"} onClick={handleSubmit(onSubmitWithoutData)} label={"Bỏ qua"}/>
+            <Button size={"small"} onClick={handleSubmit(onSubmit)} label={"Tiếp tục"}/>
           </View>
         </View>
       </View>

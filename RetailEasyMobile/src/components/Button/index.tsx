@@ -26,7 +26,7 @@ const Button: React.FC<IButton> = ({label, size = "large", onClick, color = COLO
 
   let textStyle: StyleProp<TextStyle> = {
     color: COLORS.WHITE,
-    fontSize: fontPixel(24),
+    fontSize: fontPixel(20),
     textAlign: 'center',
   }
 
@@ -39,7 +39,7 @@ const Button: React.FC<IButton> = ({label, size = "large", onClick, color = COLO
     }
     textStyle = {
       ...textStyle,
-      fontSize: fontPixel(16),
+      fontSize: fontPixel(14),
     }
   }else if(size === "small"){
     buttonStyle = {

@@ -1,14 +1,16 @@
-const base = "http://192.168.31.209:8080/api/v1";
+export const baseUrl = "http://192w.168.51.101:8080/api/v1";
 
 export enum ENDPOINT{
-    LOGIN = `${base}/auth/login`,
-    REGISTER = `${base}/auth/create-account`,
-    CREATE_ADMIN = `${base}/auth/create-admin`,
+    LOGIN = `${baseUrl}/auth/login`,
+    REGISTER = `${baseUrl}/auth/create-account`,
+    CREATE_ADMIN = `${baseUrl}/auth/create-admin`,
 
-    SEND_FEEDBACK = `${base}/home/send-feedback`,
-    GET_STORE = `${base}/home/landing`,
-    GET_PRODUCT_DETAIL = `${base}/home/scan-result`,
+    SEND_FEEDBACK = `${baseUrl}/home/send-feedback`,
+    GET_STORE = `${baseUrl}/home/landing`,
+    GET_PRODUCT_DETAIL = `${baseUrl}/home/scan-result`,
 
-    GET_RECENT_BILL = `${base}/emp/most-recent-bill`,
+    GET_RECENT_BILL = `${baseUrl}/emp/most-recent-bill`,
+
+    ADMIN_EXISTS = `${baseUrl}/auth/admin-exists`,
 
 }

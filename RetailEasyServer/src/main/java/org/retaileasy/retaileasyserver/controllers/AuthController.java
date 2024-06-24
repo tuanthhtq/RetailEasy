@@ -55,4 +55,10 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
     }
 
+    @PostMapping("/admin-exists")
+    ResponseEntity<CommonResponseDto<Boolean>> adminExists() {
+        CommonResponseDto<Boolean> response = authServices.anyUserExists();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 }
