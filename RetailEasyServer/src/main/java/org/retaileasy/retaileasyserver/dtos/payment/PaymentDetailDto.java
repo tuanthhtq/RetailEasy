@@ -12,13 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class    PaymentRequestDto {
+public class PaymentDetailDto {
     private int orderCode;
     private int amount;
     private String description;
     private String buyerName;
     private String buyerPhone;
-    private List<ItemDto> items;
+    private List<PaymentItemDto> items;
     private String cancelUrl;
     private String returnUrl;
     private String signature;

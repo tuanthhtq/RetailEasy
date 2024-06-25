@@ -27,7 +27,6 @@ public class AuthorizedController {
     @GetMapping("/most-recent-bill")
     public ResponseEntity<CommonResponseDto<List<BillDto>>> getRecentBill() {
         CommonResponseDto<List<BillDto>> response = employeeServices.get10LastBills();
-
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class ItemDto {
+public class PaymentItemDto {
     private int productId;
     private String name;
     private int price;

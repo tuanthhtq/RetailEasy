@@ -9,4 +9,6 @@ public interface EmployeeServices {
 
     CommonResponseDto<List<BillDto>> get10LastBills();
 
+//    CommonResponseDto<String> createBill()
+
 }

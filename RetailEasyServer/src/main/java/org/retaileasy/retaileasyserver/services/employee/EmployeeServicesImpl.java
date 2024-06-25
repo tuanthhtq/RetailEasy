@@ -6,6 +6,8 @@ import org.retaileasy.retaileasyserver.models.Bill;
 import org.retaileasy.retaileasyserver.repository.BillRepository;
 import org.retaileasy.retaileasyserver.utils.DtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
