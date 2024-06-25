@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import { COLORS } from "../../../constants/Colors.ts";
 import { verticalPixel } from "../../../utils/Normalizer.ts";
 import HomeIcon from "../../../components/icons/HomeIcon";
-import { IRootState } from "../../../store/store.ts";
+import { IRootState, useAppDispatch } from "../../../store/store.ts";
 import Home from "../../../screens/Home";
 import CreateBillIcon from "../../../components/icons/CreateBillIcon";
 import ImportIcon from "../../../components/icons/ImportIcon";
@@ -12,14 +12,26 @@ import MenuIcon from "../../../components/icons/MenuIcon";
 import ProfileIcon from "../../../components/icons/ProfileIcon";
 import menuStack from "../MenuStack";
 import createBillStack from "../CreateBillStack";
+import { useEffect } from "react";
+import { logout } from "../../../store/authentication/auth.slice.ts";
 
 const Tab = createBottomTabNavigator<AuthorizedParams>();
 
 const AuthorizedStack = () => {
 
-  const roles = useSelector((state: IRootState) => {
-    return state.auth.roles;
+  const authState = useSelector((state: IRootState) => {
+    return state.auth;
   })
+
+  const appDispatch = useAppDispatch();
+
+  //check authentication
+  useEffect(() => {
+    if(!authState.accessToken){
+      appDispatch(logout())
+    }
+  }, [authState]);
+
 
   return(
     <Tab.Navigator
@@ -43,7 +55,7 @@ const AuthorizedStack = () => {
         }}
       />
 
-      {(roles.includes("ROLE_CASHIER") || roles.includes("ROLE_ADMIN")) &&
+      {(authState.roles.includes("ROLE_CASHIER") || authState.roles.includes("ROLE_ADMIN")) &&
         <Tab.Screen
           name={AuthorizedStackName.CREATE_BILL}
           component={createBillStack}
@@ -54,7 +66,7 @@ const AuthorizedStack = () => {
           }}
         />
       }
-      {(roles.includes("ROLE_DATA_ENTRY") || roles.includes("ROLE_ADMIN")) &&
+      {(authState.roles.includes("ROLE_DATA_ENTRY") || authState.roles.includes("ROLE_ADMIN")) &&
         <Tab.Screen
           name={AuthorizedStackName.IMPORT}
           component={Home}
@@ -65,7 +77,7 @@ const AuthorizedStack = () => {
           }}
         />
       }
-      {(roles.includes("ROLE_ADMIN")) ?
+      {(authState.roles.includes("ROLE_ADMIN")) ?
           <Tab.Screen
             name={AuthorizedStackName.PROFILE}
             component={menuStack}

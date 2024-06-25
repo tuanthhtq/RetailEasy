@@ -55,7 +55,7 @@ const ScannerBasic = () => {
         isVisible={modalVisible}
         onRequestClose={onCloseModal}
       />
-      <ScreenHeader label={"Quét mã sản phẩm"} backBtn={false} />
+      <ScreenHeader label={"Thông tin sản phẩm"} backBtn={false} />
       <View style={style.content}>
         <Scanner
           state={cameraState}

@@ -18,7 +18,6 @@ const Landing = () => {
   const storeData = useSelector((state: IRootState) => state.public)
 
   const appDispatch = useAppDispatch();
-  appDispatch(checkStoreInfo())
 
   const call = (num: string) => {
     Linking.canOpenURL(`tel:${num}`)
@@ -47,6 +46,8 @@ const Landing = () => {
   }
 
   useEffect(() => {
+    appDispatch(checkStoreInfo())
+
     if(storeData.name === '' || storeData.address === '' || storeData.owner === '' || storeData.phoneNumber === '' ){
       appDispatch(landing())
     }

@@ -18,7 +18,15 @@ interface IInfoModal {
 const InfoModal: React.FC<IInfoModal> = ({isVisible = false, ...props}) => {
 
   const [isLoading, setIsLoading] = useState(true)
-  const [data, setData] = useState<ProductDetailDto>()
+  const [data, setData] = useState<ProductDetailDto | null>()
+  const [error, setError] = useState("")
+
+  const onClose = () => {
+    setIsLoading(true);
+    setData(null)
+    setError("")
+    props.onRequestClose()
+  }
 
   useEffect(() => {
     getProductDetailService(props.barCode)
@@ -26,6 +34,9 @@ const InfoModal: React.FC<IInfoModal> = ({isVisible = false, ...props}) => {
         if(response.data){
           setData(response.data)
           setIsLoading(false)
+        }else{
+          setError(response.message)
+          setIsLoading(true)
         }
       })
       .catch((err) => {
@@ -43,10 +54,15 @@ const InfoModal: React.FC<IInfoModal> = ({isVisible = false, ...props}) => {
     >
       <View style={style.modalBackground}>
         {isLoading ?
-          <View style={style.content}><Text>Đang lấy dữ liệu</Text></View> :
+          <View style={[style.content, {paddingVertical: verticalPixel(20)}]}>
+            <Text style={{color: COLORS.BLACK, fontSize: fontPixel(24), textAlign: 'center'}}>
+              {error ? error : "Đang lấy dữ liệu"}</Text>
+            <Button onClick={props.onRequestClose} label={"Đồng ý"}/>
+          </View> :
+          data &&
           <View style={style.content}>
             <Image
-              source={{ uri: data?.productImage }}
+              source={{ uri: data.productImage }}
               style={style.image}
               resizeMode={'contain'}
             />
@@ -69,7 +85,7 @@ const InfoModal: React.FC<IInfoModal> = ({isVisible = false, ...props}) => {
                   <Text style={[style.text]}>Trạng thái: {data?.status ? "Sẵn có" : "Đã dừng bán"}</Text>
 
                 </View>
-                <Button onClick={props.onRequestClose} label={"Đồng ý"}/>
+                <Button onClick={onClose} label={"Đồng ý"}/>
               </View>
             </ScrollView>
           </View>

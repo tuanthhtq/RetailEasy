@@ -15,14 +15,11 @@ export const sendFeedbackService = async (data: FeedbackDto) => {
   return await Interceptor(config);
 }
 
-export const testServerConnectionService = async (): Promise<boolean>  => {
-  try {
-    await axios.get(ENDPOINT.GET_STORE);
-    return true;
-  } catch (error) {
-    console.log({error});
-    return false;
-  }
+export const testServerConnectionService = async ()  => {
+  return axios.request({
+    method: 'GET',
+    url: ENDPOINT.GET_STORE,
+  })
 }
 
 export const getStoreInfoService = async () => {

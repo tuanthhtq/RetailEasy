@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack";
 import { COLORS } from "./src/constants/Colors.ts";
@@ -7,39 +7,28 @@ import { KeyboardAvoidingView, Platform } from "react-native";
 import { Provider, useSelector } from "react-redux";
 import { IRootState, store, useAppDispatch } from "./src/store/store.ts";
 import AuthorizedStack from "./src/navigations/Authorized/AuthorizedStack";
-import { logout } from "./src/store/authentication/auth.slice.ts";
-import { setBillCustomerInfo } from "./src/store/bill/bill.slice.ts";
-import { getStoreInfoService, testServerConnectionService } from "./src/apis/public/public.services.ts";
-import { serverConnect } from "./src/store/public/public.action.ts";
+import { testServerConnectionService } from "./src/apis/public/public.services.ts";
+import PopupNotification from "./src/components/PopupNotification";
+import * as net from "node:net";
 
 function Main(): React.JSX.Element {
 
-  const authState = useSelector((state: IRootState ) => {
-    return state.auth;
-  })
+  const authState = useSelector((state: IRootState ) =>  state.auth)
 
-  const appDispatch = useAppDispatch();
+  const [networkErr, setNetworkErr] = useState(false)
 
-  //check if server is reachable
+  //check server connection
   useEffect(() => {
     testServerConnectionService()
-      .then((response) => {
-        if (response){
-          console.log("Connected to server");
-        }else {
-          console.log("Cannot connect to server");
+      .then(res => {
+        if(res.data){
+          setNetworkErr(false)
         }
       })
-      .catch((err) => {
-        console.log({err : "Not connected to internet"});
+      .catch(err => {
+        setNetworkErr(true)
       })
-  });
-
-  useEffect(() => {
-    if(!authState.accessToken){
-      appDispatch(logout())
-    }
-  }, [authState]);
+  })
 
   return (
     <SafeAreaProvider
@@ -47,6 +36,7 @@ function Main(): React.JSX.Element {
         flex: 1
       }}
     >
+      <PopupNotification label={"Không thể kết nối đến server"} visible={networkErr}/>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}

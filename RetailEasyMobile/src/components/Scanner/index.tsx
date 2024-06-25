@@ -34,7 +34,7 @@ const Scanner: React.FC<IScanner> = ({...props}) => {
 
   //camera format configuration
   const format = useCameraFormat(device, [
-    { videoResolution: { width: 800, height: 800 } },
+    { videoResolution: { width: 1000, height: 1000 }, autoFocusSystem: "phase-detection", fps: 30 },
   ])
 
   //code scanner handler
@@ -52,6 +52,7 @@ const Scanner: React.FC<IScanner> = ({...props}) => {
     }
   })
 
+  //find most occurred code to prevent wrong code
   const mostFrequent = (arr: string[]) => {
 
     const frequencyMap: { [key: string]: number } = {};
@@ -68,6 +69,10 @@ const Scanner: React.FC<IScanner> = ({...props}) => {
 
     return mostFrequentElement;
   };
+
+  const onCameraLoaded = () => {
+
+  }
 
   //update focus state
   useEffect(() => {
@@ -112,39 +117,35 @@ const Scanner: React.FC<IScanner> = ({...props}) => {
     }
   }, [scanned]);
 
-  return (
-    <View style={style.container}>
-      {
-        state === CAMERA_STATE.PREPARE ?
-          <View></View> :
-          device &&
-          <>
-            <Camera
-              ref={cameraRef}
-              style={{
-                position: 'absolute',
-                width: horizontalPixel(300),
-                height: horizontalPixel(300),
-              }}
-              codeScanner={codeScanner}
-              device={device}
-              isActive={state === CAMERA_STATE.ACTIVE && props.isFocused}
-              format={format}
-            />
-            <Text style={style.text}>{props.tip}</Text>
-          </>
-      }
+  return (state !== CAMERA_STATE.PREPARE && device) ? (
+    <View style={style.camera}>
+      <Camera
+        onLayout={onCameraLoaded}
+        ref={cameraRef}
+        style={{
+          width: horizontalPixel(300),
+          height: horizontalPixel(300)
+        }}
+        codeScanner={codeScanner}
+        device={device}
+        isActive={state === CAMERA_STATE.ACTIVE && props.isFocused}
+        format={format}
+      />
+      <Text style={style.text}>{props.tip}</Text>
     </View>
-  )
+  ) :
+    <View></View>
 }
 
 const style = StyleSheet.create({
-  container: {
+  camera: {
     width: horizontalPixel(300),
-    height: horizontalPixel(300),
-    position: 'absolute',
+    height: horizontalPixel(350),
     flexDirection: 'column',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-start',
+    alignSelf: 'center',
+    borderWidth: 1,
+    borderColor: COLORS.WHITE
   },
   text: {
     color: COLORS.BLACK,

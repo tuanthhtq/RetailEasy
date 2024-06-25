@@ -8,6 +8,6 @@ export interface ProductDetailDto{
   manufacturedDate: string,
   expiry: string,
   stock: number,
-  price: string,
+  price: number,
   status: boolean
 }

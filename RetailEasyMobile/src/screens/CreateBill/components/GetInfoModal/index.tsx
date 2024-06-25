@@ -70,7 +70,7 @@ const GetInfoModal: React.FC<IGetInfoModal> =({isVisible = false, ...props}) => 
             />
           </View>
           <View style={style.action}>
-            <Button size={"small"} color={"pink"} onClick={props.onClose} label={"Quay lại"}/>
+            <Button size={"small"} color={"pink"} onClick={props.onClose} label={"Huỷ"}/>
             <Button size={"small"} onClick={() => onSubmitWithoutData()} label={"Bỏ qua"}/>
             <Button size={"small"} onClick={handleSubmit(onSubmit)} label={"Tiếp tục"}/>
           </View>

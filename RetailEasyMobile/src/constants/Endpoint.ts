@@ -1,5 +1,5 @@
-// export const baseUrl = "http://192.168.31.209:8080/api/v1";
-export const baseUrl = "http://192.168.51.101:8080/api/v1";
+export const baseUrl = "http://192.168.31.209:8080/api/v1";
+// export const baseUrl = "http://192.168.51.101:8080/api/v1";
 
 export enum ENDPOINT{
     LOGIN = `${baseUrl}/auth/login`,
@@ -13,5 +13,4 @@ export enum ENDPOINT{
     GET_RECENT_BILL = `${baseUrl}/emp/most-recent-bill`,
 
     ADMIN_EXISTS = `${baseUrl}/auth/admin-exists`,
-
 }
