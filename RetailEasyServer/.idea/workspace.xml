@@ -5,34 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/RetailEasyServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/StaticResourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Barcode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Bill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/BillItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Brand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Feedback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/StoreInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/BillRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/retaileasy/retaileasyserver/RetailEasyServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/bill.item.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/MockData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/MockData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/components/TableItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/components/TableItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/utils/ConfirmSound.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/utils/ConfirmSound.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +70,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.RetailEasyServerApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/chien/Desktop/RetailEasy/RetailEasyServer",
@@ -168,6 +146,7 @@
       <workItem from="1718971274644" duration="18000" />
       <workItem from="1719101348661" duration="3157000" />
       <workItem from="1719241843196" duration="993000" />
+      <workItem from="1719396731101" duration="477000" />
     </task>
     <servers />
   </component>

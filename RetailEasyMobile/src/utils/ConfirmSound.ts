@@ -5,7 +5,7 @@ class ConfirmSound {
   private sound: Sound | null = null;
 
   private constructor() {
-    Sound.setCategory('Playback');
+    Sound.setCategory('Playback', true);
   }
 
   public static getInstance(): ConfirmSound {

@@ -5,7 +5,7 @@ import { IRootState } from "../../store/store.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import Button from "../../components/Button";
 import { COLORS } from "../../constants/Colors.ts";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ScannerModal from "./components/ScannerModal";
 import { ProductDetailDto } from "../../apis/dto/productDetail.dto.ts";
 import { getProductDetailService } from "../../apis/public/public.services.ts";
@@ -13,6 +13,9 @@ import confirmSound from "../../utils/ConfirmSound.ts";
 import { BillItems } from "../../mockingbin/MockData.ts";
 import BillListItem from "../../components/BillListItem";
 import TableItem from "./components/TableItem";
+import TrashBinIcon from "../../components/icons/TrashBinIcon";
+import { IBillItemDto } from "../../apis/dto/bill.item.dto.ts";
+import billListItem from "../../components/BillListItem";
 
 
 const AddBillItem = () => {
@@ -22,9 +25,21 @@ const AddBillItem = () => {
   const [barcode, setBarcode] = useState('')
   const [scanMessage, setScanMessage] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
-  const [data, setData] = useState<ProductDetailDto[] | []>(BillItems)
+  const [data, setData] = useState<IBillItemDto[] | []>(BillItems)
 
-  const renderItem = () => {}
+  const renderItem = () => {
+    return data.map((item : IBillItemDto, index) =>
+      <TableItem
+        key={index}
+        barcode={item.product.barcode}
+        no={ index + 1}
+        name={item.product.productName}
+        quantity={item.quantity}
+        price={item.product.price}
+        onDelete={(barcode: string) => removeItem(barcode)}
+      />
+    )
+  }
 
   //manual add
   const addManual = () => {
@@ -50,8 +65,38 @@ const AddBillItem = () => {
   }
 
   //on remove item
-  const removeItem = (name: string) => {
+  const removeItem = (barcode: string) => {
+    setData(current => {
+      return current.filter(item => item.product.barcode !== barcode)
+    })
+  }
 
+  //add to item list
+  const addToList = (newItem: ProductDetailDto) => {
+    data.map((item) => {
+      if(item.product.barcode === newItem.barcode){
+        setData( current => {
+          current.map((item => {
+            if(item.product.barcode === newItem.barcode){
+              return {
+
+              }
+            }else{
+              return item
+            }
+          }))
+        })
+
+      }else{
+        setData([
+          ...data,
+          {
+            product: newItem,
+            quantity: 1
+          }
+        ])
+      }
+    })
   }
 
   //get item info after scan barcode
@@ -63,6 +108,8 @@ const AddBillItem = () => {
             confirmSound.playSound()
             setModalVisible(false)
             setScanMessage('')
+            //add to current list
+            addToList(response.data)
           }else{ //product not exists
             setScanMessage(response.message)
           }
@@ -86,20 +133,17 @@ const AddBillItem = () => {
       <View style={style.content}>
         <View style={style.billItems}>
           <View style={style.tHead}>
-
+            <View style={[style.no, style.td]}><Text style={style.text}>Stt</Text></View>
+            <View style={[style.name, style.td]}><Text style={style.text}>Tên</Text></View>
+            <View style={[style.qty, style.td]}><Text style={style.text}>SL</Text></View>
+            <View style={[style.price, style.td]}><Text style={style.text}>Đơn giá</Text></View>
+            <View style={[style.delete, style.td]}></View>
           </View>
           <ScrollView
             style={{flex: 1}}
           >
             <View style={style.tBody}>
-              {data && data.map((item : ProductDetailDto) =>
-                <TableItem
-                  no={data.indexOf(item) + 1}
-                  name={item.productName}
-                  price={item.price}
-                  onDelete={(name: string) => removeItem(name)}
-                />
-              )}
+              {data && renderItem()}
             </View>
           </ScrollView>
         </View>
@@ -146,15 +190,36 @@ const style = StyleSheet.create({
 
   },
   text: {
-
+    color: COLORS.BLACK,
+    fontSize: fontPixel(18),
   },
   billItems: {
     flexGrow: 1,
-    borderWidth: 1,
 
   },
+  td: {
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: COLORS.PINK
+  },
   tHead: {
-
+    flexDirection: 'row',
+    width: horizontalPixel(340)
+  },
+  no: {
+    width: horizontalPixel(28)
+  },
+  name: {
+    width: horizontalPixel(170)
+  },
+  qty: {
+    width: horizontalPixel(28)
+  },
+  price: {
+    width: horizontalPixel(90)
+  },
+  delete: {
+    width: horizontalPixel(24)
   },
   tBody: {
 
