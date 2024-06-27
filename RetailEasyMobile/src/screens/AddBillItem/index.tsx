@@ -75,17 +75,17 @@ const AddBillItem = () => {
   const addToList = (newItem: ProductDetailDto) => {
     data.map((item) => {
       if(item.product.barcode === newItem.barcode){
-        setData( current => {
-          current.map((item => {
-            if(item.product.barcode === newItem.barcode){
-              return {
-
-              }
-            }else{
-              return item
-            }
-          }))
-        })
+        // setData( current => {
+        //   current.map((item => {
+        //     if(item.product.barcode === newItem.barcode){
+        //       return {
+        //
+        //       }
+        //     }else{
+        //       return item
+        //     }
+        //   }))
+        // })
 
       }else{
         setData([

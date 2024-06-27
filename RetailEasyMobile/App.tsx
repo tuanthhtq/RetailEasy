@@ -9,7 +9,6 @@ import { IRootState, store, useAppDispatch } from "./src/store/store.ts";
 import AuthorizedStack from "./src/navigations/Authorized/AuthorizedStack";
 import { testServerConnectionService } from "./src/apis/public/public.services.ts";
 import PopupNotification from "./src/components/PopupNotification";
-import * as net from "node:net";
 
 function Main(): React.JSX.Element {
 
@@ -29,6 +28,24 @@ function Main(): React.JSX.Element {
         setNetworkErr(true)
       })
   })
+
+  const headers = {
+    Authorization: authState.accessToken,  // Replace with your authentication token
+  };
+
+  const ws = new WebSocket("ws://192.168.31.211:8080/ws", [],  {headers} );
+
+  ws.onopen = () => {
+    console.log("WS CONNECTED");
+  }
+
+  ws.onerror = (e) => {
+    console.log("WS ERROR", e);
+  }
+
+  ws.onmessage = (m) => {
+    console.log("WS MESSAGE", m);
+  }
 
   return (
     <SafeAreaProvider
