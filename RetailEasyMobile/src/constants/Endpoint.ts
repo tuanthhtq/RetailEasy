@@ -1,7 +1,9 @@
-export const baseUrl = "http://192.168.31.211:8080/api/v1";
-// export const baseUrl = "http://192.168.51.101:8080/api/v1";
+// export const baseUrl = "http://192.168.31.211:8080/api/v1";
+export const baseUrl = "http://192.168.51.101:8080/api/v1";
 
 export enum ENDPOINT{
+    WS = "ws://192.168.51.101:8080/payment",
+
     LOGIN = `${baseUrl}/auth/login`,
     REGISTER = `${baseUrl}/auth/create-account`,
     CREATE_ADMIN = `${baseUrl}/auth/create-admin`,

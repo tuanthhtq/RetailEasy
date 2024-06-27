@@ -19,6 +19,8 @@ public class WebSocketServicesImpl implements WebSocketServices{
 
     @Override
     public void notify(String destination, PaymentStatusResponse message) {
+        System.out.println(message);
+        System.out.println(destination);
         template.convertAndSend(destination, message);
     }
 }

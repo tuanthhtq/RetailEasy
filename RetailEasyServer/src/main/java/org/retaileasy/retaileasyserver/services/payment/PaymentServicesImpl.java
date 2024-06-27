@@ -96,7 +96,7 @@ public class PaymentServicesImpl implements PaymentServices {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
                 res =  objectMapper.readValue(responseBody, PaymentStatusResponse.class);
-                wsServices.notify("/payment/payment-status", res);
+                wsServices.notify("/topic/payment-status", res);
                 return res;
             }catch (NullPointerException | JsonProcessingException e){
                 System.out.println(e.getLocalizedMessage());

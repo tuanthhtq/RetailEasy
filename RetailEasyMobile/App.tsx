@@ -9,6 +9,7 @@ import { IRootState, store, useAppDispatch } from "./src/store/store.ts";
 import AuthorizedStack from "./src/navigations/Authorized/AuthorizedStack";
 import { testServerConnectionService } from "./src/apis/public/public.services.ts";
 import PopupNotification from "./src/components/PopupNotification";
+import { ENDPOINT } from "./src/constants/Endpoint.ts";
 
 function Main(): React.JSX.Element {
 
@@ -33,7 +34,7 @@ function Main(): React.JSX.Element {
     Authorization: authState.accessToken,  // Replace with your authentication token
   };
 
-  const ws = new WebSocket("ws://192.168.31.211:8080/ws", [],  {headers} );
+  const ws = new WebSocket(ENDPOINT.WS, [],  {headers} );
 
   ws.onopen = () => {
     console.log("WS CONNECTED");
@@ -45,6 +46,10 @@ function Main(): React.JSX.Element {
 
   ws.onmessage = (m) => {
     console.log("WS MESSAGE", m);
+  }
+
+  ws.onclose = () => {
+    console.log("WS CLOSED");
   }
 
   return (
