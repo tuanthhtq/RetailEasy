@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ImportDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ImportItemsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/ImportRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Import.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Import.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/ImportItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/ImportItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ImportItemsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ImportItemsDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/employee/EmployeeServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/employee/EmployeeServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/employee/EmployeeServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/employee/EmployeeServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +22,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="com.intellij.jpb.JpaRepository" />
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.JpaRepository" />
         <option value="com.intellij.jpb.NewClass" />
@@ -33,6 +29,7 @@
         <option value="Class" />
         <option value="com.intellij.jpb.JpaEntity" />
         <option value="com.intellij.jpb.NewRecord" />
+        <option value="com.intellij.jpb.JpaRepository" />
       </list>
     </option>
   </component>
@@ -152,7 +149,7 @@
       <workItem from="1719241843196" duration="993000" />
       <workItem from="1719396731101" duration="477000" />
       <workItem from="1719476287870" duration="7628000" />
-      <workItem from="1719539186542" duration="3013000" />
+      <workItem from="1719539186542" duration="4296000" />
     </task>
     <servers />
   </component>

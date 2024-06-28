@@ -11,7 +11,7 @@ public interface EmployeeServices {
 
     CommonResponseDto<List<BillDto>> get10LastBills();
 
-    CommonResponseDto<ImportDto> importGoods(List<ImportItemsDto> items);
+    CommonResponseDto<ImportDto> importGoods(List<ImportItemsDto> items, int supplierId);
 
 //    CommonResponseDto<String> createBill()
 

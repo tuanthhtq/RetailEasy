@@ -10,6 +10,6 @@ public record ImportItemsDto (
         int brandId,
         String manufacturedDate,
         String expiry,
-        String isReturned,
+        boolean isReturned,
         int price
 ) implements Serializable{}
