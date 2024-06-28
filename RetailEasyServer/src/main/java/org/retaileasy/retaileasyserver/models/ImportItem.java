@@ -28,6 +28,10 @@ public class ImportItem {
     @Column(name = "product_image")
     private String productImage;
 
+    @NotNull
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;

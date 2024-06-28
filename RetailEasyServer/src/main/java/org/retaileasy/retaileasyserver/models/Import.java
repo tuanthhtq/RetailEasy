@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SourceType;
 
 import java.time.Instant;
 
@@ -29,10 +31,11 @@ public class Import {
 
     @NotNull
     @ColumnDefault("0")
-    @Column(name = "return_amount", nullable = false)
-    private Integer returnAmount;
+    @Column(name = "return_price", nullable = false)
+    private Integer returnPrice;
 
     @ColumnDefault("CURRENT_TIMESTAMP")
+    @CreationTimestamp(source = SourceType.DB)
     @Column(name = "created_date")
     private Instant createdDate;
 
