@@ -64,6 +64,7 @@ public class WebSecurityConfigs {
                         .requestMatchers("/api/v1/home/**").permitAll()
                         .requestMatchers("/api/v1/emp/**").authenticated()
                         .requestMatchers("/api/v1/payment/test").permitAll()
+                        .requestMatchers("/api/v1/payment/test-webhook").permitAll()
                         .requestMatchers("/images/**").permitAll()
                         .anyRequest().authenticated()
                 )
