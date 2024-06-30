@@ -100,8 +100,8 @@ public class AuthServicesImpl implements AuthServices {
 
         User user = new User(
                 request.getIdNumber(),
-                request.getUsername(),
-                passwordEncoder.encode(request.getPassword()),
+                request.getPhone(),
+                passwordEncoder.encode(request.getPhone()),
                 request.getFullName(),
                 request.getPhone(),
                 request.getAddress(),
@@ -119,8 +119,10 @@ public class AuthServicesImpl implements AuthServices {
         try{
             //add store information
             storeInformationRepository.saveAndFlush(store);
-            //add user
+
+            //save user
             userRepository.saveAndFlush(user);
+
 
             //add roles
             Set<UserRole> roles = new HashSet<>();

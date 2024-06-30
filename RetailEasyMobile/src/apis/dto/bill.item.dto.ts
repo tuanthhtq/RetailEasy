@@ -1,4 +1,4 @@
-import { ProductDetailDto } from "./productDetail.dto.ts";
+import { ProductDetailDto } from "./product.detail.dto.ts";
 
 
 export interface IBillItemDto {

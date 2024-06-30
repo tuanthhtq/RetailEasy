@@ -18,11 +18,12 @@ interface IComplexInputField{
   isPassword?: boolean,
   errors?: string,
   maxLength: number,
-  isTextarea?: boolean
+  isTextarea?: boolean,
+  defaultValue?: string,
 }
 
 
-const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, required = true, isPassword = false,...props}) => {
+const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, defaultValue = "", required = true, isPassword = false,...props}) => {
 
   let pattern: ValidationRule<RegExp> = new RegExp(/.*?/s);
   if(props.validateEmail) pattern = { value: EmailRegex, message: "Định dạng email không đúng" }
@@ -40,6 +41,7 @@ const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, re
           required: required && "Trường này là bắt buộc",
           pattern: pattern
         }}
+        defaultValue={defaultValue}
         render={({field: {onChange, onBlur, value}}) => (
           <TextInput
             placeholder={props.placeHolder ? props.placeHolder : ""}
@@ -83,7 +85,9 @@ const style = StyleSheet.create({
     borderRadius: 8,
     color: COLORS.BLACK,
     alignSelf: 'center',
-    fontSize: fontPixel(16)
+    fontSize: fontPixel(16),
+    paddingHorizontal: horizontalPixel(8)
+
   },
   error: {
     fontSize: fontPixel(16),

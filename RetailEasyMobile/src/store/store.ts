@@ -4,19 +4,22 @@ import { useDispatch} from "react-redux";
 import { IStoreInfoState, publicReducer } from "./public/public.slice.ts";
 import { billCustomerReducer, IBillCustomer } from "./bill/bill.slice.ts";
 import { IStoreInitialState, storeInitialReducer } from "./storeInitial/store.initial.slice.ts";
+import { IImport, importReducer } from "./import/import.slice.ts";
 
 export interface IRootState {
   auth: IAuthState,
   public: IStoreInfoState,
   billCustomer: IBillCustomer,
-  initialState: IStoreInitialState
+  initialState: IStoreInitialState,
+  supplier: IImport
 }
 
 const rootReducer = combineReducers({
   auth: authReducer,
   public: publicReducer,
   billCustomer: billCustomerReducer,
-  initialState: storeInitialReducer
+  initialState: storeInitialReducer,
+  supplier: importReducer
 })
 
 export const store = configureStore({

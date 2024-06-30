@@ -1,6 +1,6 @@
 import { BillsDto } from "../apis/dto/bills.dto.ts";
-import { ProductDetailDto } from "../apis/dto/productDetail.dto.ts";
 import { IBillItemDto } from "../apis/dto/bill.item.dto.ts";
+import { SupplierDto } from "../apis/dto/supplier.dto.ts";
 
 export const BillSearch: BillsDto[] = [
   {billId: 1, createdDate: "01-01-2000", status: true, total: 10000, phoneNumber: "0989762205"},
@@ -72,5 +72,24 @@ export const BillItems: IBillItemDto[] = [
       price: 1000,
       status: true
     }
+  },
+]
+
+export const SupplierList: SupplierDto[] =  [
+  {
+    name: "tuan",
+    phoneNumber: "0989762205"
+  },
+  {
+    name: "ga",
+    phoneNumber: "0989762206"
+  },
+  {
+    name: "dmm",
+    phoneNumber: "0989762207"
+  },
+  {
+    name: "chien",
+    phoneNumber: "0989762208"
   },
 ]

@@ -71,7 +71,7 @@ const CreateBill = ({navigation}: NavigationProp) => {
           <Text style={{fontSize: 24, color: COLORS.BLACK}}>Đơn hàng gần đây</Text>
           <Divider/>
           {recentBill.length > 0 ?
-            recentBill.map(item => <View></View>)
+            recentBill.map((item, index) => <View key={index}></View>)
             :
             <View>
               <Text

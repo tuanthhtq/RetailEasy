@@ -9,3 +9,4 @@ export interface IUserDetail {
   address: string,
   roles: string[]
 }
+

@@ -3,7 +3,7 @@ import { Image, Modal, ScrollView, StyleProp, StyleSheet, Text, TextStyle, View 
 import { fontPixel, horizontalPixel, verticalPixel } from "../../../../utils/Normalizer.ts";
 import { COLORS } from "../../../../constants/Colors.ts";
 import { getProductDetailService } from "../../../../apis/public/public.services.ts";
-import { ProductDetailDto } from "../../../../apis/dto/productDetail.dto.ts";
+import { ProductDetailDto } from "../../../../apis/dto/product.detail.dto.ts";
 import Divider from "../../../../components/icons/Divider";
 import Button from "../../../../components/Button";
 

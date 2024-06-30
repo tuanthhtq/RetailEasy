@@ -13,10 +13,7 @@ const InfoModal: React.FC<IBillInfoModal> = ({...props}) => {
 
   return (
     <Modal
-      style={style.container}
-      onRequestClose={props.onRequestClose}
-      transparent={true}
-    >
+c    >
       <View style={style.modalBackground}></View>
       <View style={style.content}>
 

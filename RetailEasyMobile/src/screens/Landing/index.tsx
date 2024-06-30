@@ -58,26 +58,26 @@ const Landing = () => {
     <View style={styles.container}>
       <ScreenHeader backBtn={false} logo />
       <View style={styles.main}>
-        <MiniTile text={`Cửa hàng tạp hoá ${storeData.name}`} fontSize={30}/>
-        <MiniTile text={`Địa chỉ: ${storeData.address}`}/>
-        <MiniTile text={`Liên hệ: ${storeData.owner}`}/>
+        <MiniTile text={`Cửa hàng tạp hoá ${storeData.name ? storeData.name : "N/A"}`} fontSize={30}/>
+        <MiniTile text={`Địa chỉ: ${storeData.address ? storeData.address : "N/A"}`}/>
+        <MiniTile text={`Chủ cửa hàng: ${storeData.owner ? storeData.owner : "N/A"}`}/>
         <MiniTile
-          text={`Số điện thoại: ${storeData.phoneNumber}`}
-          icon={<PhoneIcon size={30}/>}
+          text={`Số điện thoại: ${storeData.phoneNumber ? storeData.phoneNumber : "N/A"}`}
+          icon={storeData.phoneNumber && <PhoneIcon size={30}/>}
           onButtonClick={() => call(storeData.phoneNumber)}
         />
         {storeData.phoneNumber2 &&
           <MiniTile
-            text={`Số điện thoại 2: ${storeData.phoneNumber}`}
-            icon={<PhoneIcon size={30}/>}
+            text={`Số điện thoại 2: ${storeData.phoneNumber2 ? storeData.phoneNumber2 : "N/A"}`}
+            icon={storeData.phoneNumber2 && <PhoneIcon size={30}/>}
             onButtonClick={() => {
               if(storeData.phoneNumber2) call(storeData.phoneNumber2)
             }}
           /> }
         {storeData.email &&
           <MiniTile
-            text={`Email: ${storeData.email}`}
-            icon={<MailIcon size={30}/>}
+            text={`Email: ${storeData.email ? storeData.email : "N/A"}`}
+            icon={storeData.email && <MailIcon size={30}/>}
             onButtonClick={() => {
               if(storeData.email) sendMail(storeData.email);
             }}

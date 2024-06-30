@@ -10,10 +10,11 @@ import CreateBillIcon from "../../../components/icons/CreateBillIcon";
 import ImportIcon from "../../../components/icons/ImportIcon";
 import MenuIcon from "../../../components/icons/MenuIcon";
 import ProfileIcon from "../../../components/icons/ProfileIcon";
-import menuStack from "../MenuStack";
 import createBillStack from "../CreateBillStack";
 import { useEffect } from "react";
 import { logout } from "../../../store/authentication/auth.slice.ts";
+import ImportStack from "../../ImportStack";
+import MenuStack from "../MenuStack";
 
 const Tab = createBottomTabNavigator<AuthorizedParams>();
 
@@ -69,7 +70,7 @@ const AuthorizedStack = () => {
       {(authState.roles.includes("ROLE_DATA_ENTRY") || authState.roles.includes("ROLE_ADMIN")) &&
         <Tab.Screen
           name={AuthorizedStackName.IMPORT}
-          component={Home}
+          component={ImportStack}
           options={{
             tabBarIcon: (({focused}) => <ImportIcon isFocused={focused}/>),
             tabBarLabel: "Nhập hàng",
@@ -80,7 +81,7 @@ const AuthorizedStack = () => {
       {(authState.roles.includes("ROLE_ADMIN")) ?
           <Tab.Screen
             name={AuthorizedStackName.PROFILE}
-            component={menuStack}
+            component={MenuStack}
             options={{
               tabBarIcon: (({focused}) => <MenuIcon isFocused={focused}/>),
               tabBarLabel: "Menu",

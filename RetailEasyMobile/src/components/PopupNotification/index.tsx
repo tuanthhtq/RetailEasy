@@ -33,7 +33,8 @@ const style = StyleSheet.create({
     paddingVertical: verticalPixel(5),
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: COLORS.PINK
+    borderColor: COLORS.PINK,
+    zIndex: 0,
   },
   text: {
     fontSize: fontPixel(20),

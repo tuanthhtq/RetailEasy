@@ -15,7 +15,7 @@ const MiniTile: React.FC<IMiniTile> = ({text, icon, fontSize = 20,  onButtonClic
   return (
     <View style={style.container}>
       <Text style={[style.text, {fontSize: fontSize}]}>{text}</Text>
-      {icon && <TouchableOpacity style={style.icon} onPress={onButtonClick}>{icon && icon}</TouchableOpacity>}
+      {(icon) && <TouchableOpacity style={style.icon} onPress={onButtonClick}>{icon && icon}</TouchableOpacity>}
     </View>
   )
 }

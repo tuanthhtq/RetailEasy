@@ -10,47 +10,61 @@ import AuthorizedStack from "./src/navigations/Authorized/AuthorizedStack";
 import { testServerConnectionService } from "./src/apis/public/public.services.ts";
 import PopupNotification from "./src/components/PopupNotification";
 import { ENDPOINT } from "./src/constants/Endpoint.ts";
+import { getInitialState } from "./src/store/storeInitial/store.initial.slice.ts";
+import SetupStoreStack from "./src/navigations/SetupStoreStack";
+import { logout } from "./src/store/authentication/auth.slice.ts";
 
 function Main(): React.JSX.Element {
 
   const authState = useSelector((state: IRootState ) =>  state.auth)
+  // const initialState = { initialized: false }
+  const initialState = useSelector((state: IRootState) => state.initialState)
 
   const [networkErr, setNetworkErr] = useState(false)
 
+  const dispatch = useAppDispatch();
+
+
   //check server connection
   useEffect(() => {
-    testServerConnectionService()
-      .then(res => {
-        if(res.data){
-          setNetworkErr(false)
-        }
-      })
-      .catch(err => {
-        setNetworkErr(true)
-      })
+    const interval = setInterval(() => {
+      testServerConnectionService()
+        .then(res => {
+          if(res.data){
+            setNetworkErr(false)
+          }
+        })
+        .catch(err => {
+          setNetworkErr(true)
+        })
+    }, 3000)
+
+    return () => clearInterval(interval)
   })
 
-  const headers = {
-    Authorization: authState.accessToken,  // Replace with your authentication token
-  };
 
-  const ws = new WebSocket(ENDPOINT.WS, [],  {headers} );
 
-  ws.onopen = () => {
-    console.log("WS CONNECTED");
-  }
+  // const headers = {
+  //   Authorization: authState.accessToken,
+  // };
 
-  ws.onerror = (e) => {
-    console.log("WS ERROR", e);
-  }
-
-  ws.onmessage = (m) => {
-    console.log("WS MESSAGE", m);
-  }
-
-  ws.onclose = () => {
-    console.log("WS CLOSED");
-  }
+  // const ws = new WebSocket(ENDPOINT.WS, [],  {headers} );
+  //
+  // ws.onopen = () => {
+  //   console.log("WS CONNECTED");
+  // }
+  //
+  // ws.onerror = (e) => {
+  //   console.log("WS ERROR", e);
+  // }
+  //
+  // ws.onmessage = (m) => {
+  //   console.log("WS MESSAGE", m);
+  // }
+  //
+  // ws.onclose = () => {
+  //   console.log("WS CLOSED");
+  // }
 
   return (
     <SafeAreaProvider
@@ -77,10 +91,13 @@ function Main(): React.JSX.Element {
 
         }}
         >
-        {authState.isAuthenticated? <AuthorizedStack/> : <UnauthorizedStack/>}
+          {initialState.initialized ?
+            (authState.isAuthenticated ? <AuthorizedStack/> : <UnauthorizedStack/>) :
+            <SetupStoreStack/>
+          }
         </NavigationContainer>
-  </KeyboardAvoidingView>
-</SafeAreaProvider>
+      </KeyboardAvoidingView>
+    </SafeAreaProvider>
   );
 }
 

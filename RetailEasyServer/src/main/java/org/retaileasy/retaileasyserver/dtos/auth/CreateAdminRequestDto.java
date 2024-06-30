@@ -12,9 +12,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CreateAdminRequestDto {
-    @NotEmpty(message = "Username không được để trống")
-    private String username;
-
+    @Pattern(regexp = "^[0-9]{10,}$", message = "Số căn cước không hợp lệ")
     @NotEmpty(message = "Số CCCD không được để trống")
     private String idNumber;
 
@@ -25,11 +23,8 @@ public class CreateAdminRequestDto {
     @Pattern(regexp = ".+@.+\\..+", message = "Email không hợp lệ")
     private String email;
 
-    @NotEmpty(message = "Mật khẩu không được để trống")
-    private String password;
-
     @NotEmpty(message = "Họ tên không được để trống")
-    @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Tên không đúng định dạng")
+    @Pattern(regexp = "^[a-zA-ZàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]+\\s*[a-zA-ZàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]*$", message = "Tên không đúng định dạng")
     private String fullName;
 
     @NotEmpty(message = "Địa chỉ không được để trống")

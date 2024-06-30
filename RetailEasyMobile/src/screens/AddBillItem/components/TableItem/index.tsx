@@ -23,7 +23,7 @@ const TableItem: React.FC<ITableItem> = ({quantity = 1,...props}) => {
         <View style={[style.name, style.td]}><Text style={[style.text, {width: '100%'}]}>{props.name}</Text></View>
         <View style={[style.qty, style.td]}><Text style={style.text}>{quantity}</Text></View>
         <View style={[style.price, style.td]}><Text style={style.text}>{props.price}</Text></View>
-        <View style={[style.delete, style.td]} onTouchEnd={() => props.onDelete(props.barcode)}><TrashBinIcon/></View>
+        <View style={[style.delete, style.td]} onTouchStart={() => props.onDelete(props.barcode)}><TrashBinIcon/></View>
     </View>
   )
 }

@@ -9,11 +9,9 @@ interface IScreenHeader{
   label?: string,
   logo?: boolean,
   backBtn?: boolean,
-
 }
 
-const ScreenHeader: React.FC<IScreenHeader> = ({label, logo = false, backBtn = true
-}) => {
+const ScreenHeader: React.FC<IScreenHeader> = ({label, logo = false, backBtn = true}) => {
 
   const navigation = useNavigation()
   const goBack = () => {

@@ -1,5 +1,17 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
 
+export enum SetupStoreStackName {
+  HOME = "SetupMain",
+  GET_DATA = "SetupGetData",
+  RESULT = "SetupResult"
+}
+
+export type SetupStoreParams = {
+  [SetupStoreStackName.HOME]: undefined,
+  [SetupStoreStackName.GET_DATA]: undefined,
+  [SetupStoreStackName.RESULT]: undefined
+}
+
 export enum UnauthorizedStackName {
   PROFILE =  'UnAuthProfile',
   LANDING = 'Landing',
@@ -34,7 +46,7 @@ export enum AuthorizedStackName {
 export type AuthorizedParams = {
   [AuthorizedStackName.HOME]: undefined,
   [AuthorizedStackName.CREATE_BILL]: NavigatorScreenParams<CreateBillParams>,
-  [AuthorizedStackName.IMPORT]: undefined,
+  [AuthorizedStackName.IMPORT]: NavigatorScreenParams<CreateImportParams>,
   [AuthorizedStackName.MENU]: NavigatorScreenParams<MenuParams>,
   [AuthorizedStackName.PROFILE]: undefined,
 }
@@ -53,4 +65,15 @@ export enum CreateBillStackName{
 export type CreateBillParams = {
   [CreateBillStackName.CREATE_BILL_HOME]: undefined,
   [CreateBillStackName.ADD_BILL_ITEM]: undefined
+}
+
+export enum CreateImportStackName{
+  CREATE_IMPORT_HOME = "CreateImportHome",
+  ADD_IMPORT_ITEM = "AddImportItems",
+  CONFIRM_IMPORT = "ConfirmImport",
+}
+export type CreateImportParams = {
+  [CreateImportStackName.CREATE_IMPORT_HOME]: undefined,
+  [CreateImportStackName.ADD_IMPORT_ITEM]: undefined,
+  [CreateImportStackName.CONFIRM_IMPORT]: undefined
 }

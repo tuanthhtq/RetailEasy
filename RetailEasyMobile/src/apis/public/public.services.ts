@@ -3,7 +3,9 @@ import axios, { AxiosRequestConfig } from "axios";
 import { baseUrl, ENDPOINT } from "../../constants/Endpoint.ts";
 import { Interceptor } from "../Interceptor.ts";
 import { ICommonResponse } from "../CommonResponse.ts";
-import { ProductDetailDto } from "../dto/productDetail.dto.ts";
+import { ProductDetailDto } from "../dto/product.detail.dto.ts";
+import { StoreSetupDto } from "./dtos/StoreSetupDto.ts";
+import { IUserDetail } from "../auth/dtos/UserData.ts";
 
 
 export const sendFeedbackService = async (data: FeedbackDto) => {
@@ -44,6 +46,15 @@ export const anyUserExistsService = async () => {
   const config: AxiosRequestConfig = {
     method: 'POST',
     url: ENDPOINT.ADMIN_EXISTS,
+  }
+  return await Interceptor(config);
+}
+
+export const setupStoreServices = async (data: StoreSetupDto): Promise<ICommonResponse<IUserDetail>> => {
+  const config: AxiosRequestConfig = {
+    method: 'POST',
+    url: ENDPOINT.CREATE_ADMIN,
+    data: data
   }
   return await Interceptor(config);
 }

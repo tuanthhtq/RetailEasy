@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 import { COLORS } from "../../constants/Colors.ts";
 import React, { useEffect, useState } from "react";
 import ScannerModal from "./components/ScannerModal";
-import { ProductDetailDto } from "../../apis/dto/productDetail.dto.ts";
+import { ProductDetailDto } from "../../apis/dto/product.detail.dto.ts";
 import { getProductDetailService } from "../../apis/public/public.services.ts";
 import confirmSound from "../../utils/ConfirmSound.ts";
 import { BillItems } from "../../mockingbin/MockData.ts";

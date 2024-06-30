@@ -32,6 +32,11 @@ const authSlice = createSlice({
       console.log("Logout");
       state.accessToken = null
       state.isAuthenticated = false
+
+      for (const key in auth_key) {
+        mmkv.delete(key)
+      }
+
     },
     checkLogin: (state) => {
       console.log("Check authentication");

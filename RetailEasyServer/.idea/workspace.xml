@@ -5,34 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/RetailEasyServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/StaticResourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/configuration/WebSecurityConfigs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/controllers/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Barcode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Bill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/BillItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Brand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Feedback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/StoreInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/BillRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/retaileasy/retaileasyserver/RetailEasyServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/SupplierDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/UserData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/UserData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/bill.item.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/bill.item.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/productDetail.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/MiniTile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/MiniTile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ScreenHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ScreenHeader/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/ParamList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/ParamList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/MockData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/MockData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/api/mock-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/api/mock-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/AuthorizedStack/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/navigations/Authorized/AuthorizedStack/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/components/TableItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/components/TableItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateBill/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Landing/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Landing/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/OrderHistory/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/OrderHistory/components/Modal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/components/InfoModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/components/InfoModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/auth/CreateAdminRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/auth/CreateAdminRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ImportDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/dtos/common/ImportDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Import.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/models/Import.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +54,12 @@
         <option value="com.intellij.jpb.JpaEntity" />
         <option value="com.intellij.jpb.NewRecord" />
         <option value="com.intellij.jpb.JpaRepository" />
+        <option value="com.haulmont.jpb.NewRecord" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -83,37 +85,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.RetailEasyServerApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/chien/Desktop/RetailEasy/RetailEasyServer",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.build.tools.auto.reload": "ALL",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "spring.configuration.checksum": "d6af85054b8e52a735fd48c973af6892",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.RetailEasyServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/chien/Desktop/RetailEasy/RetailEasyServer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.build.tools.auto.reload&quot;: &quot;ALL&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d6af85054b8e52a735fd48c973af6892&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\viper\Desktop\RetailEasy\RetailEasyServer\src\main\java\org\retaileasy\retaileasyserver\configuration" />
@@ -173,6 +175,8 @@
       <workItem from="1719476287870" duration="7628000" />
       <workItem from="1719539186542" duration="4296000" />
       <workItem from="1719628146157" duration="3621000" />
+      <workItem from="1719654700578" duration="9547000" />
+      <workItem from="1719718349933" duration="8950000" />
     </task>
     <servers />
   </component>

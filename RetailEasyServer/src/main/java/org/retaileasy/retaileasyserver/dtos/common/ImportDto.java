@@ -10,9 +10,14 @@ import java.time.Instant;
  */
 public record ImportDto(
         String creatorFullName,
-        String creatorPhoneNumber,
-        @NotNull Integer importPrice,
-        @NotNull Integer returnPrice,
-        Instant createdDate
+        @NotNull
+        Integer importPrice,
+        @NotNull
+        Integer returnPrice,
+        Instant createdDate,
+        @NotNull(message = "Nhà cung cấp không được để trống")
+        SupplierDto supplier,
+        @NotNull Integer returnAmount
+
 ) implements Serializable {
 }

@@ -39,4 +39,12 @@ public class Import {
     @Column(name = "created_date")
     private Instant createdDate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
+    @NotNull
+    @Column(name = "return_amount", nullable = false)
+    private Integer returnAmount;
+
 }
