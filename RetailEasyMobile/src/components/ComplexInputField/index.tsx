@@ -1,15 +1,15 @@
 import React from "react";
-import { StyleProp, StyleSheet, Text, TextInput, View, ViewStyle } from "react-native";
+import { StyleProp, StyleSheet, Text, TextInput, TextInputProps, View, ViewStyle } from "react-native";
 import { Control, Controller, DeepRequired, FieldErrorsImpl, ValidationRule } from "react-hook-form";
 import { COLORS } from "../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import { EmailRegex, FullNameRegex, PhoneRegex } from "../../constants/Regex.ts";
 
-interface IComplexInputField{
+export interface IComplexInputField extends TextInputProps{
   containerStyle?: StyleProp<ViewStyle>
   label: string,
   name: string,
-  control: Control<any, any>,
+  control: Control<any>,
   placeHolder?: string,
   required?: boolean,
   validatePhone?: boolean,

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductSimpleDto } from "../../apis/dto/product.simple.dto.ts";
 
 export interface IImport {
   name?: string,

@@ -1,39 +1,33 @@
 import { FeedbackDto } from "./dtos/FeedbackDto.ts";
-import axios, { AxiosRequestConfig } from "axios";
-import { baseUrl, ENDPOINT } from "../../constants/Endpoint.ts";
+import { AxiosRequestConfig } from "axios";
+import { ENDPOINT } from "../../constants/Endpoint.ts";
 import { Interceptor } from "../Interceptor.ts";
-import { ICommonResponse } from "../CommonResponse.ts";
+import { CommonResponse } from "../common.response.ts";
 import { ProductDetailDto } from "../dto/product.detail.dto.ts";
 import { StoreSetupDto } from "./dtos/StoreSetupDto.ts";
 import { IUserDetail } from "../auth/dtos/UserData.ts";
 
-
-export const sendFeedbackService = async (data: FeedbackDto) => {
+export const postService = async <T, I = null>(endpoint: ENDPOINT, data?: I): Promise<CommonResponse<T>>  => {
   const config: AxiosRequestConfig = {
     method: 'POST',
-    url: ENDPOINT.SEND_FEEDBACK,
+    url: endpoint,
     data: data
   }
   return await Interceptor(config);
 }
 
-export const testServerConnectionService = async ()  => {
-  return axios.request({
-    method: 'GET',
-    url: ENDPOINT.GET_STORE,
-  })
-}
-
-export const getStoreInfoService = async () => {
+export const getService = async <T = null, I = null, P = null>(endpoint: ENDPOINT, data?: I, param?: P ): Promise<CommonResponse<T>>  => {
   const config: AxiosRequestConfig = {
     method: 'GET',
-    url: ENDPOINT.GET_STORE,
+    url: endpoint,
+    data: data || null,
+    params: {param} || null
   }
   return await Interceptor(config);
 }
 
 export const getProductDetailService
-  = async (barcode: string): Promise<ICommonResponse<ProductDetailDto>> => {
+  = async (barcode: string): Promise<CommonResponse<ProductDetailDto>> => {
   const config: AxiosRequestConfig = {
     method: 'GET',
     url: ENDPOINT.GET_PRODUCT_DETAIL,
@@ -42,15 +36,7 @@ export const getProductDetailService
   return await Interceptor(config);
 }
 
-export const anyUserExistsService = async () => {
-  const config: AxiosRequestConfig = {
-    method: 'POST',
-    url: ENDPOINT.ADMIN_EXISTS,
-  }
-  return await Interceptor(config);
-}
-
-export const setupStoreServices = async (data: StoreSetupDto): Promise<ICommonResponse<IUserDetail>> => {
+export const setupStoreServices = async (data: StoreSetupDto): Promise<CommonResponse<IUserDetail>> => {
   const config: AxiosRequestConfig = {
     method: 'POST',
     url: ENDPOINT.CREATE_ADMIN,

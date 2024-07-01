@@ -7,18 +7,21 @@ import { KeyboardAvoidingView, Platform } from "react-native";
 import { Provider, useSelector } from "react-redux";
 import { IRootState, store, useAppDispatch } from "./src/store/store.ts";
 import AuthorizedStack from "./src/navigations/Authorized/AuthorizedStack";
-import { testServerConnectionService } from "./src/apis/public/public.services.ts";
+import { getService } from "./src/apis/public/public.services.ts";
 import PopupNotification from "./src/components/PopupNotification";
 import { ENDPOINT } from "./src/constants/Endpoint.ts";
-import { getInitialState } from "./src/store/storeInitial/store.initial.slice.ts";
 import SetupStoreStack from "./src/navigations/SetupStoreStack";
-import { logout } from "./src/store/authentication/auth.slice.ts";
+import { StoreInfoDto } from "./src/apis/public/dtos/StoreInfoDto.ts";
+import { storeInitialState } from "./src/store/storeInitial/store.initial.action.ts";
 
 function Main(): React.JSX.Element {
 
   const authState = useSelector((state: IRootState ) =>  state.auth)
   // const initialState = { initialized: false }
-  const initialState = useSelector((state: IRootState) => state.initialState)
+  const initialState = useSelector((state: IRootState) => {
+    console.log(state.initialState);
+    return state.initialState;
+  })
 
   const [networkErr, setNetworkErr] = useState(false)
 
@@ -28,19 +31,27 @@ function Main(): React.JSX.Element {
   //check server connection
   useEffect(() => {
     const interval = setInterval(() => {
-      testServerConnectionService()
-        .then(res => {
+      getService<StoreInfoDto>(ENDPOINT.GET_STORE)
+        .then((res) => {
           if(res.data){
             setNetworkErr(false)
+          }else{
+            setNetworkErr(true)
           }
         })
-        .catch(err => {
+        .catch((err) => {
           setNetworkErr(true)
         })
     }, 3000)
-
     return () => clearInterval(interval)
   })
+
+  //check if store is initialized
+  useEffect(() => {
+    if(!initialState.initialized){
+      dispatch(storeInitialState())
+    }
+  }, [initialState, networkErr])
 
 
 

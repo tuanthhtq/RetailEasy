@@ -1,5 +1,5 @@
 
-export interface ICommonResponse<T>{
+export interface CommonResponse<T>{
   status: number,
   data?: T,
   message: string,

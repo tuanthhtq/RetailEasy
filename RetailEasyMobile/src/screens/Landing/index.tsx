@@ -1,11 +1,10 @@
-import { Linking, StyleSheet, Text, View } from "react-native";
+import { Linking, StyleSheet, View } from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { IRootState, useAppDispatch } from "../../store/store.ts";
 import { landing } from "../../store/public/public.action.ts";
 import { checkStoreInfo } from "../../store/public/public.slice.ts";
-import { getStoreInfoService } from "../../apis/public/public.services.ts";
 import { COLORS } from "../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import MiniTile from "../../components/MiniTile";

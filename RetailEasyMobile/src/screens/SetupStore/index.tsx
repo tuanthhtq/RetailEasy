@@ -1,22 +1,11 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
-import ComplexInputField from "../../components/ComplexInputField";
-import { useForm } from "react-hook-form";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "../../components/Button";
 import { COLORS } from "../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
-import { IRootState, useAppDispatch } from "../../store/store.ts";
-import { StoreSetupDto } from "../../apis/public/dtos/StoreSetupDto.ts";
-import { setInitialState } from "../../store/storeInitial/store.initial.slice.ts";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import {
-  CreateBillParams,
-  CreateBillStackName,
-  SetupStoreParams,
-  SetupStoreStackName
-} from "../../constants/ParamList.ts";
-import { useSelector } from "react-redux";
+import { SetupStoreParams, SetupStoreStackName } from "../../constants/ParamList.ts";
 
 
 type NavigationProp = NativeStackScreenProps<SetupStoreParams, SetupStoreStackName.HOME>
@@ -56,7 +45,7 @@ const style = StyleSheet.create({
     width: horizontalPixel(360),
   },
   textContainer: {
-    width: horizontalPixel(360),
+    width: horizontalPixel(340),
     flexDirection: 'column',
     gap: verticalPixel(10)
   },

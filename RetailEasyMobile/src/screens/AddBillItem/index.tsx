@@ -178,8 +178,7 @@ const style = StyleSheet.create({
   },
   content: {
     width: horizontalPixel(340),
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
+    borderRightWidth: 0.5,
     borderColor: COLORS.PINK,
     flexGrow: 1,
     paddingVertical: verticalPixel(10),
@@ -198,9 +197,11 @@ const style = StyleSheet.create({
 
   },
   td: {
-    borderRightWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: COLORS.PINK
+    borderBottomWidth: 0.5,
+    borderRightWidth: 0.5,
+    borderColor: COLORS.PINK,
+    paddingVertical: verticalPixel(1),
+    paddingHorizontal: horizontalPixel(1),
   },
   tHead: {
     flexDirection: 'row',

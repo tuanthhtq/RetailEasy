@@ -9,7 +9,8 @@ import Button from "../../components/Button";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import TextModal from "../../components/TextModal";
 import { FeedbackDto } from "../../apis/public/dtos/FeedbackDto.ts";
-import { sendFeedbackService } from "../../apis/public/public.services.ts";
+import { postService } from "../../apis/public/public.services.ts";
+import { ENDPOINT } from "../../constants/Endpoint.ts";
 
 interface formData {
   phone: string,
@@ -32,7 +33,7 @@ const Feedback = () => {
       title: data.subject
     }
 
-    await sendFeedbackService(req)
+    await postService<FeedbackDto , FeedbackDto>(ENDPOINT.SEND_FEEDBACK, req)
       .then((res) => {
         if(res.data){
           setModalVisible(true);

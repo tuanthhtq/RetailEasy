@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import TrashBinIcon from "../../../../components/icons/TrashBinIcon";
 import { COLORS } from "../../../../constants/Colors.ts";
-import { horizontalPixel } from "../../../../utils/Normalizer.ts";
+import { horizontalPixel, verticalPixel } from "../../../../utils/Normalizer.ts";
 
 
 interface ITableItem {
@@ -39,9 +39,11 @@ const style = StyleSheet.create({
     textAlign: 'center'
   },
   td: {
-    borderBottomWidth: 1,
-    borderRightWidth: 1,
-    borderColor: COLORS.PINK
+    borderBottomWidth: 0.5,
+    borderRightWidth: 0.5,
+    borderColor: COLORS.PINK,
+    paddingVertical: verticalPixel(1),
+    paddingHorizontal: horizontalPixel(1),
   },
   no: {
     width: horizontalPixel(28)

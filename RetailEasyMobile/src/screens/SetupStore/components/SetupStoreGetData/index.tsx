@@ -134,7 +134,8 @@ const style = StyleSheet.create({
   main: {
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingVertical: verticalPixel(20)
   },
   heading: {
     color: COLORS.BLACK,
