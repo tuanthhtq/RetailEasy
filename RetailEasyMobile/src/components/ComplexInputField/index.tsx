@@ -1,29 +1,24 @@
 import React from "react";
-import { StyleProp, StyleSheet, Text, TextInput, TextInputProps, View, ViewStyle } from "react-native";
-import { Control, Controller, DeepRequired, FieldErrorsImpl, ValidationRule } from "react-hook-form";
+import { StyleSheet, Text, TextInput, TextInputProps, View } from "react-native";
+import { Control, Controller, ValidationRule } from "react-hook-form";
 import { COLORS } from "../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
 import { EmailRegex, FullNameRegex, PhoneRegex } from "../../constants/Regex.ts";
 
 export interface IComplexInputField extends TextInputProps{
-  containerStyle?: StyleProp<ViewStyle>
   label: string,
   name: string,
   control: Control<any>,
-  placeHolder?: string,
   required?: boolean,
   validatePhone?: boolean,
   validateEmail?: boolean,
   validateName?: boolean,
-  isPassword?: boolean,
   errors?: string,
-  maxLength: number,
-  isTextarea?: boolean,
   defaultValue?: string,
 }
 
 
-const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, defaultValue = "", required = true, isPassword = false,...props}) => {
+const ComplexInputField: React.FC<IComplexInputField> = ({defaultValue = "", required = true,...props}) => {
 
   let pattern: ValidationRule<RegExp> = new RegExp(/.*?/s);
   if(props.validateEmail) pattern = { value: EmailRegex, message: "Định dạng email không đúng" }
@@ -31,7 +26,7 @@ const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, de
   if(props.validateName) pattern = { value: FullNameRegex, message: "Tên không hợp lệ" }
 
   return (
-    <View style={[style.container, props.containerStyle, isTextarea && {
+    <View style={[style.container, props.multiline && {
       height: verticalPixel(50) * 3,
     }]}>
       <Text style={style.label}>{props.label} {required && <Text style={{color: COLORS.PINK}}>*</Text>}</Text>
@@ -44,20 +39,21 @@ const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, de
         defaultValue={defaultValue}
         render={({field: {onChange, onBlur, value}}) => (
           <TextInput
-            placeholder={props.placeHolder ? props.placeHolder : ""}
+            keyboardType={props.keyboardType}
+            placeholder={props.placeholder ? props.placeholder : ""}
             placeholderTextColor={COLORS.BLACK}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            secureTextEntry={isPassword}
-            style={[style.input, isTextarea && {
+            secureTextEntry={props.secureTextEntry}
+            style={[style.input, props.multiline && {
               width: horizontalPixel(280),
               height: verticalPixel(40) * 3,
               textAlignVertical: "top"
             }]}
             maxLength={props.maxLength}
-            multiline={isTextarea}
-            numberOfLines={isTextarea ? 3 : 1}
+            multiline={props.multiline}
+            numberOfLines={props.multiline ? 3 : 1}
           />
         )}
         name={props.name}/>
@@ -69,7 +65,7 @@ const ComplexInputField: React.FC<IComplexInputField> = ({isTextarea = false, de
 const style = StyleSheet.create({
   container: {
     width: horizontalPixel(300),
-    height: verticalPixel(90),
+    height: verticalPixel(100),
     flexDirection: 'column',
     justifyContent: 'space-evenly',
   },

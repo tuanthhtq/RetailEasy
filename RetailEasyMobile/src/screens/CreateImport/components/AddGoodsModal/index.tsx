@@ -109,7 +109,6 @@ const style = StyleSheet.create({
   modalContent: {
     zIndex: 1,
     width: horizontalPixel(320),
-    height: verticalPixel(350),
     backgroundColor: COLORS.WHITE,
     borderWidth: 0.5,
     borderRadius: 8,
@@ -117,7 +116,9 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    overflow: 'hidden'
+    gap: verticalPixel(10),
+    paddingVertical: verticalPixel(10)
+
   },
   main: {
     flexGrow: 0.7,

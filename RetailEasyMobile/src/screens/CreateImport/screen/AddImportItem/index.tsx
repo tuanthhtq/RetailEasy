@@ -10,6 +10,7 @@ import { fontPixel, horizontalPixel, verticalPixel } from "../../../../utils/Nor
 import Button from "../../../../components/Button";
 import { formatMoney } from "../../../../utils/Formater.ts";
 import { ProductSimpleDto } from "../../../../apis/dto/product.simple.dto.ts";
+import AddGoodsModal from "../../components/AddGoodsModal";
 
 export interface IImportItem {
   productId: number,
@@ -28,22 +29,40 @@ const AddImportItem = () => {
   const [moneyPay, setMoneyPay] = useState(0)
   const [moneyReturn, setMoneyReturn] = useState(0)
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalType, setModalType] = useState<"import" | "return">("import")
+
+  //open modal
+  const openModal = () => {
+    setModalVisible(true)
+  }
+
   //click add
   const addGoods = () => {
-
+    setModalType("import");
+    openModal()
   }
 
   //click return
   const returnGoods = () => {
-
+    setModalType("return")
+    openModal()
   }
+
+
   //click cancel add
   const onCancel  = () => {
-
+    setModalVisible(false)
   }
 
   //click confirm add
   const onConfirm = (item: ProductSimpleDto) => {
+
+    setModalVisible(false)
+  }
+
+  //on next step
+  const onNext = () => {
 
   }
 
@@ -57,7 +76,9 @@ const AddImportItem = () => {
     }
   }, []);
 
-  //calculate money
+
+
+  //calculate total money
   useEffect(() => {
     if(items){
       let returnMoney = 0;
@@ -79,6 +100,12 @@ const AddImportItem = () => {
     <View style={style.container}>
       <ScreenHeader label={"Thêm sản phẩm"} />
       <View style={style.main}>
+        <AddGoodsModal
+          visible={modalVisible}
+          type={modalType}
+          onCancel={onCancel}
+          onConfirm={(item: ProductSimpleDto) => onConfirm(item)}
+        />
         <View style={style.supplier}>
           <Text style={style.supplierHeading}>Thông tin nhà cung cấp</Text>
           <Text style={style.text}>Tên: {supplier ? supplier.name : "N/A"}</Text>
@@ -100,8 +127,8 @@ const AddImportItem = () => {
             <Text style={style.infoText}>Tiền trả: {formatMoney(moneyPay - moneyReturn)}</Text>
           </View>
           <View style={style.action}>
-            <Button onClick={addGoods} label={"Hủy"} size={"medium"} color={"pink"}/>
-            <Button onClick={addGoods} label={"Đồng ý"} size={"medium"} />
+            <Button onClick={onCancel} label={"Hủy"} size={"medium"} color={"pink"}/>
+            <Button onClick={onNext} label={"Tiếp tục"} size={"medium"} />
           </View>
         </View>
       </View>

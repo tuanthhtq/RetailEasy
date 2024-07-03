@@ -173,7 +173,7 @@ public class AuthServicesImpl implements AuthServices {
                 .orElse(null);
 
         if(user == null){
-            errors.put("phone", "Số điện thoại không tồn tại");
+            errors.put("phone", "Số điện thoại không tồn tại trên hệ thống");
         }else{
             if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
                 errors.put("password", "Mật khẩu không đúng");
@@ -193,6 +193,7 @@ public class AuthServicesImpl implements AuthServices {
             response.setData(DtoMapper.toUserDataDto(user, accessToken));
 
         }
+        response.setError(errors);
         return response;
     }
 

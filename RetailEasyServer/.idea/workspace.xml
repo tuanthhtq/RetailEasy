@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/LogoutIcon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Menu/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScanResult/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/components/InfoModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/components/InfoModal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +153,7 @@
       <workItem from="1719718349933" duration="8950000" />
       <workItem from="1719827745247" duration="944000" />
       <workItem from="1719999020256" duration="1270000" />
+      <workItem from="1720026026451" duration="1150000" />
     </task>
     <servers />
   </component>

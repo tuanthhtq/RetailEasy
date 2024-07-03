@@ -13,7 +13,7 @@ const InfoModal: React.FC<IBillInfoModal> = ({...props}) => {
 
   return (
     <Modal
-c    >
+    >
       <View style={style.modalBackground}></View>
       <View style={style.content}>
 

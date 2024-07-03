@@ -100,7 +100,7 @@ const Feedback = () => {
                 control={control}
                 maxLength={500}
                 errors={errors.message ? errors.message.message : ""}
-                isTextarea
+                multiline
               />
               <Button
                 onClick={handleSubmit(onSendFeedback)}

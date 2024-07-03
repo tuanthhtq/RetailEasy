@@ -113,7 +113,7 @@ const SetupStoreGetData = ({navigation}: NavigationProp) =>{
               defaultValue={address}
               maxLength={150}
               errors={errors.address && errors.address.message}
-              isTextarea
+              multiline
             />
           </View>
           <View style={style.action}>

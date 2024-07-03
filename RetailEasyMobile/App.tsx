@@ -15,6 +15,7 @@ import { StoreInfoDto } from "./src/apis/public/dtos/StoreInfoDto.ts";
 import { storeInitialState } from "./src/store/storeInitial/store.initial.action.ts";
 import Toast from "react-native-toast-message";
 import { fontPixel } from "./src/utils/Normalizer.ts";
+import { toastTextStyle } from "./src/constants/String.ts";
 
 function Main(): React.JSX.Element {
 
@@ -26,10 +27,6 @@ function Main(): React.JSX.Element {
 
   const dispatch = useAppDispatch();
 
-  const toastTextStyle: StyleProp<TextStyle> = {
-    fontSize: fontPixel(20),
-    fontWeight: "normal"
-  }
 
   //check server connection
   useEffect(() => {
@@ -38,8 +35,6 @@ function Main(): React.JSX.Element {
         .then((res) => {
           if(res.data){
             setNetworkErr(false)
-          }else{
-            setNetworkErr(true)
           }
         })
         .catch((err) => {
@@ -59,15 +54,6 @@ function Main(): React.JSX.Element {
         swipeable: false,
         text1Style: toastTextStyle
       })
-    }else{
-      Toast.show({
-        type: "success",
-        text1: "Đã kết nối đến server",
-        autoHide: true,
-        text1Style: toastTextStyle,
-        visibilityTime: 3000
-      })
-
     }
   }, [networkErr]);
 

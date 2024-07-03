@@ -9,6 +9,8 @@ import Button from "../../components/Button";
 import { useSelector } from "react-redux";
 import { login } from "../../store/authentication/auth.action.ts";
 import { IRootState, useAppDispatch } from "../../store/store.ts";
+import Toast from "react-native-toast-message";
+import { toastTextStyle } from "../../constants/String.ts";
 
 interface formData {
   phone: string,
@@ -17,7 +19,7 @@ interface formData {
 }
 
 const Login = () => {
-  const message = useSelector((state: IRootState) => state.auth)
+  const authState = useSelector((state: IRootState) => state.auth)
 
   const  {control, handleSubmit, formState: {errors}, setError} = useForm<formData>()
   const [loginError, setLoginError] = useState("");
@@ -29,13 +31,25 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if(message.message){
-      setLoginError(message.message);
-      setTimeout(() => {
-        setLoginError('');
-      }, 5000)
+    console.log(authState);
+    if(authState.error){
+      Toast.show({
+        type: "error",
+        autoHide: true,
+        text1: authState.error,
+        text1Style: toastTextStyle
+      })
+    }else if (authState.message){
+      Toast.show({
+        type: "success",
+        autoHide: true,
+        text1: authState.message,
+        text1Style: toastTextStyle
+      })
+
     }
-  }, [message]);
+  }, [authState])
+
 
   return (
     <View style={style.container}>
@@ -53,12 +67,13 @@ const Login = () => {
               control={control}
               errors={errors.phone ? errors.phone.message : ""}
               maxLength={15}
+              keyboardType={"number-pad"}
             />
             <ComplexInputField
               label={"Mật khẩu"}
               name={"password"}
               control={control}
-              isPassword
+              secureTextEntry
               errors={errors.password ? errors.password.message : ""}
               maxLength={255}
             />

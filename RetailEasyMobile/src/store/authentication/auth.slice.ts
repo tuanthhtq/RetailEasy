@@ -11,6 +11,7 @@ export interface  IAuthState {
   isLoading: boolean
   message: string | null
   roles: string[]
+  error: string | null
 }
 
 
@@ -21,6 +22,7 @@ const initialState: IAuthState = {
   phoneNumber: mmkv.getString(auth_key.phone) || null,
   isLoading: false,
   message: null,
+  error: null,
   roles: mmkv.getString(auth_key.roles)?.split('\,') ||[]
 }
 
@@ -41,6 +43,11 @@ const authSlice = createSlice({
     checkLogin: (state) => {
       console.log("Check authentication");
       return state;
+    },
+    clearMessage: (state) => {
+      console.log("Clear auth message");
+      state.message = null
+      state.error = null
     }
   },
   extraReducers: builder => {
@@ -72,11 +79,11 @@ const authSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         console.log("Login failed");
         if(action.error && action.error.message){
-          state.message = action.error.message
+          state.error = action.error.message
         }
       })
   }
 })
 
-export const {logout, checkLogin} = authSlice.actions
+export const {logout, checkLogin, clearMessage} = authSlice.actions
 export const authReducer = authSlice.reducer;
