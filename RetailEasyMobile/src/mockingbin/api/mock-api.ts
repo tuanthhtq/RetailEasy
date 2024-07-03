@@ -1,6 +1,7 @@
 import { BillsDto } from "../../apis/dto/bills.dto.ts";
-import { BillSearch, SupplierList } from "../MockData.ts";
+import { BillSearch, StockItems, SupplierList } from "../MockData.ts";
 import { SupplierDto } from "../../apis/dto/supplier.dto.ts";
+import { ProductSimpleDto } from "../../apis/dto/product.simple.dto.ts";
 
 export const getBillsByPhone = (phone: string): BillsDto[] => {
   let res: BillsDto[] = []
@@ -35,4 +36,15 @@ export const getSupplier = (phone: string): SupplierDto | null => {
     }
   }
   return null;
+}
+
+
+export const getStockProductByName = (name: string): ProductSimpleDto[] => {
+  let res = [];
+  for (const item of StockItems) {
+    if(item.productName.includes(name)){
+      res.push(item)
+    }
+  }
+  return res;
 }

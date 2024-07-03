@@ -29,19 +29,22 @@ const InfoModal: React.FC<IInfoModal> = ({isVisible = false, ...props}) => {
   }
 
   useEffect(() => {
-    getProductDetailService(props.barCode)
-      .then((response) => {
-        if(response.data){
-          setData(response.data)
-          setIsLoading(false)
-        }else{
-          setError(response.message)
-          setIsLoading(true)
-        }
-      })
-      .catch((err) => {
-        console.log({err});
-      })
+    if(props.barCode){
+      getProductDetailService(props.barCode)
+        .then((response) => {
+          if(response.data){
+            setData(response.data)
+            setIsLoading(false)
+          }else{
+            setError(response.message)
+            setIsLoading(true)
+          }
+        })
+        .catch((err) => {
+          console.log({err});
+        })
+
+    }
   }, [props.barCode]);
 
 

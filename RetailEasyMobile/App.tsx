@@ -3,7 +3,7 @@ import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import UnauthorizedStack from "./src/navigations/Unauthorized/UnauthorizedStack";
 import { COLORS } from "./src/constants/Colors.ts";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { KeyboardAvoidingView, Platform } from "react-native";
+import { KeyboardAvoidingView, Platform, StyleProp, Text, TextStyle, View, ViewStyle } from "react-native";
 import { Provider, useSelector } from "react-redux";
 import { IRootState, store, useAppDispatch } from "./src/store/store.ts";
 import AuthorizedStack from "./src/navigations/Authorized/AuthorizedStack";
@@ -13,20 +13,23 @@ import { ENDPOINT } from "./src/constants/Endpoint.ts";
 import SetupStoreStack from "./src/navigations/SetupStoreStack";
 import { StoreInfoDto } from "./src/apis/public/dtos/StoreInfoDto.ts";
 import { storeInitialState } from "./src/store/storeInitial/store.initial.action.ts";
+import Toast from "react-native-toast-message";
+import { fontPixel } from "./src/utils/Normalizer.ts";
 
 function Main(): React.JSX.Element {
 
   const authState = useSelector((state: IRootState ) =>  state.auth)
   // const initialState = { initialized: false }
-  const initialState = useSelector((state: IRootState) => {
-    console.log(state.initialState);
-    return state.initialState;
-  })
+  const initialState = useSelector((state: IRootState) => state.initialState)
 
   const [networkErr, setNetworkErr] = useState(false)
 
   const dispatch = useAppDispatch();
 
+  const toastTextStyle: StyleProp<TextStyle> = {
+    fontSize: fontPixel(20),
+    fontWeight: "normal"
+  }
 
   //check server connection
   useEffect(() => {
@@ -45,6 +48,28 @@ function Main(): React.JSX.Element {
     }, 3000)
     return () => clearInterval(interval)
   })
+
+  //show toast for connection error
+  useEffect(() => {
+    if(networkErr){
+        Toast.show({
+        type: "error",
+        text1: "Không thể kết nối đến server",
+        autoHide: false,
+        swipeable: false,
+        text1Style: toastTextStyle
+      })
+    }else{
+      Toast.show({
+        type: "success",
+        text1: "Đã kết nối đến server",
+        autoHide: true,
+        text1Style: toastTextStyle,
+        visibilityTime: 3000
+      })
+
+    }
+  }, [networkErr]);
 
   //check if store is initialized
   useEffect(() => {
@@ -83,7 +108,6 @@ function Main(): React.JSX.Element {
         flex: 1
       }}
     >
-      <PopupNotification label={"Không thể kết nối đến server"} visible={networkErr}/>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
@@ -112,11 +136,11 @@ function Main(): React.JSX.Element {
   );
 }
 
-
 function App() {
   return (
     <Provider store={store}>
       <Main/>
+      <Toast />
     </Provider>
   );
 }

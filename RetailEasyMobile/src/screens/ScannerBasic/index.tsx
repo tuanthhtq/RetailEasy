@@ -1,16 +1,7 @@
-import { StyleProp, StyleSheet, Text, useWindowDimensions, Vibration, View, ViewStyle } from "react-native";
-import { COLORS } from "../../constants/Colors.ts";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useFocusEffect, useIsFocused } from "@react-navigation/native";
-import {
-  Camera,
-  Point,
-  useCameraDevice,
-  useCameraFormat,
-  useCameraPermission,
-  useCodeScanner
-} from "react-native-vision-camera";
-import { fontPixel, horizontalPixel, SCREEN_HEIGHT, SCREEN_WIDTH, verticalPixel } from "../../utils/Normalizer.ts";
+import { StyleSheet, Vibration, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import {  useIsFocused } from "@react-navigation/native";
+import { horizontalPixel } from "../../utils/Normalizer.ts";
 import ScreenHeader from "../../components/ScreenHeader";
 import InfoModal from "./components/InfoModal";
 import Scanner from "../../components/Scanner";

@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/import.item.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/AddGoodsModal/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/icons/LogoutIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/CommonResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/common.response.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/employee/employee.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/employee/employee.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Feedback/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Feedback/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Landing/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Landing/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStore/components/SetupStoreGetData/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStore/components/SetupStoreGetData/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStore/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStore/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStoreConfirmation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStoreConfirmation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/import/import.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/import/import.slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Menu/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScanResult/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/components/InfoModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/components/InfoModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/ScannerBasic/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
@@ -168,6 +161,7 @@
       <workItem from="1719654700578" duration="9547000" />
       <workItem from="1719718349933" duration="8950000" />
       <workItem from="1719827745247" duration="944000" />
+      <workItem from="1719999020256" duration="1270000" />
     </task>
     <servers />
   </component>

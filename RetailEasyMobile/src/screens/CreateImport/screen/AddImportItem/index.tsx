@@ -9,6 +9,7 @@ import { COLORS } from "../../../../constants/Colors.ts";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../../../utils/Normalizer.ts";
 import Button from "../../../../components/Button";
 import { formatMoney } from "../../../../utils/Formater.ts";
+import { ProductSimpleDto } from "../../../../apis/dto/product.simple.dto.ts";
 
 export interface IImportItem {
   productId: number,
@@ -27,11 +28,22 @@ const AddImportItem = () => {
   const [moneyPay, setMoneyPay] = useState(0)
   const [moneyReturn, setMoneyReturn] = useState(0)
 
+  //click add
   const addGoods = () => {
 
   }
 
+  //click return
   const returnGoods = () => {
+
+  }
+  //click cancel add
+  const onCancel  = () => {
+
+  }
+
+  //click confirm add
+  const onConfirm = (item: ProductSimpleDto) => {
 
   }
 
