@@ -3,7 +3,7 @@ import { Modal, StyleSheet, Text, View } from "react-native";
 import { ImportItemDto } from "../../../../apis/dto/import.item.dto.ts";
 import ComplexInputField from "../../../../components/ComplexInputField";
 import Button from "../../../../components/Button";
-import { horizontalPixel, verticalPixel } from "../../../../utils/Normalizer.ts";
+import { fontPixel, horizontalPixel, verticalPixel } from "../../../../utils/Normalizer.ts";
 import { COLORS } from "../../../../constants/Colors.ts";
 import { useForm } from "react-hook-form";
 import { ProductSimpleDto } from "../../../../apis/dto/product.simple.dto.ts";
@@ -54,6 +54,7 @@ const AddGoodsModal:React.FC<IAddGoodsModal> =({visible= false, ...props}) => {
     >
       <View style={style.modalBackground}>
         <View style={style.modalContent}>
+          <Text style={style.heading}>{props.type === "import" ? "Nhập hàng" : "Trả hàng"}</Text>
           <View style={style.main}>
             <ComplexInputField
               label={"Tên sản phẩm"}
@@ -62,29 +63,31 @@ const AddGoodsModal:React.FC<IAddGoodsModal> =({visible= false, ...props}) => {
               maxLength={100}
               errors={errors.name ? errors.name.message : "" }
             />
-            <ComplexInputField
-              label={"Số lượng"}
-              name={"quantity"}
-              control={control}
-              maxLength={15}
-              validatePhone
-              errors={errors.quantity ? errors.quantity.message : "" }
-            />
           </View>
           <View style={style.list}>
             {(props.type === "import" && importItem.length > 0) &&  (<View></View>)
             }
             {(props.type === "return" && stockItem.length > 0) &&
-              stockItem.map((item: ProductSimpleDto) => (
-                <View>
-                  <Text
-                    style={{fontSize: 20, color: COLORS.BLACK, textAlign: 'center'}}
+              stockItem.map((item: ProductSimpleDto, index) => (
+                <View style={style.listItem} key={index}>
+                  <Text style={{fontSize: 20, color: COLORS.BLACK, textAlign: 'center'}}
                   >{item.productName}</Text>
                 </View>
               ))
             }
           </View>
           <View style={style.action}>
+            <View style={style.summary}>
+              <ComplexInputField
+                label={"Số lượng"}
+                name={"quantity"}
+                control={control}
+                maxLength={15}
+                validatePhone
+                errors={errors.quantity ? errors.quantity.message : "" }
+              />
+              <Text style={style.totalMoney}>0</Text>
+            </View>
             <Button size={"small"} color={"pink"} onClick={props.onCancel} label={"Huỷ"}/>
             <Button size={"small"} onClick={() => onSelect} label={"Đồng ý"}/>
           </View>
@@ -120,13 +123,23 @@ const style = StyleSheet.create({
     paddingVertical: verticalPixel(10)
 
   },
+  heading: {
+    fontSize: fontPixel(24),
+    color: COLORS.BLACK
+  },
   main: {
     flexGrow: 0.7,
     flexDirection: 'column',
     justifyContent: 'space-evenly'
   },
   list: {
-
+    flexDirection: 'column',
+    gap: verticalPixel(2),
+    alignItems: 'center'
+  },
+  listItem: {
+    borderWidth: 0.5,
+    width: horizontalPixel(310)
   },
   action: {
     width: horizontalPixel(320),

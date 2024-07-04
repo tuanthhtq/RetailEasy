@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/AddGoodsModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/AddGoodsModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.action.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/retaileasy/retaileasyserver/services/auth/AuthServicesImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +159,8 @@
       <workItem from="1719827745247" duration="944000" />
       <workItem from="1719999020256" duration="1270000" />
       <workItem from="1720026026451" duration="1150000" />
+      <workItem from="1720080084744" duration="614000" />
+      <workItem from="1720089542722" duration="370000" />
     </task>
     <servers />
   </component>

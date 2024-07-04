@@ -31,7 +31,7 @@ function Main(): React.JSX.Element {
   //check server connection
   useEffect(() => {
     const interval = setInterval(() => {
-      getService<StoreInfoDto>(ENDPOINT.GET_STORE)
+      getService<StoreInfoDto>(ENDPOINT.LANDING)
         .then((res) => {
           if(res.data){
             setNetworkErr(false)

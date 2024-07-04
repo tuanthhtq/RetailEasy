@@ -7,6 +7,6 @@ import { ENDPOINT } from "../../constants/Endpoint.ts";
 export const landing = createAsyncThunk<CommonResponse<StoreInfoDto>>(
   'public/landing',
   async () => {
-    return await getService<StoreInfoDto>(ENDPOINT.GET_STORE);
+    return await getService<StoreInfoDto>(ENDPOINT.LANDING);
   }
 )
