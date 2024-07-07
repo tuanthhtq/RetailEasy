@@ -5,5 +5,6 @@ export interface ProductSimpleDto {
   productName: string,
   stock: number,
   price: number,
-  brand: string
+  brand: string,
+  category: string
 }

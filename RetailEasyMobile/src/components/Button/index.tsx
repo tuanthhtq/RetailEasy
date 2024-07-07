@@ -5,13 +5,14 @@ import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalize
 
 
 interface IButton {
-  onClick: ()=> void
+  onClick?: ()=> void
   label: string | ReactNode
   size?: "large" | "medium" | "small" | "square",
-  color?: "pink" | "green"
+  color?: "pink" | "green",
+  customStyle?: StyleProp<ViewStyle>
 }
 
-const Button: React.FC<IButton> = ({label, size = "large", onClick, color = COLORS.PINK }) => {
+const Button: React.FC<IButton> = ({label, size = "large", onClick = () => {}, color = COLORS.PINK, ...props }) => {
 
 
   let buttonStyle: StyleProp<ViewStyle> = {
@@ -33,7 +34,6 @@ const Button: React.FC<IButton> = ({label, size = "large", onClick, color = COLO
   if(size === "square"){
     buttonStyle = {
       ...buttonStyle,
-      backgroundColor: COLORS.GREEN,
       width: horizontalPixel(43),
       height: horizontalPixel(43)
     }
@@ -57,7 +57,7 @@ const Button: React.FC<IButton> = ({label, size = "large", onClick, color = COLO
 
   return (
     <TouchableOpacity
-      style={buttonStyle}
+      style={[buttonStyle, props.customStyle]}
       onPress={onClick}
     >
       <Text style={textStyle}>{label}</Text>

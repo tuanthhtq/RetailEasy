@@ -8,7 +8,7 @@ import { COLORS } from "../../constants/Colors.ts";
 import Button from "../../components/Button";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import TextModal from "../../components/TextModal";
-import { FeedbackDto } from "../../apis/public/dtos/FeedbackDto.ts";
+import { FeedbackDto } from "../../apis/public/dtos/feedback.dto.ts";
 import { postService } from "../../apis/public/public.services.ts";
 import { ENDPOINT } from "../../constants/Endpoint.ts";
 

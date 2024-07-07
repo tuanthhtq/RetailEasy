@@ -1,11 +1,11 @@
-import { FeedbackDto } from "./dtos/FeedbackDto.ts";
+import { FeedbackDto } from "./dtos/feedback.dto.ts";
 import { AxiosRequestConfig } from "axios";
 import { ENDPOINT } from "../../constants/Endpoint.ts";
 import { Interceptor } from "../Interceptor.ts";
 import { CommonResponse } from "../common.response.ts";
 import { ProductDetailDto } from "../dto/product.detail.dto.ts";
-import { StoreSetupDto } from "./dtos/StoreSetupDto.ts";
-import { IUserDetail } from "../auth/dtos/UserData.ts";
+import { StoreSetupDto } from "./dtos/store.setup.dto.ts";
+import { UserDto } from "../auth/dtos/user.dto.ts";
 
 export const postService = async <T, I = null>(endpoint: ENDPOINT, data?: I): Promise<CommonResponse<T>>  => {
   const config: AxiosRequestConfig = {
@@ -36,7 +36,7 @@ export const getProductDetailService
   return await Interceptor(config);
 }
 
-export const setupStoreServices = async (data: StoreSetupDto): Promise<CommonResponse<IUserDetail>> => {
+export const setupStoreServices = async (data: StoreSetupDto): Promise<CommonResponse<UserDto>> => {
   const config: AxiosRequestConfig = {
     method: 'POST',
     url: ENDPOINT.CREATE_ADMIN,

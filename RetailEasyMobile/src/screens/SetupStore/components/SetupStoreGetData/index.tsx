@@ -13,7 +13,7 @@ import {
   SetupStoreStackName
 } from "../../../../constants/ParamList.ts";
 import { useSelector } from "react-redux";
-import { StoreSetupDto } from "../../../../apis/public/dtos/StoreSetupDto.ts";
+import { StoreSetupDto } from "../../../../apis/public/dtos/store.setup.dto.ts";
 import { setInitialState } from "../../../../store/storeInitial/store.initial.slice.ts";
 
 interface formData {

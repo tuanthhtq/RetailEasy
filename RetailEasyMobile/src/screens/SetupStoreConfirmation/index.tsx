@@ -9,7 +9,7 @@ import Button from "../../components/Button";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { SetupStoreParams, SetupStoreStackName } from "../../constants/ParamList.ts";
 import { setupStoreServices } from "../../apis/public/public.services.ts";
-import { StoreSetupDto } from "../../apis/public/dtos/StoreSetupDto.ts";
+import { StoreSetupDto } from "../../apis/public/dtos/store.setup.dto.ts";
 import ResultModal from "./components/ResultModal";
 import { login } from "../../store/authentication/auth.action.ts";
 import { setInitialized, setInitialState } from "../../store/storeInitial/store.initial.slice.ts";

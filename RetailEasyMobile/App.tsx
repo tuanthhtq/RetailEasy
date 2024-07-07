@@ -11,7 +11,7 @@ import { getService } from "./src/apis/public/public.services.ts";
 import PopupNotification from "./src/components/PopupNotification";
 import { ENDPOINT } from "./src/constants/Endpoint.ts";
 import SetupStoreStack from "./src/navigations/SetupStoreStack";
-import { StoreInfoDto } from "./src/apis/public/dtos/StoreInfoDto.ts";
+import { StoreInfoDto } from "./src/apis/public/dtos/store.info.dto.ts";
 import { storeInitialState } from "./src/store/storeInitial/store.initial.action.ts";
 import Toast from "react-native-toast-message";
 import { fontPixel } from "./src/utils/Normalizer.ts";
@@ -33,6 +33,7 @@ function Main(): React.JSX.Element {
     const interval = setInterval(() => {
       getService<StoreInfoDto>(ENDPOINT.LANDING)
         .then((res) => {
+
           if(res.data){
             setNetworkErr(false)
           }

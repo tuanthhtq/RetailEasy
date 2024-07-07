@@ -6,12 +6,39 @@
   <component name="ChangeListManager">
     <list default="true" id="87da7ea3-018f-48b7-8197-fa7821636d50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/ios/RetailEasyMobile.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/auth.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/auth.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/AuthResponse.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/CreateAccountRequest.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/LoginRequest.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/auth/dtos/UserData.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/bill.item.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/dto/bill.item.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/dtos/FeedbackDto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/dtos/StoreInfoDto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/dtos/StoreSetupDto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/apis/public/public.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/components/ComplexInputField/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/constants/Endpoint.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/AddGoodsModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/AddGoodsModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/MockData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/MockData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/api/mock-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/mockingbin/api/mock-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/AddBillItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/AddGoodsModal/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/GetSupplierModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/components/GetSupplierModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/screen/AddImportItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/CreateImport/screen/AddImportItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Feedback/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/Feedback/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStore/components/SetupStoreGetData/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStore/components/SetupStoreGetData/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStoreConfirmation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/screens/SetupStoreConfirmation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/authentication/auth.action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/import/import.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/import/import.slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/public/public.slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../RetailEasyMobile/src/store/storeInitial/store.initial.slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +188,9 @@
       <workItem from="1720026026451" duration="1150000" />
       <workItem from="1720080084744" duration="614000" />
       <workItem from="1720089542722" duration="370000" />
+      <workItem from="1720212433332" duration="3708000" />
+      <workItem from="1720340862735" duration="647000" />
+      <workItem from="1720366713242" duration="1969000" />
     </task>
     <servers />
   </component>

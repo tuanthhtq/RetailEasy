@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface IImport {
+export interface IImportState {
   name?: string,
   phone?: string,
-  message?: string
+  message?: string,
 }
 
 
-const initialSate: IImport = {
+const initialSate: IImportState = {
   name: undefined,
   phone: undefined,
   message: undefined
@@ -21,7 +21,7 @@ const importSlice = createSlice({
       console.log("Get supplier data");
       return state;
     },
-    setImportSupplier: (state, action: PayloadAction<IImport>) => {
+    setImportSupplier: (state, action: PayloadAction<IImportState>) => {
       console.log("Set supplier");
       state.name = action.payload.name
       state.phone = action.payload.phone

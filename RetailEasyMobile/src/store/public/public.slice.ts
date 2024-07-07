@@ -1,4 +1,4 @@
-import { StoreInfoDto } from "../../apis/public/dtos/StoreInfoDto.ts";
+import { StoreInfoDto } from "../../apis/public/dtos/store.info.dto.ts";
 import { mmkv } from "../../utils/MMKVProvider.ts";
 import { store_info_key } from "../../constants/Keys.ts";
 import { createSlice } from "@reduxjs/toolkit";

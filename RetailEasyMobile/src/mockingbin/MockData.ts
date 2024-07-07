@@ -1,7 +1,9 @@
 import { BillsDto } from "../apis/dto/bills.dto.ts";
-import { IBillItemDto } from "../apis/dto/bill.item.dto.ts";
+import { BillItemDto } from "../apis/dto/bill.item.dto.ts";
 import { SupplierDto } from "../apis/dto/supplier.dto.ts";
 import { ProductSimpleDto } from "../apis/dto/product.simple.dto.ts";
+import { BrandDto } from "../apis/dto/brand.dto.ts";
+import { CategoryDto } from "../apis/dto/category.dto.ts";
 
 export const BillSearch: BillsDto[] = [
   {billId: 1, createdDate: "01-01-2000", status: true, total: 10000, phoneNumber: "0989762205"},
@@ -13,7 +15,7 @@ export const BillSearch: BillsDto[] = [
   {billId: 7, createdDate: "07-01-2000", status: true, total: 45000, phoneNumber: "0345154635"},
 ]
 
-export const BillItems: IBillItemDto[] = [
+export const BillItems: BillItemDto[] = [
   {
     quantity: 1,
     product: {
@@ -101,7 +103,8 @@ export const StockItems: ProductSimpleDto[] = [
     productName: "snack",
     stock: 12,
     price: 5000,
-    brand: 'tuan'
+    brand: 'Unknown Brand',
+    category: "Snack"
 
   },
   {
@@ -109,7 +112,8 @@ export const StockItems: ProductSimpleDto[] = [
     productName: "soda",
     stock: 32,
     price: 15000,
-    brand: 'tuan'
+    brand: 'Unknown Brand',
+    category: "Snack"
 
   },
   {
@@ -117,13 +121,30 @@ export const StockItems: ProductSimpleDto[] = [
     productName: "rice",
     stock: 322,
     price: 20000,
-    brand: 'tuan'
+    brand: 'Unknown Brand',
+    category: "Snack"
   },
   {
     productId: 4,
     productName: "candy",
     stock: 65,
     price: 2000,
-    brand: 'tuan'
+    brand: 'Unknown Brand',
+    category: "Snack"
   },
+]
+
+
+export const Categories: CategoryDto[] = [
+  {categoryId: 1, categoryName: "Snack"},
+  {categoryId: 2, categoryName: "Toy"},
+  {categoryId: 3, categoryName: "Furniture"},
+  {categoryId: 4, categoryName: "Tools"},
+]
+
+export const Brands: BrandDto[] = [
+  {brandId: 1, brandName: "Tuan Co.Ltd"},
+  {brandId: 2, brandName: "Ba anh em"},
+  {brandId: 3, brandName: "Unknown Brand"},
+  {brandId: 4, brandName: "Hằng Đại"},
 ]

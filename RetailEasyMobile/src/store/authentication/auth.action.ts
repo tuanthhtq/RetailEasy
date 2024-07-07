@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ILoginRequest } from "../../apis/auth/dtos/LoginRequest.ts";
-import { IAuthResponse } from "../../apis/auth/dtos/AuthResponse.ts";
+import { LoginRequestDto } from "../../apis/auth/dtos/login.request.ts";
+import { AuthResponseDto } from "../../apis/auth/dtos/auth.response.ts";
 import { loginService } from "../../apis/auth/auth.services.ts";
 
 
-export const login = createAsyncThunk<IAuthResponse, ILoginRequest>(
+export const login = createAsyncThunk<AuthResponseDto, LoginRequestDto>(
   'auth/login',
   async (credentials, thunkAPI) => {
       return await loginService(credentials);

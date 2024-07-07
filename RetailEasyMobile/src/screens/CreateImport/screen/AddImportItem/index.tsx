@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import ScreenHeader from "../../../../components/ScreenHeader";
 import { useEffect, useState } from "react";
-import { getSupplier } from "../../../../mockingbin/api/mock-api.ts";
+import { getStockProductById, getSupplier } from "../../../../mockingbin/api/mock-api.ts";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../../store/store.ts";
 import { SupplierDto } from "../../../../apis/dto/supplier.dto.ts";
@@ -10,55 +10,80 @@ import { fontPixel, horizontalPixel, verticalPixel } from "../../../../utils/Nor
 import Button from "../../../../components/Button";
 import { formatMoney } from "../../../../utils/Formater.ts";
 import { ProductSimpleDto } from "../../../../apis/dto/product.simple.dto.ts";
-import AddGoodsModal from "../../components/AddGoodsModal";
+import { CreateImportParams, CreateImportStackName } from "../../../../constants/ParamList.ts";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import ReturnItemModal from "../../components/ReturnItemModal";
+import PlusIcon from "../../../../components/icons/PlusIcon";
+import MinusIcon from "../../../../components/icons/MinusIcon";
+import AddImportItemModal from "../../components/AddImportItemModal";
+import addImportItemModal from "../../components/AddImportItemModal";
 
 export interface IImportItem {
-  productId: number,
-  name: string,
-  price: number,
-  quantity: number,
+  product: ProductSimpleDto
+  quantity: number
   isReturn: boolean
 }
 
-const AddImportItem = () => {
+type NavigationProps = NativeStackScreenProps<CreateImportParams, CreateImportStackName.ADD_IMPORT_ITEM>
+
+const AddImportItem = ({navigation}: NavigationProps) => {
 
   const {name, phone} = useSelector((state: IRootState) => state.supplier)
+
 
   const [supplier, setSupplier] = useState<SupplierDto | undefined>();
   const [items, setItems] = useState<IImportItem[]>([]);
   const [moneyPay, setMoneyPay] = useState(0)
   const [moneyReturn, setMoneyReturn] = useState(0)
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalType, setModalType] = useState<"import" | "return">("import")
+  const [returnModalVisible, setReturnModalVisible] = useState(false);
+  const [addModalVisible, setAddModalVisible] = useState(false);
 
   //open modal
-  const openModal = () => {
-    setModalVisible(true)
+  const openModal = (type: "import" | "return") => {
+    type === "return" ? setReturnModalVisible(true) : setAddModalVisible(true)
   }
 
-  //click add
-  const addGoods = () => {
-    setModalType("import");
-    openModal()
+  //close modal
+  const closeModal = () => {
+    setReturnModalVisible(false)
+    setAddModalVisible(false)
   }
 
-  //click return
-  const returnGoods = () => {
-    setModalType("return")
-    openModal()
-  }
-
-
-  //click cancel add
-  const onCancel  = () => {
-    setModalVisible(false)
+  //on cancel import
+  const cancelImport = () => {
+    navigation.pop(1)
   }
 
   //click confirm add
-  const onConfirm = (item: ProductSimpleDto) => {
+  const onAddItem = (type: "return" | "import", itemId: number, qty: number) => {
+    closeModal()
+    const item = getStockProductById(itemId);
+    if(item){
+      const find = items.find((elem) => elem.product.productId === itemId);
+      if(find){
+        setItems(items.map(elem => {
+          if(elem.product.productId === find.product.productId){
+            return {
+              ...elem,
+              quantity: parseInt(String(elem.quantity)) + parseInt(String(qty))
+            }
+          }else{
+            return elem
+          }
+        }))
+      }else{
+        setItems([
+          ...items,
+          {
+            product: item,
+            quantity: qty,
+            isReturn: type === "return"
+          }
+        ])
 
-    setModalVisible(false)
+      }
+    }
   }
 
   //on next step
@@ -86,9 +111,9 @@ const AddImportItem = () => {
 
       for (const item of items) {
         if(item.isReturn){
-          returnMoney += item.quantity * item.price
+          returnMoney += item.quantity * item.product.price
         }else{
-          payMoney += item.quantity * item.price
+          payMoney += item.quantity * item.product.price
         }
       }
       setMoneyPay(payMoney)
@@ -100,25 +125,47 @@ const AddImportItem = () => {
     <View style={style.container}>
       <ScreenHeader label={"Thêm sản phẩm"} />
       <View style={style.main}>
-        <AddGoodsModal
-          visible={modalVisible}
-          type={modalType}
-          onCancel={onCancel}
-          onConfirm={(item: ProductSimpleDto) => onConfirm(item)}
+        <ReturnItemModal
+          visible={returnModalVisible}
+          onCancel={closeModal}
+          onConfirm={(id: number, qty: number) => onAddItem("return", id, qty)}
+        />
+        <AddImportItemModal
+          visible={addModalVisible}
+          onCancel={closeModal}
+          onConfirm={() => {}}
         />
         <View style={style.supplier}>
-          <Text style={style.supplierHeading}>Thông tin nhà cung cấp</Text>
-          <Text style={style.text}>Tên: {supplier ? supplier.name : "N/A"}</Text>
+          <Text style={style.text}>Nhà cung cấp: {supplier ? supplier.name : "N/A"}</Text>
           <Text style={style.text}>Số điện thoại: {supplier ? supplier.phoneNumber : "N/A"}</Text>
           {(supplier && supplier.email) &&  <Text style={style.text}>Email: {supplier.email}</Text>}
           {(supplier && supplier.address) &&  <Text style={style.text}>Địa chỉ: {supplier.address}</Text>}
         </View>
         <View style={style.options}>
-          <Button onClick={returnGoods} label={"Trả hàng"} size={"medium"} color={"pink"} />
-          <Button onClick={addGoods} label={"Nhập hàng"} size={"medium"} />
+          <Button onClick={() => openModal("return")} label={"Trả hàng"} size={"medium"} color={"pink"} />
+          <Button onClick={() => openModal("import")} label={"Nhập hàng"} size={"medium"} />
         </View>
         <View style={style.listContainer}>
+          <ScrollView>
+            {items.length > 0 && items.map((item: IImportItem, index) => (
+              <View style={style.itemContainer} key={index}>
+                <View style={style.itemInfo}>
+                  <Text style={style.itemName}>{item.product.productName}</Text>
+                  <View style={style.itemSubInfo}>
+                    <Text style={style.itemSubInfoText}>Đơn giá: {formatMoney(item.product.price)}</Text>
+                    <Text style={style.itemSubInfoText}>Số lượng: {item.quantity}</Text>
+                  </View>
+                </View>
+                <Button
+                  customStyle={{width: horizontalPixel(30), height: horizontalPixel(30)}}
+                  size={"square"}
+                  color={item.isReturn ? "pink" : "green"}
+                  label={item.isReturn ? <MinusIcon/> : <PlusIcon/>}
+                />
+              </View>
+            ))}
 
+          </ScrollView>
         </View>
         <View style={style.summary}>
           <View style={style.info}>
@@ -127,7 +174,7 @@ const AddImportItem = () => {
             <Text style={style.infoText}>Tiền trả: {formatMoney(moneyPay - moneyReturn)}</Text>
           </View>
           <View style={style.action}>
-            <Button onClick={onCancel} label={"Hủy"} size={"medium"} color={"pink"}/>
+            <Button onClick={cancelImport} label={"Hủy"} size={"medium"} color={"pink"}/>
             <Button onClick={onNext} label={"Tiếp tục"} size={"medium"} />
           </View>
         </View>
@@ -152,11 +199,10 @@ const style = StyleSheet.create({
 
   },
   supplier: {
-
-  },
-  supplierHeading: {
-    color: COLORS.BLACK,
-    fontSize: fontPixel(24)
+    borderWidth: 0.5,
+    borderColor: COLORS.PINK,
+    borderRadius: 8,
+    paddingHorizontal: horizontalPixel(5)
   },
   text: {
     color: COLORS.BLACK,
@@ -169,6 +215,37 @@ const style = StyleSheet.create({
   listContainer: {
     flexGrow: 1,
     width: horizontalPixel(340),
+  },
+  itemContainer: {
+    borderWidth: 0.5,
+    borderColor: COLORS.PINK,
+    borderRadius: 8,
+    flexDirection: "row",
+    paddingHorizontal: horizontalPixel(5),
+    gap: horizontalPixel(5),
+    alignItems: 'center',
+    marginBottom: verticalPixel(5)
+  },
+  itemInfo: {
+    flex: 1,
+    flexDirection: 'column',
+    borderRightWidth: 0.5,
+    borderColor: COLORS.PINK,
+    paddingRight: horizontalPixel(5),
+
+  },
+  itemName: {
+    color: COLORS.BLACK,
+    fontSize: fontPixel(20)
+
+  },
+  itemSubInfoText: {
+    color: COLORS.BLACK,
+    fontSize: fontPixel(16)
+  },
+  itemSubInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   summary: {
     flexDirection: 'row',

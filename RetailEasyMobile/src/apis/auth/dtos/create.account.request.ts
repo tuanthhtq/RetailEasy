@@ -1,7 +1,7 @@
 import { ROLES } from "../../../constants/Roles.ts";
 
 
-export interface ICreateAccountRequest{
+export interface CreateAccountRequestDto {
   username: string,
   idNumber: string,
   phone: string,

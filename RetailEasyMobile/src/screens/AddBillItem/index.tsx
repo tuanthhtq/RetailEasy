@@ -14,7 +14,7 @@ import { BillItems } from "../../mockingbin/MockData.ts";
 import BillListItem from "../../components/BillListItem";
 import TableItem from "./components/TableItem";
 import TrashBinIcon from "../../components/icons/TrashBinIcon";
-import { IBillItemDto } from "../../apis/dto/bill.item.dto.ts";
+import { BillItemDto } from "../../apis/dto/bill.item.dto.ts";
 import billListItem from "../../components/BillListItem";
 
 
@@ -25,10 +25,10 @@ const AddBillItem = () => {
   const [barcode, setBarcode] = useState('')
   const [scanMessage, setScanMessage] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
-  const [data, setData] = useState<IBillItemDto[] | []>(BillItems)
+  const [data, setData] = useState<BillItemDto[] | []>(BillItems)
 
   const renderItem = () => {
-    return data.map((item : IBillItemDto, index) =>
+    return data.map((item : BillItemDto, index) =>
       <TableItem
         key={index}
         barcode={item.product.barcode}

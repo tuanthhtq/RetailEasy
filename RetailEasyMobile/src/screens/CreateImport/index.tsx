@@ -8,9 +8,12 @@ import { StyleSheet, Text, View } from "react-native";
 import ScreenHeader from "../../components/ScreenHeader";
 import Button from "../../components/Button";
 import { fontPixel, horizontalPixel, verticalPixel } from "../../utils/Normalizer.ts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GetSupplierModal from "./components/GetSupplierModal";
 import { COLORS } from "../../constants/Colors.ts";
+import { useIsFocused } from "@react-navigation/native";
+import { useAppDispatch } from "../../store/store.ts";
+import { clearSupplier } from "../../store/import/import.slice.ts";
 
 
 type NavigationProp = NativeStackScreenProps<CreateImportParams, CreateImportStackName.CREATE_IMPORT_HOME>
@@ -20,8 +23,13 @@ const CreateImport = ({navigation}: NavigationProp) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [recentImport, setRecentImport] = useState()
 
+  const isFocused = useIsFocused();
+
+  const dispatch = useAppDispatch();
+
   //open "select supplier" modal
   const onCreate = () => {
+    dispatch(clearSupplier())
     setModalVisible(true)
   }
 

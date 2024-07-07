@@ -2,7 +2,7 @@ import { mmkv } from "../../utils/MMKVProvider.ts";
 import { store_initial_state_key } from "../../constants/Keys.ts";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { storeInitialState } from "./store.initial.action.ts";
-import { StoreSetupDto } from "../../apis/public/dtos/StoreSetupDto.ts";
+import { StoreSetupDto } from "../../apis/public/dtos/store.setup.dto.ts";
 
 
 export interface IStoreInitialState {
