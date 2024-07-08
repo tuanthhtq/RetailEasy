@@ -19,11 +19,13 @@ import { toastTextStyle } from "./src/constants/String.ts";
 
 function Main(): React.JSX.Element {
 
-  const authState = useSelector((state: IRootState ) =>  state.auth)
-  // const initialState = { initialized: false }
-  const initialState = useSelector((state: IRootState) => state.initialState)
+  // const authState = useSelector((state: IRootState ) =>  state.auth)
+  const authState = {isAuthenticated: true}
+  // const initialState = useSelector((state: IRootState) => state.initialState)
+  const initialState = { initialized: true }
 
   const [networkErr, setNetworkErr] = useState(false)
+  // const [networkErr, setNetworkErr] = useState(false)
 
   const dispatch = useAppDispatch();
 
@@ -39,7 +41,7 @@ function Main(): React.JSX.Element {
           }
         })
         .catch((err) => {
-          setNetworkErr(true)
+          // setNetworkErr(true)
         })
     }, 3000)
     return () => clearInterval(interval)

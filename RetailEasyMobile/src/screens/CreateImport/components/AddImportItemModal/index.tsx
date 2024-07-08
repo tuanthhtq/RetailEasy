@@ -12,6 +12,7 @@ import { formatMoney } from "../../../../utils/Formater.ts";
 import { BrandDto } from "../../../../apis/dto/brand.dto.ts";
 import { CategoryDto } from "../../../../apis/dto/category.dto.ts";
 import { Brands, Categories, StockItems } from "../../../../mockingbin/MockData.ts";
+import StringDropdown from "../../../../components/StringDropdown";
 
 interface IAddImportItemModal {
   visible?: boolean,
@@ -34,7 +35,7 @@ const AddImportItemModal:React.FC<IAddImportItemModal> =({visible= false, ...pro
   const [selectedItem, setSelectedItem] = useState<ProductSimpleDto>();
   const [selectedId, setSelectedId] = useState(-1)
   const [error, setError] = useState("")
-
+  const [category, setCategory] = useState("Chọn 1")
   const [focusedField, setFocusedField] = useState("")
 
   const  {control, formState: {errors}, watch} = useForm<formData>()
@@ -68,18 +69,14 @@ const AddImportItemModal:React.FC<IAddImportItemModal> =({visible= false, ...pro
 
   //render popup items list
   const renderBrands = () => {
-    return Brands.map((item: BrandDto) => (
-      <Text style={style.popupItem}>{item.brandName}</Text>
+    return Brands.map((item: BrandDto, index) => (
+      <Text style={style.popupItem} key={index}>{item.brandName}</Text>
     ))
   }
-  const renderCategories = () => {
-    return Categories.map((item: CategoryDto) => (
-      <Text style={style.popupItem}>{item.categoryName}</Text>
-    ))
-  }
+
   const renderProducts = () => {
-      return  StockItems.map((item: ProductSimpleDto) => (
-      <Text style={style.popupItem}>{item.productName}, Kho: {item.stock}</Text>
+      return  StockItems.map((item: ProductSimpleDto, index) => (
+      <Text style={style.popupItem} key={index}>{item.productName}, Kho: {item.stock}</Text>
     ))
   }
 
@@ -139,17 +136,14 @@ const AddImportItemModal:React.FC<IAddImportItemModal> =({visible= false, ...pro
             />
             <View style={[style.popup, {display: focusedField === "brand" ? "flex" : "none"}]}>{renderBrands()}</View>
           </View>
-          <View style={style.inputGroup}>
-            <ComplexInputField
+            <StringDropdown
               label={"Phân loại"}
-              name={"category"}
-              control={control}
-              maxLength={100}
-              errors={errors.category ? errors.category.message : "" }
-              onFieldFocus={(fieldName: string) => onFocus(fieldName)}
+              defaultValue={category}
+              onSelect={(value: string) => {
+                setCategory(value)
+              }}
+              data={Categories}
             />
-            <View style={[style.popup, {display: focusedField === "category" ? "flex" : "none"}]}>{renderCategories()}</View>
-          </View>
         </View>
         <View style={style.actionContainer}>
           {error && <Text style={style.error}>{error}</Text>}
