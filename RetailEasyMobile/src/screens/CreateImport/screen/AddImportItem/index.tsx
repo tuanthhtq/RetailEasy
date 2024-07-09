@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import ScreenHeader from "../../../../components/ScreenHeader";
 import { useEffect, useState } from "react";
-import { getStockProductById, getSupplier } from "../../../../mockingbin/api/mock-api.ts";
+import {getStockProductById, getStockProductByName, getSupplier} from "../../../../mockingbin/api/mock-api.ts";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../../store/store.ts";
 import { SupplierDto } from "../../../../apis/dto/supplier.dto.ts";
@@ -16,7 +16,6 @@ import ReturnItemModal from "../../components/ReturnItemModal";
 import PlusIcon from "../../../../components/icons/PlusIcon";
 import MinusIcon from "../../../../components/icons/MinusIcon";
 import AddImportItemModal from "../../components/AddImportItemModal";
-import addImportItemModal from "../../components/AddImportItemModal";
 
 export interface IImportItem {
   product: ProductSimpleDto
@@ -55,8 +54,8 @@ const AddImportItem = ({navigation}: NavigationProps) => {
     navigation.pop(1)
   }
 
-  //click confirm add
-  const onAddItem = (type: "return" | "import", itemId: number, qty: number) => {
+  //on add return item
+  const onAddReturnItem = (itemId: number, qty: number) => {
     closeModal()
     const item = getStockProductById(itemId);
     if(item){
@@ -78,12 +77,65 @@ const AddImportItem = ({navigation}: NavigationProps) => {
           {
             product: item,
             quantity: qty,
-            isReturn: type === "return"
+            isReturn: true
           }
         ])
 
       }
     }
+  }
+
+  //on add import item
+  const onAddImportItem = (name: string, brand: string, category: string, qty: number) => {
+    closeModal()
+    const find = items.find((elem) => elem.product.productName === name);
+    const itemInStock = getStockProductByName(name)[0]
+    if(find){
+      setItems(items.map(elem => {
+        if(elem.product.productId === find.product.productId){  //import item found in import/return list
+          if(elem.isReturn){  //currently is return item
+            let afterQty = parseInt(String(qty)) - parseInt(String(elem.quantity));
+            if(afterQty > 0){ //import qty > return qty
+              return {
+                ...elem,
+                quantity: afterQty,
+                isReturn: false
+              }
+            }else if(afterQty < 0){
+              return {  //import qty < return qty
+                ...elem,
+                quantity: Math.abs(afterQty),
+                isReturn: true
+              }
+            }else{
+              return {
+                ...elem,
+                quantity: 0
+              }
+            }
+          }else{    //add to existing import item
+            return {
+              ...elem,
+              quantity: parseInt(String(qty)) + parseInt(String(elem.quantity)),
+              isReturn: false
+            }
+          }
+        }else{  //return
+          return elem
+        }
+      }))
+    }else{
+      setItems([
+        ...items,
+        {
+          product: itemInStock,
+          quantity: qty,
+          isReturn: false
+        }
+      ])
+
+    }
+    setItems(items.filter((item) => item.quantity > 0))
   }
 
   //on next step
@@ -100,8 +152,6 @@ const AddImportItem = ({navigation}: NavigationProps) => {
       }
     }
   }, []);
-
-
 
   //calculate total money
   useEffect(() => {
@@ -128,12 +178,12 @@ const AddImportItem = ({navigation}: NavigationProps) => {
         <ReturnItemModal
           visible={returnModalVisible}
           onCancel={closeModal}
-          onConfirm={(id: number, qty: number) => onAddItem("return", id, qty)}
+          onConfirm={(id: number, qty: number) => onAddReturnItem( id, qty)}
         />
         <AddImportItemModal
           visible={addModalVisible}
           onCancel={closeModal}
-          onConfirm={() => {}}
+          onConfirm={(name: string, brand: string, category: string, qty: number) => onAddImportItem(name, brand, category, qty)}
         />
         <View style={style.supplier}>
           <Text style={style.text}>Nhà cung cấp: {supplier ? supplier.name : "N/A"}</Text>

@@ -13,7 +13,7 @@ import ProfileIcon from "../../../components/icons/ProfileIcon";
 import createBillStack from "../CreateBillStack";
 import { useEffect } from "react";
 import { logout } from "../../../store/authentication/auth.slice.ts";
-import ImportStack from "../../ImportStack";
+import ImportStack from "../ImportStack";
 import MenuStack from "../MenuStack";
 
 const Tab = createBottomTabNavigator<AuthorizedParams>();
@@ -37,12 +37,15 @@ const AuthorizedStack = () => {
   return(
     <Tab.Navigator
       initialRouteName={AuthorizedStackName.HOME}
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: COLORS.PINK,
-        tabBarStyle: {
-          backgroundColor: COLORS.FADE,
-          height: verticalPixel(64),
+      screenOptions={() => {
+        return {
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarActiveTintColor: COLORS.PINK,
+          tabBarStyle: {
+            backgroundColor: COLORS.FADE,
+            height: verticalPixel(64),
+          }
         }
       }}
     >

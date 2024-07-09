@@ -12,6 +12,7 @@ export const loginService = async (data: LoginRequestDto): Promise<AuthResponseD
     url: ENDPOINT.LOGIN,
     data: data
   }
+  console.log(config)
   return await Interceptor(config);
 }
 

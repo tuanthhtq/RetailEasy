@@ -1,35 +1,71 @@
-import React from "react";
-import {StyleProp, StyleSheet, Text, View, ViewStyle} from "react-native";
+import React, {useState} from "react";
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  ViewStyle
+} from "react-native";
 import {fontPixel, horizontalPixel, verticalPixel} from "../../utils/Normalizer.ts";
 import {COLORS} from "../../constants/Colors.ts";
 import {Dropdown} from "react-native-element-dropdown";
+import Button from "../Button";
+import {SimpleIdNameDto} from "../../apis/dto/simple.id.name.dto.ts";
 
 
 interface IStringDropdown {
-  label?: string
+  label: string
   defaultValue?: string
   onSelect: (value: string)=> void
-  data: any[],
+  data: SimpleIdNameDto[],
   customStyle?: StyleProp<ViewStyle>
 }
 
 const StringDropdown: React.FC<IStringDropdown> = ({...props}) => {
 
+  const [isAdd, setIsAdd] = useState(false);
+  const [value, setValue] = useState("Chọn 1")
+
+
+  const onTextChange = (value: string) => {
+    props.onSelect(value)
+  }
+
+  const onSelect = (item: SimpleIdNameDto) => {
+    props.onSelect(item.name)
+    setValue(item.name)
+  }
+
   return (
     <View style={[style.container, props.customStyle]}>
-      {props.label && <Text style={style.label}>{props.label}:</Text>}
-      <View style={style.listContainer}>
-        <Dropdown
-          data={props.data}
-          valueField={"categoryName"}
-          labelField={"categoryName"}
-          onChange={(item)=>props.onSelect(item.categoryName)}
-          placeholder={"Chọn 1"}
-          placeholderStyle={style.listItem}
-          selectedTextStyle={style.listItem}
-        />
-
+      <Text style={style.label}>{props.label}:</Text>
+      <View style={style.selection}>
+        {isAdd ?
+          <View style={style.listContainer}>
+            <TextInput
+              style={[style.listItem, {paddingHorizontal: horizontalPixel(5)}]}
+              placeholder={"Tên"}
+              onChangeText={(value: string) => onTextChange(value) }
+            />
+          </View> :
+          <View style={style.listContainer}>
+            <Dropdown
+              value={value}
+              search
+              data={props.data}
+              valueField={"name"}
+              labelField={"name"}
+              onChange={onSelect}
+              placeholder={"Chọn 1"}
+              placeholderStyle={style.listItem}
+              selectedTextStyle={style.listItem}
+            />
+          </View>
+        }
+        <Button size={"square"} label={isAdd ? "Chọn" :"Thêm"} onClick={() => setIsAdd(!isAdd)}/>
       </View>
+
 
     </View>
   )
@@ -37,10 +73,9 @@ const StringDropdown: React.FC<IStringDropdown> = ({...props}) => {
 
 const style = StyleSheet.create({
   container: {
-    height: verticalPixel(50),
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'flex-start',
-    columnGap: horizontalPixel(10),
+    gap: horizontalPixel(10),
     position: 'relative',
     paddingHorizontal: horizontalPixel(8),
     marginTop: verticalPixel(5)
@@ -49,6 +84,10 @@ const style = StyleSheet.create({
     color: COLORS.BLACK,
     fontSize: fontPixel(18),
     textAlignVertical: 'center'
+  },
+  selection: {
+    flexDirection: 'row',
+    columnGap: horizontalPixel(10)
   },
   listContainer: {
     flex: 1,

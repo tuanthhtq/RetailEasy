@@ -15,7 +15,7 @@ const ProfileStack = () => {
     <Stack.Navigator
       initialRouteName={UnAuthProfileStackName.MAIN}
       screenOptions={{
-        headerShown: false
+        headerShown: false,
       }}
     >
 

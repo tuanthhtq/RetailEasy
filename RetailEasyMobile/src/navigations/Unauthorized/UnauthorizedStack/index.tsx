@@ -19,12 +19,15 @@ const UnAuthorizedStack = () => {
   return(
     <Tab.Navigator
       initialRouteName={UnauthorizedStackName.LANDING}
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: COLORS.PINK,
-        tabBarStyle: {
-          backgroundColor: COLORS.FADE,
-          height: verticalPixel(64),
+      screenOptions={() => {
+        return {
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarActiveTintColor: COLORS.PINK,
+          tabBarStyle: {
+            backgroundColor: COLORS.FADE,
+            height: verticalPixel(64),
+          }
         }
       }}
 

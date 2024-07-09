@@ -6,18 +6,16 @@ import { fontPixel, horizontalPixel, verticalPixel } from "../../../../utils/Nor
 import { COLORS } from "../../../../constants/Colors.ts";
 import { useForm } from "react-hook-form";
 import { ProductSimpleDto } from "../../../../apis/dto/product.simple.dto.ts";
-import { getAmountStockProduct, getStockProductById, getStockProductByName } from "../../../../mockingbin/api/mock-api.ts";
+import {  getStockProductById, getStockProductByName } from "../../../../mockingbin/api/mock-api.ts";
 import Modal from "react-native-modal"
 import { formatMoney } from "../../../../utils/Formater.ts";
-import { BrandDto } from "../../../../apis/dto/brand.dto.ts";
-import { CategoryDto } from "../../../../apis/dto/category.dto.ts";
 import { Brands, Categories, StockItems } from "../../../../mockingbin/MockData.ts";
 import StringDropdown from "../../../../components/StringDropdown";
 
 interface IAddImportItemModal {
   visible?: boolean,
   onCancel: ()=>void,
-  onConfirm: (data: ProductSimpleDto) => void
+  onConfirm: (name: string, brand: string, category: string, qty: number) => void
 }
 
 interface formData{
@@ -31,30 +29,25 @@ interface formData{
 
 const AddImportItemModal:React.FC<IAddImportItemModal> =({visible= false, ...props}) => {
 
-  const [stockItem, setStockItem] = useState<ProductSimpleDto[]>([]);
   const [selectedItem, setSelectedItem] = useState<ProductSimpleDto>();
   const [selectedId, setSelectedId] = useState(-1)
   const [error, setError] = useState("")
-  const [category, setCategory] = useState("Chọn 1")
   const [focusedField, setFocusedField] = useState("")
+
+  const [category, setCategory] = useState("")
+  const [brand, setBrand] = useState("")
+  const [name, setName] = useState("")
 
   const  {control, formState: {errors}, watch} = useForm<formData>()
 
-  const nameValue = watch("name")
   const quantityValue = watch("quantity")
 
   //on selected
   const onConfirmAdd = () => {
-    const item = getStockProductById(selectedId)
-    if(item && selectedId > 0){
-      setSelectedItem(item)
-      if(quantityValue > 0 && quantityValue <= item.stock ){
-        props.onConfirm(item)
-      }else{
-        setError(`Số lượng phải lớn hơn 0 và bé hơn hoặc bằng ${item.stock}`)
-      }
+    if(category && name && brand && quantityValue){
+      props.onConfirm(name.split("|")[0].trim(), brand, category, quantityValue)
     }else{
-      setError("Vui lòng chọn sản phẩm hoặc bấm \"Hủy\"")
+      setError("Thông tin không hợp lệ")
     }
   }
 
@@ -66,25 +59,6 @@ const AddImportItemModal:React.FC<IAddImportItemModal> =({visible= false, ...pro
       setFocusedField(fieldName)
     }
   }
-
-  //render popup items list
-  const renderBrands = () => {
-    return Brands.map((item: BrandDto, index) => (
-      <Text style={style.popupItem} key={index}>{item.brandName}</Text>
-    ))
-  }
-
-  const renderProducts = () => {
-      return  StockItems.map((item: ProductSimpleDto, index) => (
-      <Text style={style.popupItem} key={index}>{item.productName}, Kho: {item.stock}</Text>
-    ))
-  }
-
-  //get stock items by name
-  useEffect(() => {
-    setStockItem(getStockProductByName(nameValue))
-  }, [nameValue])
-
 
   //clear error
   useEffect(() => {
@@ -113,37 +87,39 @@ const AddImportItemModal:React.FC<IAddImportItemModal> =({visible= false, ...pro
     >
       <View style={style.modalContent}>
         <Text style={style.heading}>{"Nhập hàng"}</Text>
-        <View style={style.info}>
-          <View style={style.inputGroup}>
-            <ComplexInputField
-              label={"Tên sản phẩm"}
-              name={"name"}
-              control={control}
-              maxLength={100}
-              errors={errors.name ? errors.name.message : "" }
-              onFieldFocus={(fieldName: string) => onFocus(fieldName)}
-            />
-            <View style={[style.popup, {display: focusedField === "name" ? "flex" : "none"}]}>{renderProducts()}</View>
-          </View>
-          <View style={style.inputGroup}>
-            <ComplexInputField
-              label={"Hãng sản xuất"}
-              name={"brand"}
-              control={control}
-              maxLength={100}
-              errors={errors.brand ? errors.brand.message : "" }
-              onFieldFocus={(fieldName: string) => onFocus(fieldName)}
-            />
-            <View style={[style.popup, {display: focusedField === "brand" ? "flex" : "none"}]}>{renderBrands()}</View>
-          </View>
-            <StringDropdown
-              label={"Phân loại"}
-              defaultValue={category}
-              onSelect={(value: string) => {
-                setCategory(value)
-              }}
-              data={Categories}
-            />
+        <View
+          style={style.info}
+          onTouchEnd={() => onFocus("")}>
+          <StringDropdown
+            label={"Tên sản phẩm"}
+            onSelect={(value: string) => {
+              setName(value)
+            }}
+            data={StockItems.map((item) => ({
+              id: item.productId,
+              name: item.productName + " | Kho: " + item.stock
+            }))}
+          />
+          <StringDropdown
+            label={"Hãng sản xuất"}
+            onSelect={(value: string) => {
+              setBrand(value)
+            }}
+            data={Brands.map((item) => ({
+              id: item.brandId,
+              name: item.brandName
+            }))}
+          />
+          <StringDropdown
+            label={"Phân loại"}
+            onSelect={(value: string) => {
+              setCategory(value)
+            }}
+            data={Categories.map((item) => ({
+              id: item.categoryId,
+              name: item.categoryName
+            }))}
+          />
         </View>
         <View style={style.actionContainer}>
           {error && <Text style={style.error}>{error}</Text>}
@@ -159,7 +135,6 @@ const AddImportItemModal:React.FC<IAddImportItemModal> =({visible= false, ...pro
                 keyboardType={"number-pad"}
                 onFieldFocus={(fieldName: string) => onFocus(fieldName)}
               />
-
               <Text style={style.totalMoney}>Thành tiền: {formatMoney((selectedItem ? selectedItem.price : 0) * quantityValue)} VND</Text>
             </View>
             <View style={style.buttons}>
@@ -208,30 +183,6 @@ const style = StyleSheet.create({
     fontSize: fontPixel(18),
     color: COLORS.PINK,
     textAlign: 'center'
-  },
-  inputGroup: {
-    position: 'relative'
-  },
-  popup: {
-    width: '50%',
-    height: 100,
-    position: 'absolute',
-    borderWidth: 0.5,
-    top: verticalPixel(80),
-    right: 0,
-    zIndex: 1,
-    backgroundColor: COLORS.WHITE,
-    borderColor: COLORS.PINK,
-    borderTopWidth: 0,
-    borderBottomWidth: 0
-
-  },
-  popupItem: {
-    color: COLORS.BLACK,
-    fontSize: fontPixel(18),
-    borderWidth: 0.5,
-    borderColor: COLORS.PINK,
-    borderRadius: 4
   },
   actionContainer: {
     width: horizontalPixel(310),

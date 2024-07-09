@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { CreateImportParams, CreateImportStackName } from "../../constants/ParamList.ts";
-import CreateImport from "../../screens/CreateImport";
-import AddImportItem from "../../screens/CreateImport/screen/AddImportItem";
-import ConfirmImport from "../../screens/CreateImport/screen/ConfirmImport";
+import { CreateImportParams, CreateImportStackName } from "../../../constants/ParamList.ts";
+import CreateImport from "../../../screens/CreateImport";
+import AddImportItem from "../../../screens/CreateImport/screen/AddImportItem";
+import ConfirmImport from "../../../screens/CreateImport/screen/ConfirmImport";
 
 
 const ImportStack = () => {
